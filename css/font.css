@@ -15,12 +15,12 @@ font-style: normal;}
 
 
 @font-face {
-  font-family: 'S-1';
-  src: url('/Compilation/wfonts/fonts/webfont.eot'); /* IE9*/
-  src: url('/Compilation/wfonts/fonts/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('/Compilation/wfonts/fonts/webfont.woff2') format('woff2'),
-  url('/Compilation/wfonts/fonts/webfont.woff') format('woff'), /* chrome、firefox */
-  url('/Compilation/wfonts/fonts/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  font-family: 'testfont';
+  src: url('//harvestseek.github.io/Compilation/wfonts/fonts/webfont.eot'); /* IE9*/
+  src: url('//harvestseek.github.io/Compilation/wfonts/fonts/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//harvestseek.github.io/Compilation/wfonts/fonts/webfont.woff2') format('woff2'),
+  url('//harvestseek.github.io/Compilation/wfonts/fonts/webfont.woff') format('woff'), /* chrome、firefox */
+  url('//harvestseek.github.io/Compilation/wfonts/fonts/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
  // url('/Compilation/wfonts/fonts/webfont.svg') format('svg'); /* iOS 4.1- */
  font-weight: normal;
  font-style: normal;
@@ -28,7 +28,6 @@ font-style: normal;}
 
 @font-face {
   font-family: 'webfont';
-  font-display: swap;
   src: url('//at.alicdn.com/t/webfont_gh2qssh92wg.eot'); /* IE9*/
   src: url('//at.alicdn.com/t/webfont_gh2qssh92wg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('//at.alicdn.com/t/webfont_gh2qssh92wg.woff2') format('woff2'),
