@@ -1,0 +1,886 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+	
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+	<meta name="format-detection" content="telephone=no">
+
+    
+      
+        <title>4. RE - Learning Notes of Compilation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="../../css/basic.css">
+    
+      <link rel="stylesheet" href="../../css/wab.css">
+    
+      <link rel="stylesheet" href="../../css/font.css">
+    
+      <link rel="stylesheet" href="../../css/simpletable.css">
+    
+      <link rel="stylesheet" href="../../css/ktblock.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-117404761-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Learning Notes of Compilation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">import_contacts</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Learning Notes of Compilation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                4. RE
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Learning Notes of Compilation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">import_contacts</i>
+      
+    </a>
+    Learning Notes of Compilation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      basis：automata theory
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        basis：automata theory
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1/" title="1. basic concepts" class="md-nav__link">
+      1. basic concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2/" title="2. DFA" class="md-nav__link">
+      2. DFA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3/" title="3. NFA" class="md-nav__link">
+      3. NFA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4. RE
+      </label>
+    
+    <a href="./" title="4. RE" class="md-nav__link md-nav__link--active">
+      4. RE
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 自动机与正则表达式" class="md-nav__link">
+    1. 自动机与正则表达式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dfa-to-re" title="(1). DFA $\to$ RE: 递归表达式法" class="md-nav__link">
+    (1). DFA $\to$ RE: 递归表达式法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dfa-to-re-eliminating-states" title="(2). DFA $\to$ RE: Eliminating States" class="md-nav__link">
+    (2). DFA $\to$ RE: Eliminating States
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-re-to-varepsilon-nfa" title="(3). RE $\to$ $\varepsilon$-NFA" class="md-nav__link">
+    (3). RE $\to$ $\varepsilon$-NFA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 正则表达式的代数定律" class="md-nav__link">
+    2. 正则表达式的代数定律
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 正则语言的泵引理" class="md-nav__link">
+    3. 正则语言的泵引理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 正则语言的封闭性" class="md-nav__link">
+    4. 正则语言的封闭性
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 补运算" class="md-nav__link">
+    (1). 补运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="(2). 交运算、差运算" class="md-nav__link">
+    (2). 交运算、差运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" title="(3). 反转" class="md-nav__link">
+    (3). 反转
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 自动机与正则表达式" class="md-nav__link">
+    1. 自动机与正则表达式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-dfa-to-re" title="(1). DFA $\to$ RE: 递归表达式法" class="md-nav__link">
+    (1). DFA $\to$ RE: 递归表达式法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dfa-to-re-eliminating-states" title="(2). DFA $\to$ RE: Eliminating States" class="md-nav__link">
+    (2). DFA $\to$ RE: Eliminating States
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-re-to-varepsilon-nfa" title="(3). RE $\to$ $\varepsilon$-NFA" class="md-nav__link">
+    (3). RE $\to$ $\varepsilon$-NFA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 正则表达式的代数定律" class="md-nav__link">
+    2. 正则表达式的代数定律
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 正则语言的泵引理" class="md-nav__link">
+    3. 正则语言的泵引理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 正则语言的封闭性" class="md-nav__link">
+    4. 正则语言的封闭性
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 补运算" class="md-nav__link">
+    (1). 补运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="(2). 交运算、差运算" class="md-nav__link">
+    (2). 交运算、差运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" title="(3). 反转" class="md-nav__link">
+    (3). 反转
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>4. RE</h1>
+                
+                <p><font face="cycn">
+<font face="Consolas"></font>
+<font face="Times New Roman"></font>
+<font face="cm"></font></p>
+<h3 id="1">1. 自动机与正则表达式</h3>
+<p>有穷自动机通过机器装置描述正则语言，而 <font face="Times New Roman">RE</font> 通过代数式描述正则语言，表达更为方便。</p>
+<p>$\Sigma$ 上的正则表达式递归定义为：<br>
+&emsp;① $\emptyset$ 是正则表达式，表示空语言；<br>
+&emsp;② $\pmb{\varepsilon}$ 是正则表达式，表示语言 $\lbrace\varepsilon\rbrace$ (用黑体区分)；<br>
+&emsp;③ $\forall a \in \Sigma$，$\mathbf{a}$ 是一个正则表达式，表示语言 $\lbrace a\rbrace$；<br>
+&emsp;④ 如果正则表达式 $\mathbf{r}$ 和 $\mathbf{s}$ 分别表示语言 $\small R$ 和 $\small S$，那么 $\mathbf{r}+\mathbf{s},\ \mathbf{rs},\ \mathbf{r^*},\ (\mathbf{r}) $ 都是正则表达式，<br>
+&emsp;&ensp;&ensp;分别表示语言 $\small R\cup S,\ R\cdot S,\ R^*$ 和 $\small R$。<br>
+符号的优先级为 $()&gt;*&gt;\cdot&gt;+$.</p>
+<h4 id="1-dfa-to-re">(1). <font face="Times New Roman">DFA</font> $\to$ <font face="Times New Roman">RE</font>: 递归表达式法</h4>
+<p>定理：若 $\small L=\mathbf{L}(A)$ 是某 <font face="Times New Roman">DFA</font> $\small A$ 的语言，那么存在正则表达式 $\small R$ 满足 $\small L=\mathbf{L}(R)$。</p>
+<p>首先对 <font face="Times New Roman">DFA</font> $\small A$ 的状态编号，有 $ A=(\lbrace 1,2,...,n\rbrace,\Sigma,\delta,1,F)$。再令正则表达式 $R_{ij}^{(k)}$ 从 $i$ 到 $j$ 但中间结点不超过 $k$ 的全部路径的字符串集。</p>
+<p>$R_{ij}^{(k)}=\lbrace x\ |\ \hat{\delta}(i,x)=j,\ x$ 经过的状态除两端外都不超过 $k\rbrace$
+<img src="../img0/r_ij.png" width=280 align=right></p>
+<p>那么与 $A$ 等价的正则表达式为 $\bigcup_{j\in F}R_{1j}^{(n)}$，且递归式为 $R_{ij}^{(k)}=R_{(ij)}^{(k-1)}+R_{ik}^{(k-1)}(R_{kk}^{(k-1)})^*R_{kj}^{(k-1)}$, 其中
+$
+R_{ij}^{(0)}=\begin{cases}
+\lbrace a\ |\ \delta (q_{i}, a)=q_{j}\rbrace &amp; i \ne j \\
+\lbrace a\ |\ \delta (q_{i}, a)=q_{j}\rbrace \cup\lbrace\varepsilon\rbrace &amp; i=j
+\end{cases}.
+$</p>
+<p>在求解的过程中通常需要化简，基本的化简原则有 $(\pmb{\varepsilon}+\mathbf{r})^*=(\pmb{\varepsilon}+\mathbf{r})\mathbf{r}^*=\mathbf{r}^*$、$\mathbf{r}+\mathbf{rs}^*=\mathbf{rs}^*$ 等。</p>
+<p><br></p>
+<h4 id="2-dfa-to-re-eliminating-states">(2). <font face="Times New Roman">DFA</font> $\to$ <font face="Times New Roman">RE: Eliminating States</font></h4>
+<p>在 <font face="Times New Roman">DFA</font> 中逐个删除状态, 用标记了正则的新路径替换被删掉的路径, 并始终保持自动机等价。<br>
+&emsp;① 利用空转移，添加新的开始状态 $s$ 和结束状态 $f$;<br>
+&emsp;② 逐个消除中间状态，得到路径 $s\to f$ 上的表达式。</p>
+<p><svg width="626" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 626 125">
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="22.5" cy="22.5" rx="20" ry="20"/>
+    <text x="17.5" y="28.5" font-family="Times New Roman" font-size="20">P</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="22.5" cy="98.5" rx="20" ry="20"/>
+    <text x="17.5" y="104.5" font-family="Times New Roman" font-size="20">R</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="115.5" cy="64.5" rx="20" ry="20"/>
+    <text x="110.5" y="70.5" font-family="Times New Roman" font-size="20">S</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="211.5" cy="22.5" rx="20" ry="20"/>
+    <text x="203.5" y="28.5" font-family="Times New Roman" font-size="20">Q</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="211.5" cy="98.5" rx="20" ry="20"/>
+    <text x="204.5" y="104.5" font-family="Times New Roman" font-size="20">T</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="431.5" cy="22.5" rx="20" ry="20"/>
+    <text x="426.5" y="28.5" font-family="Times New Roman" font-size="20">P</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="604.5" cy="22.5" rx="20" ry="20"/>
+    <text x="595.5" y="28.5" font-family="Times New Roman" font-size="20">Q</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="431.5" cy="102.5" rx="20" ry="20"/>
+    <text x="426.5" y="108.5" font-family="Times New Roman" font-size="20">R</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="604.5" cy="102.5" rx="20" ry="20"/>
+    <text x="597.5" y="108.5" font-family="Times New Roman" font-size="20">T</text>
+    <text x="533.5" y="90.5" font-family="cm" font-size="20" font-style="italic">ps*t</text>
+    <text x="533.5" y="49.5" font-family="cm" font-size="20" font-style="italic">rs*q</text>
+    <text x="310.5" y="64.5" font-family="cm" font-size="20" font-weight="bold">&#x27F9;</text>
+    <polygon stroke="black" stroke-width="1" points="40.727,30.732 97.273,56.268"/>
+    <polygon fill="black" stroke-width="1" points="97.273,56.268 92.04,48.419 87.924,57.532"/>
+    <text x="63.5" y="34.5" font-family="cm" font-size="20" font-style="italic">p</text>
+    <polygon stroke="black" stroke-width="1" points="133.823,56.484 193.177,30.516"/>
+    <polygon fill="black" stroke-width="1" points="193.177,30.516 183.844,29.142 187.852,38.304"/>
+    <text x="150.5" y="34.5" font-family="cm" font-size="20" font-style="italic">q</text>
+    <polygon stroke="black" stroke-width="1" points="41.284,91.633 96.716,71.367"/>
+    <polygon fill="black" stroke-width="1" points="96.716,71.367 87.486,69.418 90.919,78.81"/>
+    <text x="58.5" y="78.5" font-family="cm" font-size="20" font-style="italic">r</text>
+    <polygon stroke="black" stroke-width="1" points="134.353,71.177 192.647,91.823"/>
+    <polygon fill="black" stroke-width="1" points="192.647,91.823 186.776,84.439 183.437,93.865"/>
+    <text x="156.5" y="76.5" font-family="cm" font-size="20" font-style="italic">t</text>
+    <path stroke="black" stroke-width="1" fill="none" d="M 106.683,46.635 A 15,15 0 1 1 124.317,46.635"/>
+    <text x="110.5" y="15.5" font-family="cm" font-size="20" font-style="italic">s</text>
+    <polygon fill="black" stroke-width="1" points="124.317,46.635 133.064,43.102 124.974,37.224"/>
+    <polygon stroke="black" stroke-width="1" points="451.5,22.5 584.5,22.5"/>
+    <polygon fill="black" stroke-width="1" points="584.5,22.5 576.5,17.5 576.5,27.5"/>
+    <text x="503.5" y="13.5" font-family="cm" font-size="20" font-style="italic">ps*q</text>
+    <polygon stroke="black" stroke-width="1" points="449.653,30.894 586.347,94.106"/>
+    <polygon fill="black" stroke-width="1" points="586.347,94.106 581.184,86.209 576.987,95.286"/>
+    <polygon stroke="black" stroke-width="1" points="451.5,102.5 584.5,102.5"/>
+    <polygon fill="black" stroke-width="1" points="584.5,102.5 576.5,97.5 576.5,107.5"/>
+    <text x="503.5" y="123.5" font-family="cm" font-size="20" font-style="italic">rs*t</text>
+    <polygon stroke="black" stroke-width="1" points="449.653,94.106 586.347,30.894"/>
+    <polygon fill="black" stroke-width="1" points="586.347,30.894 576.987,29.714 581.184,38.791"/>
+</svg></p>
+<h4 id="3-re-to-varepsilon-nfa">(3). <font face="Times New Roman">RE</font> $\to$ $\varepsilon$-<font face="Times New Roman">NFA</font></h4>
+<p>任何正则表达式 $\mathbf{e}$，都存在与其等价的 $\varepsilon$-<font face="CM">NFA</font> $A$，即 $\small\mathbf{L}(\mathbf{e})=\mathbf{L}(A)$，且 $A$ 需要满足：<br>
+&ensp;① 仅有一个接收状态；② 没有进入开始状态的边；③ 没有离开接收状态的边。</p>
+<p>归纳基础：<br>
+&emsp;<svg width="444" height="90" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 90">
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="74.5" cy="68.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="202.5" cy="68.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="202.5" cy="68.5" rx="14" ry="14"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="349.5" cy="68.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="481.5" cy="68.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="481.5" cy="68.5" rx="14" ry="14"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="617.5" cy="68.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="755.5" cy="68.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="755.5" cy="68.5" rx="14" ry="14"/>
+    <text x="19.5" y="18.5" font-family="Times New Roman" font-size="30">&#8709;:</text>
+    <text x="280.5" y="14.5" font-family="Times New Roman" font-size="30">&#949;:</text>
+    <text x="593.5" y="18.5" font-family="cm" font-size="30" font-weight="bold">a:</text>
+    <polygon stroke="black" stroke-width="1" points="2.5,68.5 54.5,68.5"/>
+    <polygon fill="black" stroke-width="1" points="54.5,68.5 46.5,63.5 46.5,73.5"/>
+    <polygon stroke="black" stroke-width="1" points="369.5,68.5 461.5,68.5"/>
+    <polygon fill="black" stroke-width="1" points="461.5,68.5 453.5,63.5 453.5,73.5"/>
+    <text x="405.5" y="59.5" font-family="Times New Roman" font-size="30">&#949;</text>
+    <polygon stroke="black" stroke-width="1" points="274.5,68.5 329.5,68.5"/>
+    <polygon fill="black" stroke-width="1" points="329.5,68.5 321.5,63.5 321.5,73.5"/>
+    <polygon stroke="black" stroke-width="1" points="637.5,68.5 735.5,68.5"/>
+    <polygon fill="black" stroke-width="1" points="735.5,68.5 727.5,63.5 727.5,73.5"/>
+    <text x="679.5" y="59.5" font-family="cm" font-size="30" font-weight="bold">a</text>
+    <polygon stroke="black" stroke-width="1" points="549.5,68.5 597.5,68.5"/>
+    <polygon fill="black" stroke-width="1" points="597.5,68.5 589.5,63.5 589.5,73.5"/>
+    <rect x="40" y="40" height="58" width="200" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+    <rect x="315" y="40" height="60" width="200" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+    <rect x="583" y="40" height="60" width="200" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+</svg></p>
+<p>归纳递推：<br>
+&emsp;&emsp;&emsp;
+<svg width="340" height="240" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 478">
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="77.5" cy="74.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="214.5" cy="32.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="214.5" cy="113.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="384.5" cy="32.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="384.5" cy="113.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="541.5" cy="80.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="541.5" cy="80.5" rx="14" ry="14"/>
+    <text x="127.5" y="51.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <text x="127.5" y="110.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <text x="292.5" y="39.5" font-family="Times New Roman" font-size="27">R</text>
+    <text x="292.5" y="119.5" font-family="Times New Roman" font-size="27">S</text>
+    <text x="447.5" y="45.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <text x="447.5" y="119.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="77.5" cy="232.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="220.5" cy="232.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="384.5" cy="232.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="541.5" cy="232.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="541.5" cy="232.5" rx="14" ry="14"/>
+    <text x="142.5" y="238.5" font-family="Times New Roman" font-size="27">R</text>
+    <text x="455.5" y="238.5" font-family="Times New Roman" font-size="27">S</text>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="77.5" cy="392.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="220.5" cy="392.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="384.5" cy="392.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="547.5" cy="392.5" rx="20" ry="20"/>
+    <ellipse stroke="black" stroke-width="1" fill="none" cx="547.5" cy="392.5" rx="14" ry="14"/>
+    <text x="22.5" y="13.5" font-family="cm" font-size="30" font-weight="bold">r+s:</text>
+    <text x="30.5" y="180.5" font-family="cm" font-size="30" font-weight="bold">rs:</text>
+    <text x="25.5" y="361.5" font-family="cm" font-size="30" font-weight="bold">r*:</text>
+    <polygon stroke="black" stroke-width="1" points="96.622,68.638 195.378,38.362"/>
+    <polygon fill="black" stroke-width="1" points="195.378,38.362 186.264,35.927 189.195,45.487"/>
+    <polygon stroke="black" stroke-width="1" points="96.736,79.976 195.264,108.024"/>
+    <polygon fill="black" stroke-width="1" points="195.264,108.024 188.939,101.025 186.201,110.643"/>
+    <polygon stroke="black" stroke-width="1" points="403.626,38.347 522.374,74.653"/>
+    <polygon fill="black" stroke-width="1" points="522.374,74.653 516.185,67.532 513.262,77.095"/>
+    <polygon stroke="black" stroke-width="1" points="404.072,109.386 521.928,84.614"/>
+    <polygon fill="black" stroke-width="1" points="521.928,84.614 513.07,81.366 515.127,91.153"/>
+    <polygon stroke="black" stroke-width="1" points="3.5,74.5 57.5,74.5"/>
+    <polygon fill="black" stroke-width="1" points="57.5,74.5 49.5,69.5 49.5,79.5"/>
+    <polygon stroke="black" stroke-width="1" points="240.5,232.5 364.5,232.5"/>
+    <polygon fill="black" stroke-width="1" points="364.5,232.5 356.5,227.5 356.5,237.5"/>
+    <text x="292.5" y="223.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <polygon stroke="black" stroke-width="1" points="1.5,232.5 57.5,232.5"/>
+    <polygon fill="black" stroke-width="1" points="57.5,232.5 49.5,227.5 49.5,237.5"/>
+    <polygon stroke="black" stroke-width="1" points="97.5,392.5 200.5,392.5"/>
+    <polygon fill="black" stroke-width="1" points="200.5,392.5 192.5,387.5 192.5,397.5"/>
+    <text x="139.5" y="383.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <polygon stroke="black" stroke-width="1" points="404.5,392.5 527.5,392.5"/>
+    <polygon fill="black" stroke-width="1" points="527.5,392.5 519.5,387.5 519.5,397.5"/>
+    <text x="456.5" y="383.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <path stroke="black" stroke-width="1" fill="none" d="M 233.083,376.999 A 98.024,98.024 0 0 1 371.917,376.999"/>
+    <polygon fill="black" stroke-width="1" points="233.083,376.999 242.273,374.864 235.191,367.804"/>
+    <text x="292.5" y="339.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <path stroke="black" stroke-width="1" fill="none" d="M 529.902,402 A 476.3,476.3 0 0 1 95.098,402"/>
+    <polygon fill="black" stroke-width="1" points="529.902,402 520.502,401.202 525.066,410.1"/>
+    <text x="302.5" y="475.5" font-family="Times New Roman" font-size="28">&#949;</text>
+    <polygon stroke="black" stroke-width="1" points="0.5,392.5 57.5,392.5"/>
+    <polygon fill="black" stroke-width="1" points="57.5,392.5 49.5,387.5 49.5,397.5"/>
+    <rect x="185" y="5" height="58" width="230" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+    <rect x="185" y="85" height="58" width="230" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+    <rect x="41" y="204" height="60" width="217" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+    <rect x="350" y="204" height="60" width="230" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+    <rect x="190" y="363" height="60" width="230" rx="5" ry="5" stroke="black" fill-opacity="0"/>
+    <text x="300" y="399" font-family="Times New Roman" font-size="27">R</text>
+</svg></p>
+<h3 id="2">2. 正则表达式的代数定律</h3>
+<p>含有变量的两个正则表达式，如果以任意语言替换其变量，二者所表示的语言仍然相同，则称这两个正则表达式等价。在这样的意义下，正则表达式满足一些代数定律。
+<html> 
+<body>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">并：$\small (L+M)+N=L+(M+N),\ L+M=M+L,\ L+L=L,...$</li>
+<li style="margin:1px 26px;">连接：$\small (LM)N=L(MN),\ L\varepsilon=\varepsilon L=L,\ L\emptyset=\emptyset L=\emptyset,...$</li>
+<li style="margin:1px 26px;">分配律：$\small L(M+N)=LM+LN,\ (M+N)L=ML+NL$</li>
+<li style="margin:1px 26px;">闭包：$\small (L^*)^*=L^*,\ (\varepsilon+L)^*=L^*,...$</li>
+</ul>
+</body>
+</html></p>
+<h3 id="3">3. 正则语言的泵引理</h3>
+<p>&emsp;以语言 $ L_{01}=\lbrace 0^n1^n\ |\ n\geq 0\rbrace$ 为例，由于 <font face="Times New Roman">DFA</font> 无法记忆读入字符的数量，该语言不是正则语言。泵引理就是用来证明某个语言非正则的一个工具。</p>
+<p><font face="cm"><strong><em>Pumping Lemma</em></strong></font>: 如果语言 $L$ 是正则的，那么存在正整数 $N$，对 $\forall w\in L$，只要 $|w|\geq N$，就可以将 $w$ 分为三部分 $w=xyz$ 且满足：<br>
+&emsp;① $y\ne\varepsilon\ (|y|&gt;0)$; &emsp;② $|xy|\leq N$;&emsp; ③ $\forall k \geq 0,\ xy^kz\in L$。<br>
+即正则语言的字符串一定可以通过泵出字符得到一个封闭的新串。</p>
+<p>证明：
+<html> 
+<body>
+<ul style="margin-top:-12px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">如果 $L$ 正则，那么存在一个 $n$ 状态的 <font face="Times New Roman">DFA</font> $\small A$ $\ \mathit{s.t.}\ $ $\mathbf{L}(A)=L$。</li>
+<li style="margin:1px 26px;">取 $w=a_1...a_m\in L\ (m\geq n)$，令 $q_i=\hat{\delta}(q_0,\ a_1...a_i)$，由抽屉原理，必有两状态满足 $q_i=q_j\ (0\leq i &lt; j\leq n)$。</li>
+&emsp;<img src="../img0/pump1.png" width=420>
+<li style="margin:1px 26px;">那么 $w=xyz$ 如下图，且对于 $n$，$w$ 满足泵引理的三个条件。</li>
+&emsp;<img src="../img0/pump2.png" width=420>
+</ul>
+</body>
+</html></p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font> <font face="cm">Prove following languages is not regular.</font><br>
+①. $L=\lbrace 0^i1^j\ |\ i&gt;j\rbrace$;&emsp; ② $L=\lbrace a^3b^nc^{n-3}\ |\ n\geq 3\rbrace$;<br><br>
+①. $\small w=0^{N+1}1^N,\ |w|=2N+1&gt;N.\ y=0^m,\ xy^0z=0^{N+1-m}1^N\notin L$<br>
+②. $\small w=a^3b^Nc^{N-3}$，则 $y$ 可分为三种情况：<br>
+&emsp;$\small\mathtt{(1)}. y=a^m,\ xy^2z=a^{3+m}b^Nc^{N-3}\notin L$<br>
+&emsp;$\small\mathtt{(2)}. y=b^m,\ xy^2z=a^3b^{N+m}c^{N-3}\notin L$<br>
+&emsp;$\small\mathtt{(3)}. y=a^rb^s,\ xy^2z=a^{3+r}b^{N+s}c^{N-3}\notin L$<br></p>
+</blockquote>
+<p>&emsp;泵引理的局限性在于它只是必要条件。以 $L=\lbrace ca^nb^n\ |\ n\geq 1\rbrace$ 为例，对于 $L$ 的任何串，都可划分为 $(\varepsilon)(c)(a^ib^i)$，因此它既满足泵引理，又不是正则语言。</p>
+<h3 id="4">4. 正则语言的封闭性</h3>
+<p>显然，正则语言在并、连接和闭包运算下封闭。</p>
+<h4 id="1_1">(1). 补运算</h4>
+<div class="rule">
+   <div>
+    <b>定理1</b>(补运算封闭性): 如果 $L$ 是 $\Sigma$ 上的正则语言，那么 $\overline{L}=\Sigma^*-L$ 也是正则的。
+   </div>
+</div>
+
+<p>证明：设接收 $L$ 的 <span class="tnm-g">DFA</span> 为 $\small A=(Q,\Sigma,\delta,q_0,F)$，构造 <span class="tnm-g">DFA</span> $\small B=(Q,\Sigma,\delta,q_0,Q-F)$。<br>
+&emsp;&ensp;&ensp;&ensp;由 $\small w\in\overline{L}\Longleftrightarrow\hat{\delta}(q_0,w)\notin F\Longleftrightarrow\hat{\delta}(q_0,w)\in Q-F\Longleftrightarrow w\in \mathbf{L}(B)$, $\small L=\mathbf{L}(B)$。</p>
+<p>通过这种方式求正则语言的补时，<span class="tnm-g">DFA</span> 不能有缺失状态，例如 <img src="../img0/incomplete.png" width=88> 就不是完整的 <span class="tnm-g">DFA</span>。</p>
+<h4 id="2_1">(2). 交运算、差运算</h4>
+<div class="rule">
+   <div>
+    <b>引理: </b>设有如下的 <span class="tnm-g">DFA</span> 的定义: $\small A_L=(Q_L,\Sigma,\delta_L,q_L,F_L)$, $\small A_M=(Q_M,\Sigma,\delta_M,q_M,F_M)$<br>
+    $\small A=(Q_L\times Q_M,\Sigma,\delta,(q_L,q_M),F_L\times F_M)$, 其中 $\small\delta((p,q),a)=(\delta_L(p,a),\delta_M(q,a))$</br>
+    则对 $\small\forall w\in \Sigma^*$，有 $\small\hat{\delta}((q_L,q_M),w)=(\hat{\delta}_L(q_L,w),\hat{\delta}_M(q_M,w))$
+   </div>
+</div>
+
+<div class="rule">
+   <div>
+    <b>定理2:</b>若 $L$ 和 $M$ 是正则语言，则 $L\cap M$ 是正则语言。
+   </div>
+</div>
+
+<p>证明 $\small 1^\circ$：由 $\small L\cap M=\overline{\overline{L}\cup\overline{M}}$ 可得；<br>
+证明 $\small 2^\circ$：通过引理构造识别 $\small L\cap M$ 的 <span class="tnm-g">DFA</span>。</p>
+<div class="rule">
+   <div>
+    <b>定理3:</b>若 $L$ 和 $M$ 是正则语言，则 $L-M$ 是正则语言。
+   </div>
+</div>
+
+<h4 id="3_1">(3). 反转</h4>
+<p>字符串 $w=a_1a_2...\ a_n$ 的反转记为 $w^R$，定义为 $w_R=a_na_{n-1}...\ a_1$。则 $L$ 的反转为<br> $L^R=\lbrace w^R\in\Sigma^*\ |\ w\in L\rbrace$。</p>
+<div class="rule">
+   <div>
+    <b>定理4:</b>若 $L$ 是正则语言，则 $L^R$ 也是正则的。
+   </div>
+</div>
+
+<p>证明 $\small 1^\circ$：对 $\small\mathit{RE}$ 的结构归纳, 往证表达式的反转等价于语言的反转, 即 $\small\mathbf{L}(E^R)=(\mathbf{L}(E))^R$；<br>
+证明 $\small 2^\circ$：由识别 $\small L$ 的 <span class="tnm-g">DFA</span> $\small A=(Q,\Sigma,\delta_A,q_0,F)$ 构造识别 $\small L^R$ 的 <span class="tnm-g">ε-NFA</span> $\small B=(Q,\Sigma,\delta_{B},q_{s},\{q_0\})$。<br>
+&ensp;① 将 $\small A$ 的 $q_0$ 改为唯一的接收状态；<br>
+&ensp;② 将 $\small A$ 的所有边调转方向：若 $\small\delta_A(q,a)=p$，则 $\small\delta_B(p,a)=q$；<br>
+&ensp;③ 新增初状态 $q_s$，令 $\small\delta_B(q_s,\varepsilon)=F$。</p>
+<blockquote>
+<p><font face="Consolas"><em>e.g.</em></font> <font face="cm">Prove：<br>
+① $L_{eq}=\lbrace w\ |\ w$ consists of strings with equal number of 0's and 1's$\rbrace$ is not regular.<br>
+② $L_{neq}=\lbrace w\ |\ w$ consists of strings with unequal number of 0's and 1's$\rbrace$ is not regular；<br><br>
+① $L_{01}=\mathbf{L}(\mathbf{0}^*\mathbf{1}^*)\cap L_{eq}=\lbrace 0^n1^n\ |\ n\geq 0\rbrace$<br>
+② $L_{neq}=\overline{L}_{eq}$
+</font></p>
+</blockquote>
+<p></font></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../3/" title="3. NFA" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                3. NFA
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

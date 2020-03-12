@@ -1,0 +1,21 @@
+.rule{
+	width:780px;
+	margin-bottom: 12px;
+}
+
+.rule div{
+    position:relative;
+    padding-left:54px;
+    margin-bottom: 0em;
+}
+
+.rule b {
+	font-family: Cambria Math, kt;
+	font-size: 110%;
+	font-weight: normal;
+    display: inline-block;
+    margin-right: 1px;
+    position:absolute;
+    left:-5px;
+    top:0px
+}

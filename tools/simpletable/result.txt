@@ -1,0 +1,22 @@
+<table id="simp" style="font-size:15px margin-left:0px;">
+<tr>
+    <td class="corner">&emsp;</td>
+    <td class="firstrow">$0$</td>
+    <td class="firstrow">$1$</td>
+</tr>
+<tr>
+    <td class="firstcol">$\to$</td>
+    <td class="general">$q_2$</td>
+    <td class="general">$q_1$</td>
+</tr>
+<tr>
+    <td class="firstcol">$q_2$</td>
+    <td class="general">$q_2$</td>
+    <td class="general">$q_3$</td>
+</tr>
+<tr>
+    <td class="firstcol">$*q_3$</td>
+    <td class="general">$q_3$</td>
+    <td class="general">$q_3$</td>
+</tr>
+</table>

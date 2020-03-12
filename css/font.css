@@ -1,38 +1,86 @@
+/* Times New Roman */
 
+span.tnm-g {
+	font-family: 'Times New Roman';
+	font-size: 103%;
+}
 
+/* Consolas */
 
-   
-@font-face 
-{
-	font-family: 'Source-Han-Norm1f68bc4cf321493';
-src: url('//cdn.repository.webfont.com/webfonts/nomal/136339/46863/5e6750a5f629d80c64afb6d7.gif?r=132222757373');
-src: url('//cdn.repository.webfont.com/webfonts/nomal/136339/46863/5e6750a5f629d80c64afb6d7.gif?r=132222757373?#iefix') format('embedded-opentype'),
-url('//cdn.repository.webfont.com/webfonts/nomal/136339/46863/5e6750a5f629d80c64afb6d7.png?r=132222757373') format('woff2'),
-url('//cdn.repository.webfont.com/webfonts/nomal/136339/46863/5e6750a5f629d80c64afb6d7.bmp?r=132222757373') format('woff'),
-url('//cdn.repository.webfont.com/webfonts/nomal/136339/46863/5e6750a5f629d80c64afb6d7.jpg?r=132222757373') format('truetype');
-font-weight: normal;
-font-style: normal;}
+span.cons-g {
+	font-family: 'Consolas';
+	font-size: 90%;
+}
 
+/* Source Han Sans CN */
 
 @font-face {
-  font-family: 'testfont';
-  src: url('fonts/webfont.eot'); /* IE9*/
-  src: url('fonts/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('fonts/webfont.woff2') format('woff2'),
-  url('fonts/webfont.woff') format('woff'), /* chrome、firefox */
-  url('fonts/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('fonts/webfont.svg') format('svg'); /* iOS 4.1- */
- font-weight: normal;
- font-style: normal;
+	font-family: 'cycn';
+	src: url('fonts/sourcehan/siyuan.eot'); /* IE9*/
+	src: url('fonts/sourcehan/siyuan.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('fonts/sourcehan/siyuan.woff2') format('woff2'),
+	url('fonts/sourcehan/siyuan.woff') format('woff'), /* chrome、firefox */
+	url('fonts/sourcehan/siyuan.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('fonts/sourcehan/siyuan.svg') format('svg'); /* iOS 4.1- */
+	font-weight: normal;
+	font-style: normal;
+} 
+
+/* kaiti: weibei */
+
+@font-face {
+	font-family: 'kt';
+	src: url('fonts/kaiti/kt.eot'), /* IE9*/
+	     url('fonts/kaiti/kt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('fonts/kaiti/kt.woff2') format('woff2'),
+		 url('fonts/kaiti/kt.woff') format('woff'), /* chrome、firefox */
+		 url('fonts/kaiti/kt.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+		 url('fonts/kaiti/kt.svg') format('svg'); /* iOS 4.1- */
+	font-weight: normal;
+	font-style: normal;
+} 
+
+span.kt {
+	font-size: 110%;
+	font-family: kt;
+}
+
+/* Computer Modern */
+
+@font-face {
+    font-family: 'cm';
+    src: url('fonts/computermodern/cm.eot'); /* IE9*/
+    src: url('fonts/computermodern/cm.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/computermodern/cm.woff2') format('woff2'),
+    url('fonts/computermodern/cm.woff') format('woff'), /* chrome、firefox */
+    url('fonts/computermodern/cm.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('fonts/computermodern/cm.svg') format('svg'); /* iOS 4.1- */
+    font-weight: normal;
+    font-style: normal;
 } 
 
 @font-face {
-  font-family: 'webfont';
-  src: url('//at.alicdn.com/t/webfont_gh2qssh92wg.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/webfont_gh2qssh92wg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/webfont_gh2qssh92wg.woff2') format('woff2'),
-  url('//at.alicdn.com/t/webfont_gh2qssh92wg.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/webfont_gh2qssh92wg.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/webfont_gh2qssh92wg.svg#NotoSansHans-DemiLight') format('svg'); /* iOS 4.1- */
-}
+	font-family: 'cm';
+	src: url('fonts/computermodern/cmi.eot'); /* IE9*/
+	src: url('fonts/computermodern/cmi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('fonts/computermodern/cmi.woff2') format('woff2'),
+	url('fonts/computermodern/cmi.woff') format('woff'), /* chrome、firefox */
+	url('fonts/computermodern/cmi.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('fonts/computermodern/cmi.svg') format('svg'); /* iOS 4.1- */
+	font-weight: normal;
+	font-style: italic;
+} 
+
+@font-face {
+	font-family: 'cm';
+	src: url('fonts/computermodern/cmb.eot'); /* IE9*/
+	src: url('fonts/computermodern/cmb.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('fonts/computermodern/cmb.woff2') format('woff2'),
+	url('fonts/computermodern/cmb.woff') format('woff'), /* chrome、firefox */
+	url('fonts/computermodern/cmb.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('fonts/computermodern/cmb.svg') format('svg'); /* iOS 4.1- */
+	font-weight: bold;
+	font-style: normal;
+} 
+
 
