@@ -43,6 +43,15 @@ table.simp td.corner
 table.simp td.general
 {
 	border:none;
+	text-align: left;
+}
+
+table.simp td.general2
+{
+	border-left:none;
+	border-top:none;
+	border-bottom:none;
+	text-align: left;
 }
 
 
