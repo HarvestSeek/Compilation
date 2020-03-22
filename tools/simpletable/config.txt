@@ -1,5 +1,5 @@
-4 3
-$0$ $1$
-$\to$ $q_2$ $q_1$ E
-$q_2$ $q_2$ $q_3$ E
-$*q_3$ $q_3$ $q_3$ E
+4 4
+$\small\mathit{true}$ $\small\mathit{false}$ $\small\mathit{unknown}$
+$\small\mathrm{and}$ $small\mathit{unknown}$ $\small\mathit{false}$ $\small\mathit{unknown}$ E
+$\small\mathrm{or}$ $\small\mathit{true}$ $small\mathit{unknown}$ $\small\mathit{unknown}$ E
+$\small\mathrm{not}$ $-$ $-$ $small\mathit{unknown}$ E

@@ -40,7 +40,7 @@
 
     
       
-        <title>2. some details - Learning Notes of Compilation</title>
+        <title>2. top-down parsing - Learning Notes of Compilation</title>
       
     
     
@@ -154,7 +154,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                2. some details
+                2. top-down parsing
               
             </span>
           
@@ -329,12 +329,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       I Lexical Analysis
@@ -342,6 +340,56 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
         I Lexical Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/1/" title="1. introduction" class="md-nav__link">
+      1. introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/2/" title="2. some details" class="md-nav__link">
+      2. some details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      II Syntax Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        II Syntax Analysis
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -371,11 +419,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2. some details
+        2. top-down parsing
       </label>
     
-    <a href="./" title="2. some details" class="md-nav__link md-nav__link--active">
-      2. some details
+    <a href="./" title="2. top-down parsing" class="md-nav__link md-nav__link--active">
+      2. top-down parsing
     </a>
     
       
@@ -387,23 +435,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 冲突" class="md-nav__link">
-    1. 冲突
+  <a href="#1" title="1. 预测分析技术" class="md-nav__link">
+    1. 预测分析技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 文法预处理" class="md-nav__link">
+    2. 文法预处理
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" title="(1). 最长前缀" class="md-nav__link">
-    (1). 最长前缀
+  <a href="#1-eliminating-left-recursion" title="(1). 消除左递归 (eliminating left recursion)" class="md-nav__link">
+    (1). 消除左递归 (eliminating left recursion)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" title="(2). 向前看运算符" class="md-nav__link">
-    (2). 向前看运算符
+  <a href="#2-left-factoring" title="(2). 提取左公因子 (left factoring)" class="md-nav__link">
+    (2). 提取左公因子 (left factoring)
   </a>
   
 </li>
@@ -414,50 +469,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2_1" title="2. 词法分析器的结构" class="md-nav__link">
-    2. 词法分析器的结构
+  <a href="#3" title="3. 预测分析的过程" class="md-nav__link">
+    3. 预测分析的过程
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-nfa" title="(1). NFA 的模拟" class="md-nav__link">
-    (1). NFA 的模拟
+  <a href="#1-smallmathrmfirst" title="(1). $\small\mathrm{FIRST}$ 集" class="md-nav__link">
+    (1). $\small\mathrm{FIRST}$ 集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-nfa" title="(2). 基于 NFA 的词法分析器" class="md-nav__link">
-    (2). 基于 NFA 的词法分析器
+  <a href="#2-smallmathrmfollow" title="(2). $\small\mathrm{FOLLOW}$ 集" class="md-nav__link">
+    (2). $\small\mathrm{FOLLOW}$ 集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-dfa" title="(3). 基于 DFA 的词法分析器" class="md-nav__link">
-    (3). 基于 DFA 的词法分析器
+  <a href="#3-smallmathrmselect" title="(3). 可选集 $\small\mathrm{SELECT}$" class="md-nav__link">
+    (3). 可选集 $\small\mathrm{SELECT}$
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-dfa_1" title="3. 基于 DFA 的模式匹配器的优化" class="md-nav__link">
-    3. 基于 DFA 的模式匹配器的优化
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-dfa-hopcroft" title="(1). DFA 最小化：Hopcroft 算法" class="md-nav__link">
-    (1). DFA 最小化：Hopcroft 算法
+  <a href="#4-smallmathrmll1" title="(4). $\small\mathrm{LL}(1)$ 文法" class="md-nav__link">
+    (4). $\small\mathrm{LL}(1)$ 文法
   </a>
   
 </li>
@@ -475,54 +517,6 @@
   
 </nav>
     
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      II Syntax Analysis
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        II Syntax Analysis
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../2/1/" title="1. introduction" class="md-nav__link">
-      1. introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../2/2/" title="2. top-down parsing" class="md-nav__link">
-      2. top-down parsing
-    </a>
   </li>
 
         
@@ -550,23 +544,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 冲突" class="md-nav__link">
-    1. 冲突
+  <a href="#1" title="1. 预测分析技术" class="md-nav__link">
+    1. 预测分析技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2. 文法预处理" class="md-nav__link">
+    2. 文法预处理
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" title="(1). 最长前缀" class="md-nav__link">
-    (1). 最长前缀
+  <a href="#1-eliminating-left-recursion" title="(1). 消除左递归 (eliminating left recursion)" class="md-nav__link">
+    (1). 消除左递归 (eliminating left recursion)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" title="(2). 向前看运算符" class="md-nav__link">
-    (2). 向前看运算符
+  <a href="#2-left-factoring" title="(2). 提取左公因子 (left factoring)" class="md-nav__link">
+    (2). 提取左公因子 (left factoring)
   </a>
   
 </li>
@@ -577,50 +578,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2_1" title="2. 词法分析器的结构" class="md-nav__link">
-    2. 词法分析器的结构
+  <a href="#3" title="3. 预测分析的过程" class="md-nav__link">
+    3. 预测分析的过程
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-nfa" title="(1). NFA 的模拟" class="md-nav__link">
-    (1). NFA 的模拟
+  <a href="#1-smallmathrmfirst" title="(1). $\small\mathrm{FIRST}$ 集" class="md-nav__link">
+    (1). $\small\mathrm{FIRST}$ 集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-nfa" title="(2). 基于 NFA 的词法分析器" class="md-nav__link">
-    (2). 基于 NFA 的词法分析器
+  <a href="#2-smallmathrmfollow" title="(2). $\small\mathrm{FOLLOW}$ 集" class="md-nav__link">
+    (2). $\small\mathrm{FOLLOW}$ 集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-dfa" title="(3). 基于 DFA 的词法分析器" class="md-nav__link">
-    (3). 基于 DFA 的词法分析器
+  <a href="#3-smallmathrmselect" title="(3). 可选集 $\small\mathrm{SELECT}$" class="md-nav__link">
+    (3). 可选集 $\small\mathrm{SELECT}$
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-dfa_1" title="3. 基于 DFA 的模式匹配器的优化" class="md-nav__link">
-    3. 基于 DFA 的模式匹配器的优化
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-dfa-hopcroft" title="(1). DFA 最小化：Hopcroft 算法" class="md-nav__link">
-    (1). DFA 最小化：Hopcroft 算法
+  <a href="#4-smallmathrmll1" title="(4). $\small\mathrm{LL}(1)$ 文法" class="md-nav__link">
+    (4). $\small\mathrm{LL}(1)$ 文法
   </a>
   
 </li>
@@ -647,137 +635,106 @@
               
                 
                 
-                  <h1>2. some details</h1>
+                  <h1>2. top-down parsing</h1>
                 
-                <p><span class="tnm-g"></span>
-<font face="cycn"></p>
-<h3 id="1">1. 冲突</h3>
-<p>当输入集合的多个前缀与一个或多个模式匹配时，就会造成冲突。</p>
-<h4 id="1_1">(1). 最长前缀</h4>
-<p>可以通过如下方式解决冲突：
+                <p><font class="generalcy"></p>
+<h3 id="1">1. 预测分析技术</h3>
+<p>&emsp;自顶向下的语法分析技术从语法分析树的根结点开始，按照先根次序深度优先地构建这棵语法分析树的各个结点，也即寻找输入串的最左推导的过程。<br>
+<pre class="pseudocode" style="margin-left:70px;width:290px;float:right;height:240px;margin-top:-10px;border:1px solid #000000;">
+void <b>A</b>() {
+    <pcy>选择一个 A 产生式</pcy> <i>A</i> → <i>X</i><sub>1</sub>, ... ,<i>X</i><sub>n</sub>
+    <b>for</b> (1 &lt;= <i>i</i> &lt;= k) {
+        <b>if</b> (<i>X</i><sub>i</sub> is non-terminal)
+            <b><i>X</i><sub>i</sub></b>();
+        <b>else if</b> (<i>X</i> <pcy>等于当前输入符号</pcy> a)
+            <pcy>读入下一个输入符号;</pcy>
+        <b>else</b> <pcy>发生一个错误</pcy>
+    }
+}
+</pre>
+&emsp;递归下降语法分析 (<cy>recursive-decent parsing</cy>) 是自顶向下语法分析的一种通用形式，由于左公因子的存在，它可能需要回溯；左递归文法也会使得递归的过程陷入死循环。<br></p>
+<p>&emsp;预测分析 (<cy>predictive parsing</cy>) 是递归下降分析的一个特例，它通过向前看固定个数 (通常是 <cy>1</cy> 个) 字符以选择正确的产生式，它不需要回溯，是一种确定的自顶向下分析方法。</p>
+<p>预测分析法的工作过程：从文法开始符号 $\small S$ 出发，在每一步的推导过程中根据当前句型最左非终结符 $\small A$ 和当前输入符号 $a$ 选择正确的 $\small A$ 产生式，且该选择是唯一的。</p>
+<h3 id="2">2. 文法预处理</h3>
+<h4 id="1-eliminating-left-recursion">(1). 消除左递归 (<cy>eliminating left recursion</cy>)</h4>
+<p>直接左递归的消除：<br>
+$A\to A\alpha_1\ |\ A\alpha_2\ |\ ...\ |\ A\alpha_n\ |\ \beta_1\ |\ \beta_2\ |\ ...\ |\ \beta_m$ $\Longrightarrow$ $A\to \beta_1 A'\ |\ \beta_2 A'\ |\ ...\ |\ \beta_n A' $<br>
+<span style="margin-left:393px;">$A'\to \alpha_1 A'\ |\ \alpha_2 A'\ |\ ...\ |\ \alpha_n A'\ |\ \varepsilon$</span><br>
+<span style="margin-left:393px;">($\small \alpha_i$ 不为 $\varepsilon$, $\beta_i$ 不以 $\small A$ 开头) </span><br>
+这种方法把产生 $\small\alpha$ 的部分转化为右递归，作为代价，引入了新的非终结符和空产生式。</p>
+<pre class="pseudocode" style="margin-left:70px;width:450px;margin-top:-10px;border:1px solid #000000;">
+<b>Input:</b> <pcy>没有 循环推导 和 空产生式 的文法</pcy> <i>G</i>
+<b>Output:</b> <pcy>等价的无左递归文法</pcy>
+    <pcy>按照某个顺序将非终结符排序</pcy> <i>A</i><sub>1</sub>, ... ,<i>A</i><sub>n</sub>
+    <b>for</b> (1 <= <i>i</i> <= n) {
+        <b>for</b> (1 <= <i>j</i> <= <i>i</i> - 1) {
+            <pcy>把每个形如</pcy> <i>A</i><sub>i</sub> → <i>A</i><sub>j</sub>γ <pcy>的产生式替换为新的产生式组</pcy>
+            <i>A</i><sub>j</sub> → δ<sub>1</sub>γ | ... | δ<sub>k</sub>γ 
+            (<pcy>所有的</pcy> <i>A</i><sub>j</sub> <pcy>产生式</pcy> : <i>A</i><sub>j</sub> → δ<sub>1</sub> | ... | δ<sub>k</sub>)
+        }
+        <pcy>消除</pcy> <i>A</i><sub>i</sub> <pcy>产生式的直接左递归</pcy>
+    }
+
+</pre>
+
+<p>消除左递归的算法如上所示。当循环运行至 $\small A_i$ 时，可以保证所有形如 $\small A_m\to A_n$, $\small m&lt; i$ 的产生式都满足 $\small n&gt;m$。循环推导 ($\small A\Rightarrow^+A$) 以及空产生式都可以通过其他方法系统地消除。</p>
+<h4 id="2-left-factoring">(2). 提取左公因子 (<cy>left factoring</cy>)</h4>
+<p>&emsp;在扫描输入的过程中，当不知道从哪个 $\small A$ 产生式中选择，如果选择错误，就需要进行回溯，进而影响效率。可以对每一个产生式提取左公因子解决此问题。<br>
+&emsp;提取 $n$ ($n$ 最大) 个 $\small A$ 产生式的最长公共前缀：<br>
+&emsp;$A\to \alpha\beta_1\ |\ \alpha\beta_2\ |\ ...\ |\ \alpha\beta_n\ |\ \gamma$&emsp; $\Longrightarrow$&emsp; $A\to \alpha A'\ |\ \gamma$,&emsp; $A'\to \beta_1 \ |\ \beta_2 \ |\ ...\ |\ \beta_n $</span></p>
+<h3 id="3">3. 预测分析的过程</h3>
+<h4 id="1-smallmathrmfirst">(1). $\small\mathrm{FIRST}$ 集</h4>
+<p>$\small\mathrm{FIRST}(X)$: 可以从 $\small X$ 中推导出的所有串首终结符构成的集合。如果 $\small X\Rightarrow^*\varepsilon$，那么<br> $\small\varepsilon\in\mathrm{FIRST}(X)$。不断进行以下过程，直到某次循环所有非终结符的 $\small\mathrm{FIRST}$ 集合都不再更新：
 <html> 
 <body>
-<ul style="margin-top:-17px;margin-bottom:0px;line-height:30px;">
-<li style="margin:1px 26px;">总是选择最长的前缀；</li>
-<li style="margin:1px 26px;">如果最长的前缀与多个模式匹配，选择最先列出的模式。</li>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">如果 $\small X$ 是一个终结符，那么 $\small\mathrm{FIRST}(X)=\lbrace X\rbrace$；</li>
+<li style="margin:1px 26px;">如果 $\small X$ 是一个非终结符，且有 $\small X\to Y_1...Y_k\in P\ (k\geq 1)$，那么：</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 46px;">若 $\exists i$，$\small a\in\mathrm{FIRST}(Y_i)$ 且 $\varepsilon$ 在所有的 $\small\mathrm{FIRST}(Y_1)$ ... $\small\mathrm{FIRST}(Y_{i-1})$ 中 (即 $\small Y_1...Y_{i-1}\Rightarrow^*\varepsilon$)，那么就把 $a$ 加入 $\small\mathrm{FIRST}(X)$ 中；</li>
+    <li style="margin:1px 46px;">若 $\varepsilon$ 在所有的 $\small\mathrm{FIRST}(Y_1)$ ... $\small\mathrm{FIRST}(Y_{k})$ 中, 把 $\varepsilon$ 加入 $\small\mathrm{FIRST}(X)$ 中；</li>
+    </ul>
+<li style="margin:1px 26px;">若 $\small X\to\varepsilon\in P$, 把 $\varepsilon$ 加入 $\small\mathrm{FIRST}(X)$ 中.</li>
 </ul>
 </body>
 </html>
-第一个规则使得 <span class="cons-g">++、&lt;=</span> 这样的运算符可以被正确识别，第二个规则使得关键字称为保留字符。</p>
-<h4 id="2">(2). 向前看运算符</h4>
-<p>有些时候，我们希望某个词素后面跟随某个特定的字符时，这个词素才与某个特定的模式相匹配。</p>
-<blockquote>
-<p>在 <span class="tnm-g">Fortran</span> 语言中，关键字并不是保留字。在 <code>IF(I, J)=3</code> 中，<span class="tnm-g">IF</span> 是一个数组名；在<br> <code>IF (condition) THEN...</code> 中，<span class="tnm-g">IF</span> 是一个关键字。</p>
-</blockquote>
-<p>可以在关键字后添加一个附加的模式，例如 <code>IF /(.*) {letter}</code>。</p>
-<h3 id="2_1">2. 词法分析器的结构</h3>
-<h4 id="1-nfa">(1). <span class="tnm-g">NFA</span> 的模拟</h4>
-<p><span class="tnm-g">NFA</span> 的模拟类似于边构造边使用的子集构造法，算法中使用两个栈和一个查询数组。假设 <span class="tnm-g">NFA</span> 有 $n$ 个点、$m$ 条转移以及串的长度为 $\small k$，那么算法花费的时间为 $\small O(k(m+n))$。</p>
-<pre class="pseudocode" style="float:left;margin-top:-10px">
-Transit(<i>oldStates, newStates, c</i>):
-1   <b>for</b> (<i>s</i> : <i>oldStates</i>) {
-2       <b>for</b> (<i>t</i> : move(<i>s</i>, <i>c</i>))
-3           <b>if</b> (! on[<i>t</i>])
-4               Add-State(<i>t</i>, <i>newStates</i>)
-5       pop(<i>s</i>, <i>oldStates</i>)
-6   }
-7   <b>for</b> (<i>s</i> : <i>newStates</i>) {
-8       pop(<i>s</i>, <i>newStates</i>)
-9       push(<i>s</i>, <i>oldStates</i>)
-10      on[<i>s</i>] = FALSE
-11  }
-</pre>
-
-<pre class="pseudocode" style="margin-left: 100px;width: 100px;float:left;margin-top:-10px">
-NFA-Simulate():
-1   <i>oldStates</i> = ε-closure(s<sub>0</sub>)
-2   <i>c</i> = nextChar()
-3   <b>while</b> (<i>c</i> != eof) {
-4       Transit(<i>oldStates</i>, <i>newStates</i>, <i>c</i>)
-5       <i>c</i> = nextChar()
-5   }
-7   <b>if</b> (<i>oldStates</i> ∩ <i>F</i> != ∅) <b>return</b> "yes"
-8   <b>else return</b> "no"
-
-Add-State(<i>s</i>, <i>newStates</i>):
-1   push(<i>s</i>, <i>newStates</i>)
-2   on[<i>s</i>] = TRUE
-3   <b>for</b> (<i>t</i> : move(<i>s</i>, ε)) 
-5       <b>if</b> (! on[<i>t</i>])
-6           Add-State(<i>t</i>)  
-</pre>
-
-<p><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<h4 id="2-nfa">(2). 基于 <span class="tnm-g">NFA</span> 的词法分析器</h4>
-<p>&emsp;首先把每个正则表达式转换为一个 <span class="tnm-g">NFA</span>，然后通过空转移和一个新的开始状态把这些 <span class="tnm-g">NFA</span> 合并为一个。合并的时候要考虑各个模式的顺序，以处理冲突。<br>
-&emsp;在这个 <span class="tnm-g">NFA</span> 模拟运行的过程中，会终止在一个没有任何后续状态的输入点，此时就可以判定匹配，且如果匹配则一定是最长前缀。</p>
-<h4 id="3-dfa">(3). 基于 <span class="tnm-g">DFA</span> 的词法分析器</h4>
-<p>&emsp;把合并后的 <span class="tnm-g">NFA</span> 通过子集构造法转化为 <span class="tnm-g">DFA</span>，再模拟它的执行。</p>
-<h3 id="3-dfa_1">3. 基于 <span class="tnm-g">DFA</span> 的模式匹配器的优化</h3>
-<h4 id="1-dfa-hopcroft">(1). <span class="tnm-g">DFA</span> 最小化：<font face="cm">Hopcroft</font> 算法</h4>
-<p>由 <a href = "../../0/2/#2-dfa_1">等价状态</a> 的定义可知，<span class="tnm-g">DFA</span> 最小化的过程就是把状态集划分为若干等价类的过程。则 <font face="cm">Hopcroft</font> 算法的思路如下：</p>
-<div class="rule">
-   <div>
-    <b>定义: </b>设 $S$ 的一个划分为 $P=\lbrace B_1,...,B_n\rbrace$，如果 $P$ 满足<br>
-    ① 任何 $B_i$ 中的所有状态要么是接受态，要么是非接受态<br>
-    ② 如果状态 $s$ 与 $t$ 等价，则它们属于同一个 $B_i$<br>
-    就称 $P$ 是一个合法的划分。
-   </div>
-</div>
-
-<blockquote class="ktb1"><div class="rule">
-   <div>
-    <b>引理1: </b>设 $P$ 是一个合法的划分。若 $\exists s,t\in B_i, a\in\Sigma$，使得 $\delta(s, a)\in B_j, \delta(t, a)\notin B_j$，就可以在 $P$ 中把 $B_i$ 进一步划分为<br>&emsp;&emsp;$B_i'=\lbrace s\in B_i\ |\ \delta(s,a)\in B_j\rbrace$ 和 $B_i''=\lbrace s\in B_i\ |\ \delta(s,a)\notin B_j\rbrace$<br>且新划分 $P'$ 仍是一个合法的划分。
-   </div>
-</div></blockquote>
-
-<p>$\small\bullet$ <font face="cm">Hopcroft</font> 算法的框架就是不断选取集合作为 <span class="tnm-g">distinguisher</span> 划分初始集合，直到不可划分为止，此时每个集合一定都是一个等价类。但盲目选取 <span class="tnm-g">distinguisher</span> 难以保证效率。</p>
-<blockquote class="ktb1"><div class="rule">
-   <div>
-    <b>引理2: </b>如果划分 $P$ 中所有 $S$ 的子集都已经用 $(B_j, a)$ 检查过得到了 $P'$，那么以后不再需要通过 $(B_j, a)$ 检查了。
-   </div>
-</div></blockquote>
-
-<p>$\small\bullet$ $P'$ 中任一子集中的元素要么都在 $B_j$ 中，要么都不在，且此后的划分也满足这一点。</p>
-<blockquote class="ktb1"><div class="rule">
-   <div>
-    <b>引理3: </b>设某个 $B_i$ 被分裂为 $B_i'$ 和 $B_i''$，则对任意 $a\in\Sigma$，从 $\lbrace(B_i,a),(B_i',a),(B_i'',a)\rbrace$ 中任选两个检查当前划分 $P$，与使用全部三个是等效的。
-   </div>
-</div></blockquote>
-
-<p>$\small\bullet$ 使用 $B_i'$ 和 $B_i''$ 检查后，对任意子集 $A\in P''$，以及 $\forall s\in A,a\in\Sigma$，有以下可能：<br>
-&emsp;① $\small\delta(s,a)\in B_i',\delta(s,a)\in B_i''$  &emsp;&emsp;&emsp;② $\small\delta(s,a)\notin B_i',\delta(s,a)\in B_i''$ <br>
-&emsp;③ $\small\delta(s,a)\in B_i',\delta(s,a)\notin B_i''$  &emsp;&emsp;&emsp;④ $\small\delta(s,a)\notin B_i',\delta(s,a)\notin B_i''$<br>
-因此，已没必要再用 $\small(S_i,a)$ 检查。</p>
-<pre class="pseudocode" style="margin-left:10px;width:560px;float:left;margin-top:-10px;border:1px solid #000000;">
-DFA-Minimization():
-    <i>P</i> = {<i>F</i>, <i>Q - F </i>}, <i>W</i> = {<i>F </i>}
-    <b>while</b> (<i>W</i> != ∅) {
-        <i>A</i> = <i>W</i>.pop()
-        <b>for</b> (c : Σ) {
-            <i>X</i> = {<i>q</i> | <font face="Times New Roman" size=3>δ</font>(<i>q</i>, <i>c</i>)<font face="Cambria Math" size=3> ∈ </font><i>A</i>, <i>q</i><font face="Cambria Math" size=3> ∈ </font><i>S</i> }
-            <b>for</b> (<i>Y</i> <b>in</b> <i>P</i> <b>and</b> <i>X</i> ∩ <i>Y</i> is nonempty <b>and</b> <i>Y</i> - <i>X</i> is nonempty) {
-                replace <i>Y</i> in <i>P</i> by <i>X</i> ∩ <i>Y</i> <b>and</b> <i>Y</i> - <i>X</i>
-                <b>if</b> (<i>Y</i> is in <i>W</i>)
-                    replace <i>Y</i> in <i>W</i> by the same two sets
-                <b>else</b>
-                    <b>if</b> (|<i>X</i> ∩ <i>Y</i>| <= |<i>Y</i> - <i>X</i>|) add <i>X</i> ∩ <i>Y</i> to <i>W</i>
-                    <b>else</b>                          add <i>Y</i> - <i>X</i> to <i>W</i>
-            }
-        }
-    }
-</pre>
-
-<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-伪代码如上所示，其中 <font face="cm">W</font> 是 <span class="tnm-g">distinguishers</span> 的集合。</p>
-<blockquote class="ktb1"><div class="rule">
-   <div>
-    <b>引理4: </b>对 $\forall B\in P$ 和 $a\in\Sigma$，如果 $\small (B,a)\notin W$，则永远也不需要 $(B,a)$ 去检查。
-   </div>
-</div></blockquote>
-
-<p>$\small\bullet$ 由引理 3，初始情况下此结论成立，并且在 $\small W$ 不断弹出元素的过程中，此结论也成立。因此，当 $\small W$ 为空时，算法结束。</p>
-<p>算法复杂度：$O(n\lg n)$</p>
+注：$\small\mathrm{FIRST}(A)$ 的含义是 $\small\mathrm{FIRST}(\alpha_1)\cup ...\cup\small\mathrm{FIRST}(\alpha_n)$，其中 $\small A\to\alpha_1\ |\ ...\ |\ \alpha_n\in P$。</p>
+<h4 id="2-smallmathrmfollow">(2). $\small\mathrm{FOLLOW}$ 集</h4>
+<p>$\small\mathrm{FOLLOW}(A)$: 可能在某个句型中紧跟在 $\small A$ 后面的终结符的集合。先求出 $\small\mathrm{FIRST}$ 集合，再不断进行以下过程，直到某次循环所有非终结符的 $\small\mathrm{FOLLOW}$ 集合都不再更新：
+<html> 
+<body>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">将 $ \small\$ $ 放入 $\small\mathrm{FOLLOW}(S)$ 中, $\small S$ 是开始符号；</li>
+<li style="margin:1px 26px;">如果存在一个产生式 $\small A\to\alpha B\beta$，那么将 $\small\mathrm{FIRST}(\beta)$ 中除了 $\varepsilon$ 中的所有符号都加入 $\small\mathrm{FOLLOW}(B)$ 中；</li>
+<li style="margin:1px 26px;">如果存在一个产生式 $\small A\to\alpha B$，或存在产生式 $\small A\to\alpha B\beta$ 且 $\varepsilon$
+$\small\in\mathrm{FIRST}(\beta)$，那么将 $\small\mathrm{FOLLOW}(A)$ 中所有符号都加入 $\small\mathrm{FOLLOW}(B)$。</li>
+</ul>
+</body>
+</html></p>
+<h4 id="3-smallmathrmselect">(3). 可选集 $\small\mathrm{SELECT}$</h4>
+<p>产生式的可选集：
+<html> 
+<body>
+<ul style="margin-top:-17px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">如果 $\small\varepsilon\notin\mathrm{FIRST}(\alpha)$，那么 $\small\mathrm{SELECT}(A\to\alpha)=\mathrm{FIRST}(\alpha)$</li>
+<li style="margin:1px 26px;">如果 $\small\varepsilon\in\mathrm{FIRST}(\alpha)$，那么 $\small\mathrm{SELECT}(A\to\alpha)=(\mathrm{FIRST}(\alpha)-\lbrace\varepsilon\rbrace)\cup\mathrm{FOLLOW}(A)$</li>
+</ul>
+</body>
+</html>
+对每个非终结符的所有产生式求 $\small\mathrm{SELECT}$ 集，可以进一步构造预测分析表。</p>
+<h4 id="4-smallmathrmll1">(4). $\small\mathrm{LL}(1)$ 文法</h4>
+<p>文法 $\small G$ 是 $\small\mathrm{LL}(1)$ 的，当且仅当 $\small G$ 的任意两个具有相同左部的产生式 $\small A\to\alpha\ |\ \beta$ 满足：
+<html> 
+<body>
+<ul style="margin-top:-16px;margin-bottom:1px;line-height:30px;">
+<li style="margin:1px 26px;">不存在终结符 $a$ 使得 $\alpha$ 和 $\beta$ 都能推导出以 $a$ 开头的串；</li>
+<li style="margin:1px 26px;">$\alpha$ 和 $\beta$ 至多有一个能推导出 $\varepsilon$；</li>
+<li style="margin:1px 26px;">若 $\alpha\Rightarrow^*\varepsilon$，则 $\small\mathrm{FIRST}(\beta)\cap\mathrm{FOLLOW}(A)=\emptyset$；对于 $\beta$ 同理。</li>
+</ul>
+</body>
+</html>
+三个条件共同限制了 $\small\mathrm{SELECT}(A\to\alpha)\cap\mathrm{SELECT}(A\to\beta)=\emptyset$。</p>
+<p>$\small\mathrm{LL}(1)$ 文法的第一个 "$\small\mathrm{L}$" 代表从左向右扫描输入，第二个 "$\small\mathrm{L}$" 代表产生最左推导，"$1$" 代表每一步只需向前看 $1$ 个输入符号决定语法分析动作。</p>
 <p></font></p>
                 
                   
@@ -813,20 +770,6 @@ DFA-Minimization():
             </div>
           </a>
         
-        
-          <a href="../../2/1/" title="1. introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                1. introduction
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>

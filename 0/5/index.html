@@ -490,6 +490,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      II Syntax Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        II Syntax Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/1/" title="1. introduction" class="md-nav__link">
+      1. introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/2/" title="2. top-down parsing" class="md-nav__link">
+      2. top-down parsing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -651,7 +699,7 @@
 <p><span class="kt">定义: </span> &ensp;为限制派生的随意性，要求只替换符号串中最左边变元的派生过程称为最左派生，记为 $\underset{\mathrm{lm}}{\Rightarrow}$，相应的，最右派生记为 $\underset{\mathrm{rm}}{\Rightarrow}$。</p>
 <p><span class="kt">定义: </span> &ensp;对 $\small G=(V,T,P,S)$，若 $\alpha$ 由初始符号派生，即 $\alpha\in (V\cup T)^*$ 且 $S\overset{*}{\Rightarrow} \alpha$，则称 $\alpha$ 为 $\small G$ 的句型 (<span class="tnm-g">sentential forms</span>)。通过最左/右派生得到的句型为左/右句型，只含有终结符的句型为 $\small G$ 的句子。</p>
 <h4 id="3">(3). 文法的语言</h4>
-<p>$\small\mathrm{CFG}$ $\small G=(V,T,P,S)$ 的语言定义为 $\mathbf{L}(G)=\lbrace w\ |\ w\in T^*,\ S\overset{*}{\underset{G}{\Rightarrow}}w\rbrace$。$\small L$ 被称为上下文无关语言。</p>
+<p>$\small\mathrm{CFG}$ $\small G=(V,T,P,S)$ 的语言定义为 $\small\mathbf{L}(G)=\lbrace w\ |\ w\in T^*,\ S\overset{*}{\underset{G}{\Rightarrow}}w\rbrace$。$\small L$ 被称为上下文无关语言。</p>
 <blockquote>
 <p><font face="Consolas"><em>e.g.</em></font> <font face="cm">design CFG:<br>
 ① $L=\lbrace w\in\lbrace 0,1\rbrace^*\ |$ w contains at least three 1s$\rbrace$;<br>

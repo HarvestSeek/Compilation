@@ -1,5 +1,5 @@
 pre.pseudocode {
-	font-family: cm;
+	font-family: cm, Cambria Math;
 	padding-left: 10px;
 	padding-top: 10px;
 	background-color: #fffffe;
@@ -8,10 +8,8 @@ pre.pseudocode {
 	font-weight: normal;
 }
 
-blockquote.b1 {
-	background: #f9f9f9;
-	color: #000000;
-	width: 800px;
-	border-left: 4px solid #696969;
+pre.pseudocode pcy {
+	font-family: cycn;
+	font-size: 91%;
 }
 
