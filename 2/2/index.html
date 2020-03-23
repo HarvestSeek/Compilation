@@ -509,6 +509,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4" title="4. 非递归的预测分析法" class="md-nav__link">
+    4. 非递归的预测分析法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 预测分析中的错误恢复" class="md-nav__link">
+    5. 预测分析中的错误恢复
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 恐慌模式" class="md-nav__link">
+    (1). 恐慌模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -609,6 +636,33 @@
           <li class="md-nav__item">
   <a href="#4-smallmathrmll1" title="(4). $\small\mathrm{LL}(1)$ 文法" class="md-nav__link">
     (4). $\small\mathrm{LL}(1)$ 文法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 非递归的预测分析法" class="md-nav__link">
+    4. 非递归的预测分析法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 预测分析中的错误恢复" class="md-nav__link">
+    5. 预测分析中的错误恢复
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 恐慌模式" class="md-nav__link">
+    (1). 恐慌模式
   </a>
   
 </li>
@@ -721,7 +775,7 @@ $\small\in\mathrm{FIRST}(\beta)$，那么将 $\small\mathrm{FOLLOW}(A)$ 中所�
 </ul>
 </body>
 </html>
-对每个非终结符的所有产生式求 $\small\mathrm{SELECT}$ 集，可以进一步构造预测分析表。</p>
+对每个非终结符的所有产生式求 $\small\mathrm{SELECT}$ 集，知当前文法是 $\small\mathrm{LL}(1)$ 文法后，可以进一步构造预测分析表，表中存储根据 {非终结符, 输入符号} 选择的产生式。</p>
 <h4 id="4-smallmathrmll1">(4). $\small\mathrm{LL}(1)$ 文法</h4>
 <p>文法 $\small G$ 是 $\small\mathrm{LL}(1)$ 的，当且仅当 $\small G$ 的任意两个具有相同左部的产生式 $\small A\to\alpha\ |\ \beta$ 满足：
 <html> 
@@ -735,6 +789,57 @@ $\small\in\mathrm{FIRST}(\beta)$，那么将 $\small\mathrm{FOLLOW}(A)$ 中所�
 </html>
 三个条件共同限制了 $\small\mathrm{SELECT}(A\to\alpha)\cap\mathrm{SELECT}(A\to\beta)=\emptyset$。</p>
 <p>$\small\mathrm{LL}(1)$ 文法的第一个 "$\small\mathrm{L}$" 代表从左向右扫描输入，第二个 "$\small\mathrm{L}$" 代表产生最左推导，"$1$" 代表每一步只需向前看 $1$ 个输入符号决定语法分析动作。</p>
+<h3 id="4">4. 非递归的预测分析法</h3>
+<p>非递归预测分析不需要为每个非终结符编写递归下降分析过程，而是根据预测分析表构造一个下推自动机。</p>
+<pre class="pseudocode" style="margin-left:40px;width:500px;margin-top:-10px;border:1px solid #000000;">
+<b>Input:</b> <pcy>字符串</pcy> <i>w</i>, <pcy>文法</pcy> <i>G</i> <pcy>的预测分析表</pcy> <i>M</i>
+<b>Output:</b> <pcy>若</pcy> <i>G</i> <pcy>在</pcy> L(<i>G</i>) <pcy>中，输出</pcy> <i>w</i> <pcy>的一个最左推导，否则给出错误提示</pcy>
+    <i>ip</i> = <i>w</i>[0]
+    <b>while</b> (!stack.empty()) {
+        <i>X</i> = stack.pop()
+        <b>if</b> (<i>X</i> <pcy>是一个终结符</pcy>) {
+            <b>if</b> (<i>X</i> = <i>ip</i>) <i>ip</i> <pcy>前移</pcy>, <b>continue</b>;
+            <b>else</b>          <i>error</i>()
+        } <b>else</b> {
+            <b>if</b> (<i>M</i>[<i>X</i>, <i>a</i>] <pcy>是一个报错条目</pcy>)    <i>error</i>();
+            <b>else if</b> (<i>M</i>[<i>X</i>, <i>a</i>] = <i>X</i> → <i>Y</i><sub>1</sub><i>Y</i><sub>2</sub>...<i>Y</i><sub>k</sub>) 
+                <pcy>输出产生式</pcy> <i>X</i> → <i>Y</i><sub>1</sub><i>Y</i><sub>2</sub>...<i>Y</i><sub>k</sub>
+                <pcy>按序将</pcy> <i>Y</i><sub>k</sub><i>Y</i><sub>k-1</sub>...<i>Y</i><sub>1</sub> <pcy>压栈</pcy>          
+        }
+    }
+    <pcy>栈和输入缓冲区都空，算法结束</pcy>
+</pre>
+
+<h3 id="5">5. 预测分析中的错误恢复</h3>
+<p>预测分析的错误检测能力：
+<html> 
+<body>
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">栈顶的终结符和当前的输入不匹配</li>
+<li style="margin:1px 16px;">栈顶的非终结符和当前输入符号在预测分析表中对应的项为空</li>
+</ul>
+</body>
+</html></p>
+<h4 id="1_1">(1). 恐慌模式</h4>
+<p>恐慌模式：语法分析器忽略输入中的一些符号，直到输入中出现设计者选定的同步词法单元 (<cy>synchronizing token</cy>)，此时语法分析过程很有可能可以继续进行。其有效性依赖于同步词法单元的选取。更具体地：</p>
+<p><html> 
+<body>
+<ul style="margin-top:-15px;margin-bottom:10px">
+<li style="margin:1px 16px;">如果栈顶是终结符 (词法单元) 且不匹配，直接将它弹出 (从效果上看，相当于把所有其他词法单元作为某个词法单元的同步集合)；</li>
+<li style="margin:1px 16px;">如果栈顶是非终结符且不匹配，查询预测分析表，如果表项为空，则忽略这个输入；如果表项为 "$\small\mathrm{synch}$"，即意味着此输入是栈顶终结符 (只通过 $\small\mathrm{FOLLOW}$ 集得到) 的同步单元，弹出栈顶终结符。</li>
+</ul>
+</body>
+</html>
+非终结符的同步词法单元可按以下启发式规则选取：
+<html> 
+<body>
+<ul style="margin-top:0px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">$\small\mathrm{FIRST}(A)$;</li>
+<li style="margin:1px 16px;">$\small\mathrm{FOLLOW}(A)$;</li>
+<li style="margin:1px 16px;">语言中的界符;</li>
+</ul>
+</body>
+</html></p>
 <p></font></p>
                 
                   
