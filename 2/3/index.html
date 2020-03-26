@@ -1,0 +1,958 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+	
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+	<meta name="format-detection" content="telephone=no">
+
+    
+      
+        <title>3. bottom-up parsing (1) - Learning Notes of Compilation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="../../css/basic.css">
+    
+      <link rel="stylesheet" href="../../css/wab.css">
+    
+      <link rel="stylesheet" href="../../css/font.css">
+    
+      <link rel="stylesheet" href="../../css/simpletable.css">
+    
+      <link rel="stylesheet" href="../../css/ktblock.css">
+    
+      <link rel="stylesheet" href="../../css/pseudocode.css">
+    
+      <link rel="stylesheet" href="../../css/comptable.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-117404761-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1-shift-reduce" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Learning Notes of Compilation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">import_contacts</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Learning Notes of Compilation
+            </span>
+            <span class="md-header-nav__topic">
+              
+                3. bottom-up parsing (1)
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Learning Notes of Compilation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">import_contacts</i>
+      
+    </a>
+    Learning Notes of Compilation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      basis：automata theory
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        basis：automata theory
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/1/" title="1. basic concepts" class="md-nav__link">
+      1. basic concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/2/" title="2. DFA" class="md-nav__link">
+      2. DFA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/3/" title="3. NFA" class="md-nav__link">
+      3. NFA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/4/" title="4. RE" class="md-nav__link">
+      4. RE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/5/" title="5. CFG" class="md-nav__link">
+      5. CFG
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      I Lexical Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        I Lexical Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/1/" title="1. introduction" class="md-nav__link">
+      1. introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/2/" title="2. some details" class="md-nav__link">
+      2. some details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      II Syntax Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        II Syntax Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1/" title="1. introduction" class="md-nav__link">
+      1. introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2/" title="2. top-down parsing" class="md-nav__link">
+      2. top-down parsing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3. bottom-up parsing (1)
+      </label>
+    
+    <a href="./" title="3. bottom-up parsing (1)" class="md-nav__link md-nav__link--active">
+      3. bottom-up parsing (1)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-shift-reduce" title="1. 移入-归约 (shift-reduce)" class="md-nav__link">
+    1. 移入-归约 (shift-reduce)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="(1). 句柄" class="md-nav__link">
+    (1). 句柄
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" title="(2). 移入-规约分析技术" class="md-nav__link">
+    (2). 移入-规约分析技术
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-" title="(3). 移入-规约冲突" class="md-nav__link">
+    (3). 移入-规约冲突
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-smallmathrmlr0" title="2. $\small\mathrm{LR}(0)$ 分析" class="md-nav__link">
+    2. $\small\mathrm{LR}(0)$ 分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-smallmathrmlr0" title="(1) 规范 $\small\mathrm{LR}(0)$ 项集族" class="md-nav__link">
+    (1) 规范 $\small\mathrm{LR}(0)$ 项集族
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-smallmathrmlr" title="(2). $\small\mathrm{LR}$ 语法分析" class="md-nav__link">
+    (2). $\small\mathrm{LR}$ 语法分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-smallmathrmlr0" title="(3). $\small\mathrm{LR}(0)$ 文法" class="md-nav__link">
+    (3). $\small\mathrm{LR}(0)$ 文法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-smallmathrmslr" title="3. $\small\mathrm{SLR}$ 分析" class="md-nav__link">
+    3. $\small\mathrm{SLR}$ 分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 基本思想" class="md-nav__link">
+    (1). 基本思想
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="(2). 局限性" class="md-nav__link">
+    (2). 局限性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../4/" title="4. bottom-up parsing (2)" class="md-nav__link">
+      4. bottom-up parsing (2)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-shift-reduce" title="1. 移入-归约 (shift-reduce)" class="md-nav__link">
+    1. 移入-归约 (shift-reduce)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="(1). 句柄" class="md-nav__link">
+    (1). 句柄
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-" title="(2). 移入-规约分析技术" class="md-nav__link">
+    (2). 移入-规约分析技术
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-" title="(3). 移入-规约冲突" class="md-nav__link">
+    (3). 移入-规约冲突
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-smallmathrmlr0" title="2. $\small\mathrm{LR}(0)$ 分析" class="md-nav__link">
+    2. $\small\mathrm{LR}(0)$ 分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-smallmathrmlr0" title="(1) 规范 $\small\mathrm{LR}(0)$ 项集族" class="md-nav__link">
+    (1) 规范 $\small\mathrm{LR}(0)$ 项集族
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-smallmathrmlr" title="(2). $\small\mathrm{LR}$ 语法分析" class="md-nav__link">
+    (2). $\small\mathrm{LR}$ 语法分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-smallmathrmlr0" title="(3). $\small\mathrm{LR}(0)$ 文法" class="md-nav__link">
+    (3). $\small\mathrm{LR}(0)$ 文法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-smallmathrmslr" title="3. $\small\mathrm{SLR}$ 分析" class="md-nav__link">
+    3. $\small\mathrm{SLR}$ 分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="(1). 基本思想" class="md-nav__link">
+    (1). 基本思想
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="(2). 局限性" class="md-nav__link">
+    (2). 局限性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>3. bottom-up parsing (1)</h1>
+                
+                <p><font class="generalcy"></p>
+<h3 id="1-shift-reduce">1. 移入-归约 (<cy>shift-reduce</cy>)</h3>
+<h4 id="1">(1). 句柄</h4>
+<p>设 $\small\alpha\beta\gamma$ 是文法 $\small G$ 的一个句型，
+<ul style="margin-top:-16px;margin-bottom:1px;line-height:30px;">
+<li style="margin:1px 26px;">如果有 $\small S\overset{*}{\Rightarrow}\alpha A\gamma$ 和 $\small A\overset{+}{\Rightarrow}\beta$，则称 $\small\beta$ 是句型 $\small\alpha\beta\gamma$ 相对于非终结符 $\small A$ 的短语</li>
+<li style="margin:1px 26px;">如果有 $\small A\Rightarrow\beta$ ($\small A$ 子树的高为 <cy>2</cy>)，则称 $\small\beta$ 是直接短语</li>
+<li style="margin:1px 26px;">一个句型的最左直接短语被称作句柄 (<cy2>handle</cy2>)</li>
+</ul>
+由定义可知，直接短语一定是某产生式的右部 (反之不一定)。</p>
+<h4 id="2-">(2). 移入-规约分析技术</h4>
+<p>&emsp;设 $\small w$ 是当前文法的句子，且它经由 $\small n$ 步最右推导得到，即 $\small S\Rightarrow\gamma_0\Rightarrow...\Rightarrow\gamma_n=w$. 移入规约的基本思想是，为了反向重构这个推导，每一步在 $\small\gamma_i$ 中寻找句柄 $\small\beta_i$，并将其替换为 $\small A_i\to\beta_i$ 的头部，得到最右句型 $\small\gamma_{i-1}$。<br>
+&emsp;移入-规约分析从左向右扫描串，将 <cy>0</cy> 个或多个输入符号移入栈中，直到栈顶的某个串 $\small\beta$ 可以进行归约为止。因此，移入-规约分析器可能采取如下四种动作：
+<ul style="margin-top:-16px;margin-bottom:1px;line-height:30px;">
+<li style="margin:1px 16px;">移入：将下一个输入符号移入栈顶</li>
+<li style="margin:1px 16px;">归约：确定栈顶的串，并决定用哪个非终结符替换</li>
+<li style="margin:1px 16px;">接受：宣布语法分析过程成功</li>
+<li style="margin:1px 16px;">报错：发现语法错误，并调用一个子过程</li>
+</ul>
+任何时刻，栈中符号+剩余输入=最右句型。之所以可以使用栈，是因为句柄一定总是出现在栈顶。</p>
+<h4 id="3-">(3). 移入-规约冲突</h4>
+<p><num1>①</num1> "二义性" 造成的冲突
+<blockquote style="margin-top:-6px;">
+$\small\mathit{stmt}\to\mathbf{if}\ \ \mathit{expr}\ \ \mathbf{then}\ \ \mathit{stmt}\ |\ \mathbf{if}\ \ \mathit{expr}\ \ \mathbf{then}\ \ \mathit{stmt}\ \ \mathbf{else}\ \ \mathit{stmt}\ |\ \mathbf{other}$<br>
+栈：$\small\lbrace ...\ ... \ \mathbf{if}\ \ \mathit{expr}\ \ \mathbf{then}\ \ \mathit{stmt}\rbrace$&emsp;&emsp;&emsp;输入：$\small\lbrace\mathbf{else}\ ...\ ...\$\rbrace $
+</blockquote>
+<num1>②</num1>
+<blockquote style="margin-top:0px;">
+$\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
+栈：$\small\lbrace  \mathit{ids},\mathrm{i}\rbrace$&emsp;&emsp;&emsp;输入：$\small\lbrace\mathrm{i}\ ...\ ...\$\rbrace $
+</blockquote></p>
+<h3 id="2-smallmathrmlr0">2. $\small\mathrm{LR}(0)$ 分析</h3>
+<p>$\small\mathrm{LR}$ 分析以移入-归约的过程为原型，把 $\small\mathrm{CFG}$ 转化为等价的 $\small\mathrm{PDA}$ 识别词串，即 $\small\mathrm{LR}(0)$ 自动机</p>
+<h4 id="1-smallmathrmlr0">(1) 规范 $\small\mathrm{LR}(0)$ 项集族</h4>
+<div style="margin-left:1px;float:right;">
+<pre class="pseudocode" style="width:290px;margin-top:-10px;border:1px solid #000000;">
+<b>CLOSURE</b>(<i>I</i>) {
+    <i>J</i> = <i>I</i>
+    <b>do</b>
+        <b>for</b> <b>each</b> <i>A</i> → α <b>·</b><i>B</i>β <b>in</b> <i>J</i>
+            <b>for</b> <b>each</b> <i>B</i> → γ <b>of</b> <i>G</i>
+                <b>if</b> (<i>B</i> → <b>·</b>γ <b>not in</b> <i>J</i>)
+        <i>J</i> = <i>J</i> ∪ {<i>B</i> → <b>·</b>γ}
+    <b>while</b> (<pcy>某一轮中没有新项加入到</pcy> <i>J</i> <pcy>中</pcy>)
+    <b>return</b> <i>J</i>
+}
+</pre>
+<pre class="pseudocode" style="width:290px;margin-top:-10px;border:1px solid #000000;">
+<b>GOTO</b>(<i>I</i>, <i>X</i>) {
+    <i>J</i> = ∅
+    <b>for</b> <b>each</b> <i>A</i> → α <b>·</b><i>X</i>β <b>in</b> <i>I</i>
+        <i>J</i> = <i>J</i> ∪ {<i>A</i> → α<i>X</i> <b>·</b>β}
+    <b>return</b> CLOSURE(<i>J</i>)
+}
+</pre>
+</div>
+
+<p><num1>①</num1> $\small\mathrm{LR}(0)$ 项 (<cy2>item</cy2>): 是一个产生式加上一个原点，例如，$\small A\to \mathit{XYZ}$ 产生四个项 ($\small A\to\varepsilon$ 只产生 $\small A\to\boldsymbol{\cdot}$)。<br></p>
+<p><num1>②</num1> 状态: 以 $\small A\to\mathit{X\boldsymbol{\cdot}YZ}$ 为例，它的含义是对于非终结符 $\small A$，当前已经归约了一个由 $\small X$ 产生的串，并期待着接下来在输入中读到$\small\mathit{ \ }\mathit{YZ}$ 推导出的一个前缀。由此可知，项对应着移入-归约过程中的一个 "状态"。</p>
+<p><num1>③</num1> 规范 $\small\mathrm{LR}(0)$ 项集族 (<cy2>canonical LR(0) collection</cy2>) 定义了 $\small\mathrm{PDA}$ 的状态集。为了构建它，需要如下定义：
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">增广文法: 新增产生式 $\small S'\to S$，目的是为了确定接收状态，即语法分析成功</li>
+<li style="margin:1px 16px;">$\small\mathrm{CLOSURE}$ 函数: 确定等价的项集</li>
+<li style="margin:1px 16px;">$\small\mathrm{GOTO}$ 函数: 定义自动机的状态转换</li>
+</ul></p>
+<p>通过闭包和转移函数，就可以从初始项 $\small S'\to\boldsymbol{\cdot}S$ 开始，构建 $\small\mathrm{LR}(0)$ 自动机，进而得到 $\small\mathrm{LR}$ 语法分析表。$\small\mathrm{LR}$ 项集中的项可分为以下几类：
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;float:left;">归约项目: 原点在产生式最左端</li>
+<li style="margin:1px 26px;float:left;">接收项目: 头部为 $\small S'$ 的归约项目</li>
+<li style="margin:1px 26px;float:left;">待约项目: 原点后为非终结符</li>
+<li style="margin:1px 44px;float:left;">移进项目: 原点后为终结符</li>
+</ul><br><br></p>
+<h4 id="2-smallmathrmlr">(2). $\small\mathrm{LR}$ 语法分析</h4>
+<p>以文法 $\small (1).\ S\to\mathit{BB}\ \ (2).\ B\to\mathit{aB}\ \ (3).\ B\to b$ 为例，它产生的语法分析表如右图所示，$\small\mathrm{GOTO}$ 表项对应的是非终结符的行为，其作用是根据归约后得到的非终结符确定状态转移。$\small\mathrm{LR}$ 分析表构造过程如下：
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">构造 $\small G\mathtt{'}$ 的 $\small\mathrm{LR}(0)$ 项集族 $\small C=\lbrace I_0,...,I_n\rbrace$</li>
+<li style="margin:1px 26px;">令 $\small I_i$ 对应状态 $i$</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 46px;">$\small A\to\alpha\boldsymbol{\cdot}a\beta\in I_i$ 且 $\small\mathrm{GOTO}(I_i,a)=I_j$，则 $\small\mathrm{ACTION}(i,a)=\mathrm{sj}$</li>
+    <li style="margin:1px 46px;">$\small A\to\alpha\boldsymbol{\cdot}B\beta\in I_i$ 且 $\small\mathrm{GOTO}(I_i,B)=I_j$，则 $\small\mathrm{GOTO}(i,b)=\mathrm{j}$&lt;</li>
+    <li style="margin:1px 46px;">$\small A\to\alpha\boldsymbol{\cdot}\in I_i$ 且 $\small A\ne S'$，则 $\small\mathbf{for}\ \ \forall a\in T\cup\lbrace\$ \rbrace\ \mathbf{do}\ \ \mathrm{ACTION}(i,a)=\mathrm{rj}$</li>
+    <li style="margin:1px 46px;">$\small S'\to S\boldsymbol{\cdot}\in I_i$，则 $\small\mathrm{ACTION}(i,\$ )=\mathrm{acc}$</li>
+    </ul>
+<li style="margin:1px 26px;">没有定义的所有条目设置为 $\small\mathit{error}$</li>
+</ul></p>
+<table class="lrgraph" align=right>
+<tr>
+    <th rowspan="2" style="vertical-align:middle;">状态</th>
+    <th colspan="3">$\mathrm{ACTION}$</th>
+    <th colspan="2">$\mathrm{GOTO}$</th>
+</tr>
+<tr>
+    <th>$a$</th> <th>$b$</th> <th> $\\$ $ </th> <th>$S$</th> <th>$B$</th>
+</tr>
+<tr>
+    <td>$0$</td> <td>$\mathrm{s}\small 3$</td> <td>$\mathrm{s}\small 4$</td> <td>&emsp;</td> <td>$1$</td> <td>$2$</td>
+</tr>
+<tr>
+    <td>$1$</td> <td></td> <td></td> <td>$\mathrm{acc}$</td> <td></td> <td></td>
+</tr>
+<tr>
+    <td>$2$</td> <td>$\mathrm{s}\small 3$</td> <td>$\mathrm{s}\small 4$</td> <td>&emsp;</td> <td></td> <td>$5$</td>
+</tr>
+<tr>
+    <td>$3$</td> <td>$\mathrm{s}\small 3$</td> <td>$\mathrm{s}\small 4$</td> <td>&emsp;</td> <td></td> <td>$6$</td>
+</tr>
+<tr>
+    <td>$4$</td> <td>$\mathrm{r}\small 3$</td> <td>$\mathrm{r}\small 3$</td> <td>$\mathrm{r}\small 3$</td> <td></td> <td></td>
+</tr>
+<tr>
+    <td>$5$</td> <td>$\mathrm{r}\small 1$</td> <td>$\mathrm{r}\small 1$</td> <td>$\mathrm{r}\small 1$</td> <td></td> <td></td>
+</tr>
+<tr>
+    <td>$6$</td> <td>$\mathrm{r}\small 2$</td> <td>$\mathrm{r}\small 2$</td> <td>$\mathrm{r}\small 2$</td> <td></td> <td></td>
+</tr>
+</table>
+
+<pre class="pseudocode" style="width:400px;margin-top:-10px;border:1px solid #000000;">
+<b>Input</b>: <pcy>输入串</pcy> <i>w</i>, LR <pcy>分析表</pcy>
+<b>Output</b>: <pcy>若</pcy> <i>w</i> <pcy>在</pcy> L(G) <pcy>中, 输出归约步骤, 否则报错</pcy>
+<i>a</i> = <i>w</i>[0], <pcy>初状态入栈</pcy>
+<b>while</b> (1) {
+    <i>s</i> = <pcy>弹出栈顶状态</pcy>
+    <b>if</b> (ACTION[<i>s, a</i>] = <i>si</i>) { <pcy>// shift</pcy>
+        <i>a</i> <pcy>入符号栈</pcy>，<i>i</i> <pcy>入状态栈</pcy>
+        <i>a</i> = next(<i>w</i>)
+    } <b>else if</b> (ACTION[<i>s, a</i>] = <i>ri</i>) { <pcy>// reduce</pcy>
+        <pcy>选取产生式</pcy> <i>i</i>: <i>A</i> → β，<pcy>并从符号栈弹出</pcy> |β| <pcy>个符号</pcy>
+        <i>t</i> = <pcy>当前栈顶状态</pcy>
+        GOTO(<i>t, a</i>) <pcy>入栈</pcy>，<pcy>并输出产生式</pcy> <i>A</i> → β
+    } <b>else if</b> (ACTION[<i>s, a</i>] = acc) <b>break</b>; <pcy>// success</pcy>
+    <b>else</b> <i>error</i>()
+}
+</pre>
+
+<p>$\small\mathrm{LR}$ 语法分析算法如左图所示。</p>
+<h4 id="3-smallmathrmlr0">(3). $\small\mathrm{LR}(0)$ 文法</h4>
+<p><num1>①</num1> 移入-归约冲突：以状态 $\small I:\ \lbrace E\to T\boldsymbol{\cdot},\ T\to T\boldsymbol{\cdot}*F\rbrace$ 为例，在分析表中确定 $\small I$ 的转移的时候，无法确定移入还是归约。<br>
+<num1>②</num1> 归约-归约冲突：以状态 $\small I:\ \lbrace B\to \boldsymbol{\cdot},\ T\to \boldsymbol{\cdot}\rbrace$ 为例，在分析表中确定 $\small I$ 的转移的时候，无法确定归约为哪个非终结符。<br>
+如果 $\small\mathrm{LR}$ 分析表中没有语法分析动作冲突，那么给定的文法就被称为 $\small\mathrm{LR}(0)$ 文法。</p>
+<h3 id="3-smallmathrmslr">3. $\small\mathrm{SLR}$ 分析</h3>
+<h4 id="1_1">(1). 基本思想</h4>
+<blockquote>
+<p><cs><em>e.g.</em></cs> 以算术表达式文法的一个状态 $\small I:\ \lbrace E\to T\boldsymbol{\cdot},\ T\to T\boldsymbol{\cdot}*F\rbrace$ 为例，到达状态 $\small I$ 的时候，由于无法判定已经识别的由 $\small T$ 推导的串是一个句柄还是 $\small T$ 产生式的一个部分，进而无法知道读取到 $\small *$ 时该移入还是该归约。<br>
+但 $\small\mathrm{FOLLOW}(E)=\lbrace\ )\ +\ \$\ \rbrace$，可知对于 $\small (I,*)$，不应归约为 $\small E$。</p>
+</blockquote>
+<p>设下一个输入符号为 $\small\mathrm{a}$，项集 $\small I$ 有 $m$ 个移入项 $\small\lbrace A_1\to\alpha_1\boldsymbol{\cdot}\mathrm{a}_1\beta_1,\ \dots \ ,A_m\to\alpha_m\boldsymbol{\cdot}\mathrm{a}_m\beta_m\rbrace$ 和 $n$ 个归约项 $\small\lbrace B_1\to\gamma_1,\ \dots\ ,B_n\to\gamma_n\rbrace$.<br>
+若 $\small\lbrace \mathrm{a_1,\ \dots\ ,a_m}\rbrace$ 和 $\small\mathrm{FOLLOW}(B_1),\ \dots\ ,\mathrm{FOLLOW}(B_n)$ 两两不相交，则 $\small I$ 的冲突可按如下解决：
+<html> 
+<body>
+<ul style="margin-top:-16px;margin-bottom:2px;line-height:30px;">
+<li style="margin:1px 26px;">若 $\small\mathrm{a\in \lbrace a_1,\ \dots\ ,a_m\rbrace}$，则移入 $\small\mathrm{a}$</li>
+<li style="margin:1px 26px;">若 $\small\mathrm{a}\in\mathrm{FOLLOW}(B_i)$，则用产生式 $\small B_i\to\gamma_i$ 归约</li>
+<li style="margin:1px 26px;">此外，报错</li>
+</ul>
+</body>
+</html>
+则构建 $\small\mathrm{SLR}$ 分析表的过程，只需修改构建 $\small\mathrm{LR}$ 分析表的第三步即可：
+<ul style="margin-top:0px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">$\small A\to\alpha\boldsymbol{\cdot}\in I_i$ 且 $\small A\ne S'$，则 $\small\mathbf{for}\ \ \forall a\in \mathrm{FOLLOW}(A)\ \ \mathbf{do}\ \ \mathrm{ACTION}(i,a)=\mathrm{rj}$</li>
+</ul></p>
+<h4 id="2">(2). 局限性</h4>
+<blockquote>
+<p><cs><em>e.g.</em></cs> 描述赋值语句的文法如下:<br>
+$\small (0)\ S'\to S\ \ (1)\ S\to L=R\ \ (2)\ S\to R\ \ (3)\ L\to *R\ \ (4)\ L\to\mathrm{id}\ \ (5)\ R\to L$<br>
+它的 $\small\mathrm{SLR}$ 自动机有一个状态 $\small I:\ \lbrace S\to L\boldsymbol{\cdot}=R,\ R\to L\boldsymbol{\cdot}\rbrace$
+且 $\small\mathrm{FOLLOW}(R)=\lbrace\ =\ \$ \rbrace$<br>
+对于 $\small(I,=)$，无法判定移入还是归约。</p>
+</blockquote>
+<p>$\small\mathrm{SLR}$ 分析仍有可能产生冲突。$\small\mathrm{SLR}$ 分析表没有冲突的文法为 $\small\mathrm{SLR}(1)$ 文法，$\small\mathrm{S}$ 的含义为 <cy>Simple</cy>，$(1)$ 通常省略。</p>
+<p></font></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../2/" title="2. top-down parsing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                2. top-down parsing
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../4/" title="4. bottom-up parsing (2)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                4. bottom-up parsing (2)
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
