@@ -778,14 +778,14 @@ $A\to A\alpha_1\ |\ A\alpha_2\ |\ ...\ |\ A\alpha_n\ |\ \beta_1\ |\ \beta_2\ |\ 
 </ul>
 </body>
 </html>
-注：$\small\mathrm{FIRST}(A)$ 的含义是 $\small\mathrm{FIRST}(\alpha_1)\cup ...\cup\small\mathrm{FIRST}(\alpha_n)$，其中 $\small A\to\alpha_1\ |\ ...\ |\ \alpha_n\in P$。</p>
+注：$\small\mathrm{FIRST}(A)=\mathrm{FIRST}(\alpha_1)\cup ...\cup\small\mathrm{FIRST}(\alpha_n)$，其中 $\small A\to\alpha_1\ |\ ...\ |\ \alpha_n\in P$。</p>
 <h4 id="2-smallmathrmfollow">(2). $\small\mathrm{FOLLOW}$ 集</h4>
 <p>$\small\mathrm{FOLLOW}(A)$: 可能在某个句型中紧跟在 $\small A$ 后面的终结符的集合。先求出 $\small\mathrm{FIRST}$ 集合，再不断进行以下过程，直到某次循环所有非终结符的 $\small\mathrm{FOLLOW}$ 集合都不再更新：
 <html> 
 <body>
 <ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
 <li style="margin:1px 26px;">将 $ \small\$ $ 放入 $\small\mathrm{FOLLOW}(S)$ 中, $\small S$ 是开始符号；</li>
-<li style="margin:1px 26px;">如果存在一个产生式 $\small A\to\alpha B\beta$，那么将 $\small\mathrm{FIRST}(\beta)$ 中除了 $\varepsilon$ 中的所有符号都加入 $\small\mathrm{FOLLOW}(B)$ 中；</li>
+<li style="margin:1px 26px;">如果存在一个产生式 $\small A\to\alpha B\beta$，那么将 $\small\mathrm{FIRST}(\beta)$ 中<span class="waveLine">除了 $\varepsilon$</span> 中的所有符号都加入 $\small\mathrm{FOLLOW}(B)$ 中；</li>
 <li style="margin:1px 26px;">如果存在一个产生式 $\small A\to\alpha B$，或存在产生式 $\small A\to\alpha B\beta$ 且 $\varepsilon$
 $\small\in\mathrm{FIRST}(\beta)$，那么将 $\small\mathrm{FOLLOW}(A)$ 中所有符号都加入 $\small\mathrm{FOLLOW}(B)$。</li>
 </ul>

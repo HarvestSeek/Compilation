@@ -745,7 +745,7 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
         <b>for</b> <b>each</b> <i>A</i> → α <b>·</b><i>B</i>β <b>in</b> <i>J</i>
             <b>for</b> <b>each</b> <i>B</i> → γ <b>of</b> <i>G</i>
                 <b>if</b> (<i>B</i> → <b>·</b>γ <b>not in</b> <i>J</i>)
-        <i>J</i> = <i>J</i> ∪ {<i>B</i> → <b>·</b>γ}
+                    <i>J</i> = <i>J</i> ∪ {<i>B</i> → <b>·</b>γ}
     <b>while</b> (<pcy>某一轮中没有新项加入到</pcy> <i>J</i> <pcy>中</pcy>)
     <b>return</b> <i>J</i>
 }
@@ -754,27 +754,36 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
 <b>GOTO</b>(<i>I</i>, <i>X</i>) {
     <i>J</i> = ∅
     <b>for</b> <b>each</b> <i>A</i> → α <b>·</b><i>X</i>β <b>in</b> <i>I</i>
-        <i>J</i> = <i>J</i> ∪ {<i>A</i> → α<i>X</i> <b>·</b>β}
+        <i>J</i> = <i>J</i> ∪ {<i>A</i> → α<i>X</i> <b>·</b> β}
     <b>return</b> CLOSURE(<i>J</i>)
 }
 </pre>
 </div>
 
 <p><num1>①</num1> $\small\mathrm{LR}(0)$ 项 (<cy2>item</cy2>): 是一个产生式加上一个原点，例如，$\small A\to \mathit{XYZ}$ 产生四个项 ($\small A\to\varepsilon$ 只产生 $\small A\to\boldsymbol{\cdot}$)。<br></p>
-<p><num1>②</num1> 状态: 以 $\small A\to\mathit{X\boldsymbol{\cdot}YZ}$ 为例，它的含义是对于非终结符 $\small A$，当前已经归约了一个由 $\small X$ 产生的串，并期待着接下来在输入中读到$\small\mathit{ \ }\mathit{YZ}$ 推导出的一个前缀。由此可知，项对应着移入-归约过程中的一个 "状态"。</p>
+<p><num1>②</num1> 状态: 以 $\small A\to\mathit{X\boldsymbol{\cdot}YZ}$ 为例，它的含义是对于非终结符 $\small A$，当前已经归约了一个由 $\small X$ 产生的串，并期待着接下来在输入中读到$\small\mathit{ \ }\mathit{Y}$ 推导出的一个前缀。由此可知，项对应着移入-归约过程中的一个 "状态":
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 16px;">若 $\small Y$ 是终结符，则此状态读到 $\small Y$ 后转移到下一个状态，对应着移入-归约的移入的过程</li>
+<li style="margin:1px 16px;">若 $\small Y$ 是非终结符，则通过 $\small\mathrm{PDA}$ 的栈存储归约过程字符与状态变化，直到 $\small Y$ 子树对应的产生式到达归约状态时，根据栈中符号归约出 $\small Y$，此时此状态发生状态转移。对应着移入-归约的归约过程。</li>
+</ul></p>
 <p><num1>③</num1> 规范 $\small\mathrm{LR}(0)$ 项集族 (<cy2>canonical LR(0) collection</cy2>) 定义了 $\small\mathrm{PDA}$ 的状态集。为了构建它，需要如下定义：
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 16px;">增广文法: 新增产生式 $\small S'\to S$，目的是为了确定接收状态，即语法分析成功</li>
+<li style="margin:1px 16px;">增广文法: 新增产生式 $\small S'\to S$，目的是为了确定接收状态，即语法分析成功的状态</li>
 <li style="margin:1px 16px;">$\small\mathrm{CLOSURE}$ 函数: 确定等价的项集</li>
 <li style="margin:1px 16px;">$\small\mathrm{GOTO}$ 函数: 定义自动机的状态转换</li>
 </ul></p>
-<p>通过闭包和转移函数，就可以从初始项 $\small S'\to\boldsymbol{\cdot}S$ 开始，构建 $\small\mathrm{LR}(0)$ 自动机，进而得到 $\small\mathrm{LR}$ 语法分析表。$\small\mathrm{LR}$ 项集中的项可分为以下几类：
-<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<p>通过闭包和转移函数，就可以从初始项 $\small S'\to\boldsymbol{\cdot}S$ 开始，不断调用 $\small\mathrm{GOTO}$，构建 $\small\mathrm{LR}(0)$ 自动机，进而得到 $\small\mathrm{LR}$ 语法分析表。$\small\mathrm{LR}$ 项集中的项可分为以下几类：
+<ul style="margin-top:-16px;margin-bottom:0px;line-height:30px;">
 <li style="margin:1px 26px;float:left;">归约项目: 原点在产生式最左端</li>
 <li style="margin:1px 26px;float:left;">接收项目: 头部为 $\small S'$ 的归约项目</li>
 <li style="margin:1px 26px;float:left;">待约项目: 原点后为非终结符</li>
 <li style="margin:1px 44px;float:left;">移进项目: 原点后为终结符</li>
 </ul><br><br></p>
+<p>也可以按标识性分类：
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">内核项：初始项 $\small S'\to\boldsymbol{\cdot}S$，以及其他原点不在最左端的所有项。每个项集都可用一个内核项集唯一标识。</li>
+<li style="margin:1px 26px;">非内核项：除了初始项以外的原点在最左端的项。也等价于说由 $\small\mathrm{CLOSURE}$ 函数得到的项。</li>
+</ul></p>
 <h4 id="2-smallmathrmlr">(2). $\small\mathrm{LR}$ 语法分析</h4>
 <p>以文法 $\small (1).\ S\to\mathit{BB}\ \ (2).\ B\to\mathit{aB}\ \ (3).\ B\to b$ 为例，它产生的语法分析表如右图所示，$\small\mathrm{GOTO}$ 表项对应的是非终结符的行为，其作用是根据归约后得到的非终结符确定状态转移。$\small\mathrm{LR}$ 分析表构造过程如下：
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
@@ -782,9 +791,9 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
 <li style="margin:1px 26px;">令 $\small I_i$ 对应状态 $i$</li>
     <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
     <li style="margin:1px 46px;">$\small A\to\alpha\boldsymbol{\cdot}a\beta\in I_i$ 且 $\small\mathrm{GOTO}(I_i,a)=I_j$，则 $\small\mathrm{ACTION}(i,a)=\mathrm{sj}$</li>
-    <li style="margin:1px 46px;">$\small A\to\alpha\boldsymbol{\cdot}B\beta\in I_i$ 且 $\small\mathrm{GOTO}(I_i,B)=I_j$，则 $\small\mathrm{GOTO}(i,b)=\mathrm{j}$&lt;</li>
-    <li style="margin:1px 46px;">$\small A\to\alpha\boldsymbol{\cdot}\in I_i$ 且 $\small A\ne S'$，则 $\small\mathbf{for}\ \ \forall a\in T\cup\lbrace\$ \rbrace\ \mathbf{do}\ \ \mathrm{ACTION}(i,a)=\mathrm{rj}$</li>
-    <li style="margin:1px 46px;">$\small S'\to S\boldsymbol{\cdot}\in I_i$，则 $\small\mathrm{ACTION}(i,\$ )=\mathrm{acc}$</li>
+    <li style="margin:1px 46px;">$\small A\to\alpha\boldsymbol{\cdot}B\beta\in I_i$ 且 $\small\mathrm{GOTO}(I_i,B)=I_j$，则 $\small\mathrm{GOTO}(i,b)=\mathrm{j}$</li>
+    <li style="margin:1px 46px;">$\small A\to\alpha\ \boldsymbol{\cdot}\in I_i$ 且 $\small A\ne S'$，则 $\small\mathbf{for}\ \ \forall a\in T\cup\lbrace\$ \rbrace\ \mathbf{do}\ \ \mathrm{ACTION}(i,a)=\mathrm{rj}$</li>
+    <li style="margin:1px 46px;">$\small S'\to S\ \boldsymbol{\cdot}\in I_i$，则 $\small\mathrm{ACTION}(i,\$ )=\mathrm{acc}$</li>
     </ul>
 <li style="margin:1px 26px;">没有定义的所有条目设置为 $\small\mathit{error}$</li>
 </ul></p>
@@ -820,25 +829,25 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
 </tr>
 </table>
 
-<pre class="pseudocode" style="width:400px;margin-top:-10px;border:1px solid #000000;">
+<pre class="pseudocode" style="width:413px;margin-top:-10px;border:1px solid #000000;">
 <b>Input</b>: <pcy>输入串</pcy> <i>w</i>, LR <pcy>分析表</pcy>
 <b>Output</b>: <pcy>若</pcy> <i>w</i> <pcy>在</pcy> L(G) <pcy>中, 输出归约步骤, 否则报错</pcy>
 <i>a</i> = <i>w</i>[0], <pcy>初状态入栈</pcy>
 <b>while</b> (1) {
-    <i>s</i> = <pcy>弹出栈顶状态</pcy>
+    <i>s</i> = <pcy>栈顶状态</pcy>
     <b>if</b> (ACTION[<i>s, a</i>] = <i>si</i>) { <pcy>// shift</pcy>
         <i>a</i> <pcy>入符号栈</pcy>，<i>i</i> <pcy>入状态栈</pcy>
         <i>a</i> = next(<i>w</i>)
     } <b>else if</b> (ACTION[<i>s, a</i>] = <i>ri</i>) { <pcy>// reduce</pcy>
-        <pcy>选取产生式</pcy> <i>i</i>: <i>A</i> → β，<pcy>并从符号栈弹出</pcy> |β| <pcy>个符号</pcy>
+        <pcy>选取产生式</pcy> <i>i</i>: <i>A</i> → β，<pcy>并从栈弹出</pcy> |β| <pcy>个符号和状态</pcy>
         <i>t</i> = <pcy>当前栈顶状态</pcy>
-        GOTO(<i>t, a</i>) <pcy>入栈</pcy>，<pcy>并输出产生式</pcy> <i>A</i> → β
+        GOTO(<i>t, A</i>) <pcy>和符号</pcy> <i>A</i> <pcy>入栈</pcy>，<pcy>并输出产生式</pcy> <i>A</i> → β
     } <b>else if</b> (ACTION[<i>s, a</i>] = acc) <b>break</b>; <pcy>// success</pcy>
     <b>else</b> <i>error</i>()
 }
 </pre>
 
-<p>$\small\mathrm{LR}$ 语法分析算法如左图所示。</p>
+<p>$\small\mathrm{LR}$ 语法分析算法如左图所示。该过程模拟了最左归约的 $\small\mathrm{PDA}$。</p>
 <h4 id="3-smallmathrmlr0">(3). $\small\mathrm{LR}(0)$ 文法</h4>
 <p><num1>①</num1> 移入-归约冲突：以状态 $\small I:\ \lbrace E\to T\boldsymbol{\cdot},\ T\to T\boldsymbol{\cdot}*F\rbrace$ 为例，在分析表中确定 $\small I$ 的转移的时候，无法确定移入还是归约。<br>
 <num1>②</num1> 归约-归约冲突：以状态 $\small I:\ \lbrace B\to \boldsymbol{\cdot},\ T\to \boldsymbol{\cdot}\rbrace$ 为例，在分析表中确定 $\small I$ 的转移的时候，无法确定归约为哪个非终结符。<br>
@@ -846,7 +855,7 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
 <h3 id="3-smallmathrmslr">3. $\small\mathrm{SLR}$ 分析</h3>
 <h4 id="1_1">(1). 基本思想</h4>
 <blockquote>
-<p><cs><em>e.g.</em></cs> 以算术表达式文法的一个状态 $\small I:\ \lbrace E\to T\boldsymbol{\cdot},\ T\to T\boldsymbol{\cdot}*F\rbrace$ 为例，到达状态 $\small I$ 的时候，由于无法判定已经识别的由 $\small T$ 推导的串是一个句柄还是 $\small T$ 产生式的一个部分，进而无法知道读取到 $\small *$ 时该移入还是该归约。<br>
+<p><cs><em>e.g.</em></cs><cs>1</cs> 以算术表达式文法的一个状态 $\small I:\ \lbrace E\to T\boldsymbol{\cdot},\ T\to T\boldsymbol{\cdot}*F\rbrace$ 为例，到达状态 $\small I$ 的时候，由于无法判定已经识别的由 $\small T$ 推导的串是一个句柄还是 $\small T$ 产生式的一个部分，进而无法知道读取到 $\small *$ 时该移入还是该归约。<br>
 但 $\small\mathrm{FOLLOW}(E)=\lbrace\ )\ +\ \$\ \rbrace$，可知对于 $\small (I,*)$，不应归约为 $\small E$。</p>
 </blockquote>
 <p>设下一个输入符号为 $\small\mathrm{a}$，项集 $\small I$ 有 $m$ 个移入项 $\small\lbrace A_1\to\alpha_1\boldsymbol{\cdot}\mathrm{a}_1\beta_1,\ \dots \ ,A_m\to\alpha_m\boldsymbol{\cdot}\mathrm{a}_m\beta_m\rbrace$ 和 $n$ 个归约项 $\small\lbrace B_1\to\gamma_1,\ \dots\ ,B_n\to\gamma_n\rbrace$.<br>
@@ -866,13 +875,14 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
 </ul></p>
 <h4 id="2">(2). 局限性</h4>
 <blockquote>
-<p><cs><em>e.g.</em></cs> 描述赋值语句的文法如下:<br>
+<p><cs><em>e.g.</em></cs><cs>2</cs> 描述赋值语句的文法如下:<br>
 $\small (0)\ S'\to S\ \ (1)\ S\to L=R\ \ (2)\ S\to R\ \ (3)\ L\to *R\ \ (4)\ L\to\mathrm{id}\ \ (5)\ R\to L$<br>
 它的 $\small\mathrm{SLR}$ 自动机有一个状态 $\small I:\ \lbrace S\to L\boldsymbol{\cdot}=R,\ R\to L\boldsymbol{\cdot}\rbrace$
 且 $\small\mathrm{FOLLOW}(R)=\lbrace\ =\ \$ \rbrace$<br>
 对于 $\small(I,=)$，无法判定移入还是归约。</p>
 </blockquote>
-<p>$\small\mathrm{SLR}$ 分析仍有可能产生冲突。$\small\mathrm{SLR}$ 分析表没有冲突的文法为 $\small\mathrm{SLR}(1)$ 文法，$\small\mathrm{S}$ 的含义为 <cy>Simple</cy>，$(1)$ 通常省略。</p>
+<p>$\small\mathrm{SLR}$ 分析规避冲突的方式仍不够细致。<br>
+$\small\mathrm{SLR}$ 分析表没有冲突的文法为 $\small\mathrm{SLR}(1)$ 文法，$\small\mathrm{S}$ 的含义为 <cy>Simple</cy>，$(1)$ 通常省略。</p>
 <p></font></p>
                 
                   
