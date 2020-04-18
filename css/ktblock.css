@@ -61,6 +61,24 @@ blockquote.ktb1 {
 	font-size: 120%;
 }
 
+.generalcy msf {
+	font-family: msf;
+}
+
+.generalcy mag {
+	font-family: m;
+}
+
+.generalcy mathb {
+	/*for singel escape \ */
+}
+
+.ilmath {
+	margin-left:50px;
+	margin-top: -11px;
+	margin-bottom: 8px;
+}
+
 .waveLine {
 	text-decoration-line: underline; 
 	text-decoration-style: wavy;

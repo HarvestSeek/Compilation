@@ -2,7 +2,6 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -10,31 +9,11 @@
 	
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
     
 	<meta name="format-detection" content="telephone=no">
 
@@ -44,9 +23,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.89dc9fe3.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecd4686e.min.css">
       
       
         
@@ -55,16 +34,13 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../css/katex.css">
@@ -88,97 +64,80 @@
     
       
         
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-117404761-1", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-117404761-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
     
   </head>
   
+  
     
     
     <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="blue">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#1" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Learning Notes of Compilation" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon">import_contacts</i>
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Learning Notes of Compilation
-            </span>
-            <span class="md-header-nav__topic">
-              
-                1. introduction
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Learning Notes of Compilation" class="md-header-nav__button md-logo" aria-label="Learning Notes of Compilation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,2H5A2,2 0 0,0 3,4V18A2,2 0 0,0 5,20H9L12,23L15,20H19A2,2 0 0,0 21,18V4A2,2 0 0,0 19,2M13.88,12.88L12,17L10.12,12.88L6,11L10.12,9.12L12,5L13.88,9.12L18,11" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Learning Notes of Compilation
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              1. introduction
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Type to start searching
           </div>
@@ -188,31 +147,32 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Learning Notes of Compilation" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Notes of Compilation" class="md-nav__button md-logo" aria-label="Learning Notes of Compilation">
       
-        <i class="md-icon">import_contacts</i>
-      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,2H5A2,2 0 0,0 3,4V18A2,2 0 0,0 5,20H9L12,23L15,20H19A2,2 0 0,0 21,18V4A2,2 0 0,0 19,2M13.88,12.88L12,17L10.12,12.88L6,11L10.12,9.12L12,5L13.88,9.12L18,11" /></svg>
+
     </a>
     Learning Notes of Compilation
   </label>
@@ -250,13 +210,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       basis：automata theory
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="basis：automata theory" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         basis：automata theory
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -334,13 +300,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       I Lexical Analysis
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="I Lexical Analysis" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         I Lexical Analysis
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -382,13 +354,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       II Syntax Analysis
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="II Syntax Analysis" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         II Syntax Analysis
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -456,14 +434,20 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
-      III Syntax-Directed Translation
+      III Semantic Translation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="III Semantic Translation" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        III Syntax-Directed Translation
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        III Semantic Translation
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -477,11 +461,14 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         1. introduction
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
       </label>
     
     <a href="./" title="1. introduction" class="md-nav__link md-nav__link--active">
@@ -489,44 +476,69 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 语义分析概述" class="md-nav__link">
-    1. 语义分析概述
+  <a href="#1" class="md-nav__link">
+    1. 语义翻译概述
   </a>
+  
+    <nav class="md-nav" aria-label="1. 语义翻译概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    (1). 语义分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    (2). 中间代码生成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 语法制导翻译的基本思想" class="md-nav__link">
-    2. 语法制导翻译的基本思想
+  <a href="#2_1" class="md-nav__link">
+    2. 语法制导翻译
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="2. 语法制导翻译">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" title="(1). 语法制导定义" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     (1). 语法制导定义
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_1" title="(2). 语法制导翻译方案" class="md-nav__link">
+  <a href="#2_2" class="md-nav__link">
     (2). 语法制导翻译方案
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-sdd-vs-sdt" title="(3). SDD vs. SDT" class="md-nav__link">
+  <a href="#3-sdd-vs-sdt" class="md-nav__link">
     (3). SDD vs. SDT
   </a>
   
@@ -537,9 +549,32 @@
   
 </li>
       
-      
-      
-      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 三地址代码
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 三地址代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    (1). 常用的三地址指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    (2). 四元式表示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -560,6 +595,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3/" title="3. declaration and assignment" class="md-nav__link">
+      3. declaration and assignment
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -576,44 +623,69 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 语义分析概述" class="md-nav__link">
-    1. 语义分析概述
+  <a href="#1" class="md-nav__link">
+    1. 语义翻译概述
   </a>
+  
+    <nav class="md-nav" aria-label="1. 语义翻译概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    (1). 语义分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    (2). 中间代码生成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 语法制导翻译的基本思想" class="md-nav__link">
-    2. 语法制导翻译的基本思想
+  <a href="#2_1" class="md-nav__link">
+    2. 语法制导翻译
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="2. 语法制导翻译">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" title="(1). 语法制导定义" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     (1). 语法制导定义
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2_1" title="(2). 语法制导翻译方案" class="md-nav__link">
+  <a href="#2_2" class="md-nav__link">
     (2). 语法制导翻译方案
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-sdd-vs-sdt" title="(3). SDD vs. SDT" class="md-nav__link">
+  <a href="#3-sdd-vs-sdt" class="md-nav__link">
     (3). SDD vs. SDT
   </a>
   
@@ -624,9 +696,32 @@
   
 </li>
       
-      
-      
-      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 三地址代码
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 三地址代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    (1). 常用的三地址指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    (2). 四元式表示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -641,12 +736,15 @@
               
                 
                 
+                  
+                
+                
                   <h1>1. introduction</h1>
                 
                 <p><font class="generalcy"></p>
-<h3 id="1">1. 语义分析概述</h3>
-<p>在编译的阶段中，语义分析的结果通常表示为中间代码的形式，因此把语义分析和中间代码生成两个步骤统称为语义翻译。<br>
-语法制导翻译 (<cy2>syntax-directed translation</cy2>) 指在语法分析过程中使用 <cy>CFG</cy> 引导对语言的翻译，即统合了语义翻译和语法分析的过程，是一种面向文法的翻译技术。</p>
+<h3 id="1">1. 语义翻译概述</h3>
+<p>在编译的过程中，语义翻译包含 语义分析 和 中间代码生成 (<cy2>intermediate-code generation</cy2>) 两个步骤。<br></p>
+<h4 id="1_1">(1). 语义分析</h4>
 <p><img src="../img/symtable.png" align=right height=200 style="margin-left:0px">
 语义分析阶段主要任务如下：
 <ul style="margin-top:-16px;margin-bottom:10px">
@@ -663,9 +761,18 @@
     <li style="margin:1px 26px;">运算分量类型不匹配</li>
     </ul>
 </ul></p>
-<h3 id="2">2. 语法制导翻译的基本思想</h3>
-<p>将语义规则同语法规则 (即产生式) 联系起来设计以下两个概念。</p>
-<h4 id="1_1">(1). 语法制导定义</h4>
+<h4 id="2">(2). 中间代码生成</h4>
+<p>&emsp;中间代码生成也可以和语义分析、语法分析同时进行，它是编译器前端的过程的最后一步，负责生成交给后端处理的中间代码。底层形式的中间代码更接近于目标机器，使用机器相关的处理任务，如寄存器分配、代码优化等。本章使用到的表示形式有
+<ul style="margin-top:-16px;margin-bottom:3px;line-height:30px;">
+<li style="margin:1px 26px;">三地址代码</li>
+<li style="margin:1px 26px;">语法结构树</li>
+</ul>
+不同的编译器对中间表示的选择各有不同，例如早期的 <cy>C++</cy> 使用 <cy>C</cy> 代码作为中间代码，而后端就是一个 <cy>C</cy> 编译器。
+<div style="margin-bottom:55px"></div></p>
+<h3 id="2_1">2. 语法制导翻译</h3>
+<p>&emsp;语法制导翻译 (<cy2>syntax-directed translation</cy2>) 指在语法分析过程中使用 <cy>CFG</cy> 引导对语言的翻译，即统合了语义翻译和语法分析的过程，是一种面向文法的翻译技术。<br>
+&emsp;将语义规则同语法规则 (即产生式) 联系起来涉及以下两个概念。</p>
+<h4 id="1_2">(1). 语法制导定义</h4>
 <p>语法制导定义 (<cy2>syntax-directed definition, SDD</cy2>) 是对 <cy>CFG</cy> 的推广
 <ul style="margin-top:-16px;margin-bottom:2px;line-height:30px;">
 <li style="margin:1px 22px;">将每个文法符号和一个语义属性相关联</li>
@@ -674,7 +781,7 @@
 同一产生式的不同非终结符通过下标区分。
 <img src="../img/posteg1.png" height=150></p>
 <p>如图是通过 <cy>SDD</cy> 实现的中缀表达式向后缀表达式的翻译。</p>
-<h4 id="2_1">(2). 语法制导翻译方案</h4>
+<h4 id="2_2">(2). 语法制导翻译方案</h4>
 <p>语法制导翻译方案 (<cy2>translation scheme, SDT</cy2>) 是在产生式右端嵌入了程序片段的 <cy>CFG</cy>，这些片段称为语义动作 (<cy2>semantic action</cy2>)，放在花括号内。在语法分析过程使用一个产生式时，相应的语义动作就会被执行，语义动作在产生式中的位置决定了它的执行时间。</p>
 <p><img src="../img/posteg2.png" height=150></p>
 <p>如图是通过 <cy>SDT</cy> 实现的中缀表达式向后缀表达式的翻译。</p>
@@ -683,10 +790,132 @@
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
 <li style="margin:1px 26px;"><cy>SDD</cy>: 是语言翻译的高层次规格说明，隐蔽了具体实现细节，例如翻译发生的顺序</li>
 <li style="margin:1px 26px;"><cy>SDT</cy>: 可以看做是对 <cy>SDD</cy> 的补充，是 <cy>SDD</cy> 的具体实施方案，显式指明了计算细节</li>
+</ul>
+<div style="margin-bottom:55px"></div></p>
+<h3 id="3">3. 三地址代码</h3>
+<p>&emsp;三地址码 (<cy>three-address code</cy>) 由类似于汇编的指令序列构成，每个指令最多有三个操作数。由于三地址代码拆分了多运算符算术表达式以及控制流语句的嵌套结构，因此适用于目标代码的生成及优化。<br>
+&emsp;表示三地址码可用的数据结构：三元式，四元式，间接三元式。</p>
+<h4 id="1_3">(1). 常用的三地址指令</h4>
+<table class="simp" style="margin-left:70px;font-family:m, cycn;">
+<tr>
+    <td class="corner">指令类型</td>
+    <td class="firstrow">指令形式</td>
+</tr>
+<tr>
+    <td class="firstcol">赋值</td>
+    <td class="general" style="font-size:16px"><i>x</i> = <i>y</i> op <i>z</i>,&emsp;<i>x</i> = op <i>y</i></td>
+</tr>
+<tr>
+    <td class="firstcol">复制</td>
+    <td class="general" style="font-size:16px"><i>x</i> = <i>y</i></td>
+</tr>
+<tr>
+    <td class="firstcol">条件跳转</td>
+    <td class="general" style="font-size:16px">if <i>x</i> relop <i>y</i> goto <i>n</i></td>
+</tr>
+<tr>
+    <td class="firstcol">非条件跳转</td>
+    <td class="general" style="font-size:16px">goto <i>n</i></td>
+</tr>
+<tr>
+    <td class="firstcol">参数传递</td>
+    <td class="general" style="font-size:16px">param <i>x</i></td>
+</tr>
+<tr>
+    <td class="firstcol">过程调用</td>
+    <td class="general" style="font-size:16px"><i>y</i> = call <i>p, n</i></td>
+</tr>
+<tr>
+    <td class="firstcol">过程返回</td>
+    <td class="general" style="font-size:16px">return <i>x</i></td>
+</tr>
+<tr>
+    <td class="firstcol">数组引用</td>
+    <td class="general" style="font-size:16px"><i>x</i> = <i>y</i>[<i>i</i>]</td>
+</tr>
+<tr>
+    <td class="firstcol">数组赋值</td>
+    <td class="general" style="font-size:16px"><i>x</i>[<i>i</i>] = <i>y</i></td>
+</tr>
+<tr>
+    <td class="firstcol">地址及指针操作</td>
+    <td class="general" style="font-size:16px"><i>x</i> = &<i>y</i>,&emsp;<i>x</i> = *<i>y</i>,&emsp;*<i>x</i> = <i>y</i></td>
+</tr>
+</table>
+
+<p>其中地址名可有如下三种形式:
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">源程序变量名</li>
+<li style="margin:1px 26px;">常量</li>
+<li style="margin:1px 26px;">编译器生成的中间变量名</li>
 </ul></p>
+<h4 id="2_3">(2). 四元式表示</h4>
+<p>一个四元式 (<cy2>quadruple</cy2>) 包含 $\small(\mathit{op,\ arg_1,\ arg_2,\ result})$ 四个字段。四元式表示需要注意以下几点：
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;">单目运算符不使用 $\small\mathit{arg}_2$</li>
+<li style="margin:1px 26px;">类似 $\small\mathit{param}$ 的元素安抚不使用 $\small\mathit{arg}_2$ 和 $\small\mathit{result}$</li>
+<li style="margin:1px 26px;">条件或非条件转移指令将目标标号放入 $\small\mathit{result}$</li>
+</ul></p>
+<table class="simp" style="margin-left:70px;font-family:m, cycn;">
+<tr>
+    <td class="corner">三地址指令</td>
+    <td class="firstrow">四元式</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>x</i> = <i>y</i> op <i>z</i></td>
+    <td class="general">( <i>op , y , z , x</i> )</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>x</i> = op <i>y</i></td>
+    <td class="general">(<i> op , y , _ , x </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>x</i> = <i>y</i></td>
+    <td class="general">(<i> = , y , _ , x </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol">if <i>x</i> relop <i>y</i> goto <i>n</i></td>
+    <td class="general">( relop <i>, x , y , n </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol">goto <i>n</i></td>
+    <td class="general">( goto <i>, _ , _ , n </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol">param <i>x</i></td>
+    <td class="general">(param <i>, _ , _ , x </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>y</i> = call <i>p, n</i></td>
+    <td class="general">(call <i>, p , n , y </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol">return <i>x</i></td>
+    <td class="general">(return <i>, _ , _ , x </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>x</i> = <i>y</i>[<i>i</i>]</td>
+    <td class="general">( =[] <i>, y , i , x </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>x</i>[<i>i</i>] = <i>y</i></td>
+    <td class="general">( []= <i>, y , x , i </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>x</i> = &<i>y</i></td>
+    <td class="general">( & <i>, y , _ , x </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol"><i>x</i> = *<i>y</i></td>
+    <td class="general">( =* <i>, y , _ , x </i>)</td>
+</tr>
+<tr style="font-size:16px">
+    <td class="firstcol">*<i>x</i> = <i>y</i></td>
+    <td class="general">( *= <i>, y , _ , x </i>)</td>
+</tr>
+</table>
+
 <p></font></p>
-                
-                  
                 
               
               
@@ -703,34 +932,34 @@
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../2/4/" title="4. bottom-up parsing (2)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../../2/4/" title="4. bottom-up parsing (2)" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 4. bottom-up parsing (2)
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../2/" title="2. SDD and SDT" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../2/" title="2. SDD and SDT" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 2. SDD and SDT
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
             </div>
           </a>
         
@@ -741,11 +970,10 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
     </div>
@@ -754,9 +982,18 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../js/katex.js"></script>
       

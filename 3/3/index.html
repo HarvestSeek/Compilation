@@ -1,0 +1,832 @@
+<!-- Fix MathJax rendering on iOS Safari due to rendering long numbers as phone numbers. -->
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+	
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
+    
+	<meta name="format-detection" content="telephone=no">
+
+    
+      
+        <title>3. declaration and assignment - Learning Notes of Compilation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.89dc9fe3.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecd4686e.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#00bcd4">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/katex.css">
+    
+      <link rel="stylesheet" href="../../css/basic.css">
+    
+      <link rel="stylesheet" href="../../css/wab.css">
+    
+      <link rel="stylesheet" href="../../css/font.css">
+    
+      <link rel="stylesheet" href="../../css/simpletable.css">
+    
+      <link rel="stylesheet" href="../../css/ktblock.css">
+    
+      <link rel="stylesheet" href="../../css/pseudocode.css">
+    
+      <link rel="stylesheet" href="../../css/comptable.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+    
+    
+      
+        
+<link rel="preconnect dns-prefetch" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-117404761-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="cyan" data-md-color-accent="blue">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Learning Notes of Compilation" class="md-header-nav__button md-logo" aria-label="Learning Notes of Compilation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,2H5A2,2 0 0,0 3,4V18A2,2 0 0,0 5,20H9L12,23L15,20H19A2,2 0 0,0 21,18V4A2,2 0 0,0 19,2M13.88,12.88L12,17L10.12,12.88L6,11L10.12,9.12L12,5L13.88,9.12L18,11" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Learning Notes of Compilation
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              3. declaration and assignment
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning Notes of Compilation" class="md-nav__button md-logo" aria-label="Learning Notes of Compilation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,2H5A2,2 0 0,0 3,4V18A2,2 0 0,0 5,20H9L12,23L15,20H19A2,2 0 0,0 21,18V4A2,2 0 0,0 19,2M13.88,12.88L12,17L10.12,12.88L6,11L10.12,9.12L12,5L13.88,9.12L18,11" /></svg>
+
+    </a>
+    Learning Notes of Compilation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Preface" class="md-nav__link">
+      Preface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../color/" title="Color" class="md-nav__link">
+      Color
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      basis：automata theory
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="basis：automata theory" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        basis：automata theory
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/1/" title="1. basic concepts" class="md-nav__link">
+      1. basic concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/2/" title="2. DFA" class="md-nav__link">
+      2. DFA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/3/" title="3. NFA" class="md-nav__link">
+      3. NFA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/4/" title="4. RE" class="md-nav__link">
+      4. RE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0/5/" title="5. CFG" class="md-nav__link">
+      5. CFG
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      I Lexical Analysis
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="I Lexical Analysis" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        I Lexical Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/1/" title="1. introduction" class="md-nav__link">
+      1. introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1/2/" title="2. some details" class="md-nav__link">
+      2. some details
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      II Syntax Analysis
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="II Syntax Analysis" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        II Syntax Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/1/" title="1. introduction" class="md-nav__link">
+      1. introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/2/" title="2. top-down parsing" class="md-nav__link">
+      2. top-down parsing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/3/" title="3. bottom-up parsing (1)" class="md-nav__link">
+      3. bottom-up parsing (1)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2/4/" title="4. bottom-up parsing (2)" class="md-nav__link">
+      4. bottom-up parsing (2)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      III Semantic Translation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="III Semantic Translation" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        III Semantic Translation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1/" title="1. introduction" class="md-nav__link">
+      1. introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2/" title="2. SDD and SDT" class="md-nav__link">
+      2. SDD and SDT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        3. declaration and assignment
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="3. declaration and assignment" class="md-nav__link md-nav__link--active">
+      3. declaration and assignment
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 类型和声明
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 类型和声明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    (1). 类型表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    (2). 局部变量的存储分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 表达式
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 表达式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    (1). 简单赋值语句的翻译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    (2). 数组引用的翻译
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 类型和声明
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 类型和声明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    (1). 类型表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    (2). 局部变量的存储分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 表达式
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 表达式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    (1). 简单赋值语句的翻译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    (2). 数组引用的翻译
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>3. declaration and assignment</h1>
+                
+                <p><font class="generalcy"></p>
+<h3 id="1">1. 类型和声明</h3>
+<p>对类型和声明的翻译过程中，需要：
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 20px;">类型检查: 保证运算数类型和运算符匹配，例如 <cy>Java</cy> 要求 <cy>&amp;&amp;</cy> 只能作用于 <cs>boolean</cs></li>
+<li style="margin:1px 20px;">存储分配: 根据声明的类型确定存储空间大小，在符号表中添加变量名对应的类型和相对偏移量</li>
+<li style="margin:1px 20px;">其他: 例如计算数组引用指示的地址、显式类型转换等等</li>
+</ul></p>
+<h4 id="1_1">(1). 类型表达式</h4>
+<p>类型表达式由基本类型和类型构造算子组成。举例来说 (用 <mag>T</mag> 表示类型表达式)：
+<ul style="margin-top:-16px;margin-bottom:10px;line-height:28px;">
+<li style="margin:1px 20px;">基本类型: 如 <mag>void、char</mag> 等</li>
+<li style="margin:1px 20px;">类名</li>
+<li style="margin:1px 20px;">数组构造符: <mag><i>array</i> (integer, T)</mag></li>
+<li style="margin:1px 20px;">指针构造符: <mag><i>pointer</i> (T)</mag></li>
+<li style="margin:1px 20px;">笛卡尔乘积构造符: <mag>T<sub>1</sub> × T<sub>2</sub> × ...</mag></li>
+<li style="margin:1px 20px;">函数构造符: 例如 <mag>T<sub>1</sub> × T<sub>2</sub> × ... × T<sub>n</sub> → R</mag></li>
+<li style="margin:1px 20px;">记录构造符: 例如 <mag><i>record</i> ((N<sub>1</sub> × T<sub>1</sub>) × (N<sub>2</sub> × T<sub>2</sub>) × ... (N<sub>n</sub> × T<sub>n</sub>))</mag>，其中 <mag>N<sub>i</sub></mag> 表示标识符</li>
+</ul></p>
+<h4 id="2">(2). 局部变量的存储分配</h4>
+<p>有了类型表达式，就可以确定标识符的类型。</p>
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:3px;">
+<cs><i>e.g.</i>3-1</cs>&emsp;一个实现了存储分配的 <cy>SDT</cy>
+<pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
+① P → { <i>offset</i> = 0 } D
+② D → T <i>id</i> ; {<i>enter</i> (id.<i>lexeme</i>, T.<i>type</i>, <i>offset</i>);&ensp;<i>offset</i> = <i>offset</i> + T.<i>width</i>; } D
+③ D → ε
+④ T → B { <i>t</i> = B.<i>type</i>;&ensp;<i>w</i> = B.<i>width</i>; } C { T.<i>type</i> = C.<i>type</i>;&ensp;T.<i>width</i> = C.<i>width</i>;}
+⑤ T → ↑ T<sub>1</sub> { T.<i>type</i> = <i>pointer</i> (T<sub>1</sub>.<i>type</i>);&ensp;T.<i>width</i> = 4 }
+⑥ B → int { B.<i>type</i> = int;&ensp;B.<i>width</i> = 4; }
+⑦ B → real { B.<i>type</i> = real;&ensp;B.<i>width</i> = 8; }
+⑧ C → ε { C.<i>type</i> = <i>t</i>;&ensp;C.<i>width</i> = <i>w</i>; }
+⑨ C → [num] C<sub>1</sub> { C.<i>type</i> = <i>array</i> (num.<i>val</i>, C<sub>1</sub>.<i>type</i>);&ensp;C.<i>width</i> = num.<i>val</i> * C<sub>1</sub>.<i>width</i>; }
+</pre>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:28px;font-size: 96%;">
+<li style="margin:1px 6px;">$\small\rm D$ 负责生成声明的序列，$\small\rm T$ 负责生成类型，包含基本类型、数组类型和指针类型</li>
+<li style="margin:1px 6px;">$\small\rm B$ 产生具体的基本类型，$\small\rm C$ 产生 <cy>0</cy> 个或多个用方括号括起的整数</li>
+<li style="margin:1px 6px;">产生式 ④ 引入了两个局部变量 $\small\it t$ 和 $\small\it w$，也就是 $\small\rm C$ 的继承属性，用于在 $\small\mathrm{C}\to\varepsilon$ 时为 $\small\rm T$ 计算最终的属性值</li>
+</ul>
+</blockquote>
+
+<h3 id="2_1">2. 表达式</h3>
+<h4 id="1_2">(1). 简单赋值语句的翻译</h4>
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:3px;">
+<cs><i>e.g.</i>3-2</cs>&emsp;简单赋值语句的 <cy>L-SDT</cy>
+<pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
+① S → id = E; { <i>p</i> = <i>lookup</i>(id.<i>lexeme</i>);&ensp;if <i>p</i> == nil then <i>error</i> ;&ensp;<i>gen</i>(<i>p</i> = E.<i>addr</i>); } 
+② E → E<sub>1</sub> + E<sub>2</sub> { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = E<sub>1</sub>.<i>addr</i> + E<sub>2</sub>.<i>addr</i>); }
+③ E → E<sub>1</sub> ∗ E<sub>2</sub> { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = E<sub>1</sub>.<i>addr</i> ∗ E<sub>2</sub>.<i>addr</i>); }
+④ E → - E<sub>1</sub> { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = unminus E<sub>1</sub>.<i>addr</i>; }
+⑤ E → ( E<sub>1</sub> ) { E.<i>addr</i> = E<sub>1</sub>.<i>addr</i>; }
+⑥ E → id { E.<i>addr</i> = <i>lookup</i>(id.<i>lexeme</i>);&ensp;if E.<i>addr</i> == nil then <i>error</i> }
+</pre>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:26px;font-size: 96%;">
+<li style="margin:1px 6px;"><mag>E.<i>addr</i></mag> : 表示存放表达式 $\small\rm E$ 的值的地址 (三地址指令的"地址"，即变量名)</li>
+<li style="margin:1px 6px;"><mag><i>lookup</i>(<i>name</i>)</mag> : 查询符号表，返回 <mag><i>name</i></mag> 对应的记录</li>
+<li style="margin:1px 6px;"><mag><i>newtemp</i>()</mag> : 生成一个新的临时变量 <mag><i>t</i></mag>，返回它的地址</li>
+<li style="margin:1px 6px;"><mag><i>gen</i>(<i>code</i>)</mag> : 增量添加一个三地址指令</li>
+</ul>
+</blockquote>
+
+<h4 id="2_2">(2). 数组引用的翻译</h4>
+<p>对于一个 $\small k$ 维数组的某个元素 $\small a[i_1][i_2]...[i_k]$，其相对地址为 $\small\mathit{base}+i_1\times w_1+...+i_k\times w_k$，其中 $\small w_j$ 是 $\small a[i_1][i_2]...[i_j]$ 指代的元素的宽度。</p>
+<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:3px;">
+<cs><i>e.g.</i>3-3</cs>&emsp;与例子 <cy>3-2</cy> 的 <cy>SDT</cy> 组合起来，形成完整的赋值文法
+<pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
+⑦ S → L = E; { <i>gen</i>(L.<i>array</i>[L.<i>offset</i>] = E.<i>addr</i>); } 
+⑧ E → L { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = L.<i>array</i>[L.<i>offset</i>]); }
+⑨ L → id [E] { L.<i>array</i> = <i>lookup</i>(id.<i>lexeme</i>);&emsp;if L.<i>array</i> == nil then <i>error</i>;&emsp;L.<i>type</i> = L.<i>array</i>.<i>type.eleme</i>;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   L.<i>offset</i> = <i>newtemp</i>();&emsp;<i>gen</i>(L.<i>offset</i> = E.<i>addr</i> ∗ L.<i>type.width</i>) }
+⑩ L → L<sub>1</sub> [E] { L.<i>array</i> = L<sub>1</sub>.<i>array</i>;&emsp;L.<i>type</i> = L<sub>1</sub>.<i>type.eleme</i>;&emsp;<i>t</i> = <i>newtemp</i>();
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   <i>gen</i>(E.<i>addr</i> ∗ L.<i>type.width</i>);&emsp;L.<i>offset</i> = <i>newtemp</i>();&emsp;<i>gen</i>(L.<i>offset</i> = L<sub>1</sub>.<i>offset</i> + <i>t</i>); }
+</pre>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:26px;font-size: 96%;">
+<li style="margin:1px 6px;"><mag>L.<i>array</i></mag> : 查询符号表所得的地址；<mag>L.<i>array.type</i></mag> 是其类型表达式，<mag><i>eleme</i></mag> 给出了其类型，即 <mag><i>a</i></mag>$\small[i_1]$ 的类型</li>
+<li style="margin:1px 6px;"><mag>L.<i>offset</i></mag> : 起到临时变量的作用，用于累加 $\small i_j\times w_j$</li>
+<li style="margin:1px 6px;"><mag><i>newtemp</i>()</mag> : 生成一个新的临时变量 <mag><i>t</i></mag>，返回它的地址</li>
+</ul>
+</blockquote>
+
+<p>设 <mag><i>type</i>(<i>a</i>)=<i>array</i>(3, <i>array</i>(5, <i>array</i>(8, int)))</mag>, 那么 <mag><i>addr</i>($\small a[i_1][i_2][i_3]$) = <i>base</i> + $\small i_1\cdot 160+i_2\cdot 32+i_3\cdot 4$</mag>。若使用上述 <cy>SDT</cy> 翻译，得到的三地址码序列为<br>
+&emsp;$\small t_1=i_1*160$,&emsp;$\small t_2=i_2*32$,&emsp;$\small t_3 = t_1+t_2$,&emsp;$\small t_4=i_3*4$,&emsp;$\small t_5=t_3+t_4$,&emsp;$\small t_6=a[t_5]$</p>
+<p></font></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../2/" title="2. SDD and SDT" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                2. SDD and SDT
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
