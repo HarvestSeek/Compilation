@@ -19,7 +19,7 @@
 
     
       
-        <title>3. declaration and assignment - Learning Notes of Compilation</title>
+        <title>4. control flow - Learning Notes of Compilation</title>
       
     
     
@@ -111,7 +111,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              3. declaration and assignment
+              4. control flow
             
           </span>
         </div>
@@ -480,6 +480,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../3/" title="3. declaration and assignment" class="md-nav__link">
+      3. declaration and assignment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -489,14 +501,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        3. declaration and assignment
+        4. control flow
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
         </span>
       </label>
     
-    <a href="./" title="3. declaration and assignment" class="md-nav__link md-nav__link--active">
-      3. declaration and assignment
+    <a href="./" title="4. control flow" class="md-nav__link md-nav__link--active">
+      4. control flow
     </a>
     
       
@@ -514,22 +526,22 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 类型和声明
+    1. 控制流
   </a>
   
-    <nav class="md-nav" aria-label="1. 类型和声明">
+    <nav class="md-nav" aria-label="1. 控制流">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1_1" class="md-nav__link">
-    (1). 类型表达式
+    (1). 控制流语句
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    (2). 局部变量的存储分配
+    (2). 布尔表达式
   </a>
   
 </li>
@@ -541,22 +553,29 @@
       
         <li class="md-nav__item">
   <a href="#2_1" class="md-nav__link">
-    2. 表达式
+    2. 回填
   </a>
   
-    <nav class="md-nav" aria-label="2. 表达式">
+    <nav class="md-nav" aria-label="2. 回填">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1_2" class="md-nav__link">
-    (1). 简单赋值语句的翻译
+    (1). 布尔表达式的回填
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2_2" class="md-nav__link">
-    (2). 数组引用的翻译
+    (2). 控制流语句的回填
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-breakcontinuegoto" class="md-nav__link">
+    (3). break、continue、goto
   </a>
   
 </li>
@@ -566,22 +585,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-switch" class="md-nav__link">
+    3. Switch 语句
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../4/" title="4. control flow" class="md-nav__link">
-      4. control flow
-    </a>
   </li>
 
         
@@ -615,22 +629,22 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    1. 类型和声明
+    1. 控制流
   </a>
   
-    <nav class="md-nav" aria-label="1. 类型和声明">
+    <nav class="md-nav" aria-label="1. 控制流">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1_1" class="md-nav__link">
-    (1). 类型表达式
+    (1). 控制流语句
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    (2). 局部变量的存储分配
+    (2). 布尔表达式
   </a>
   
 </li>
@@ -642,28 +656,42 @@
       
         <li class="md-nav__item">
   <a href="#2_1" class="md-nav__link">
-    2. 表达式
+    2. 回填
   </a>
   
-    <nav class="md-nav" aria-label="2. 表达式">
+    <nav class="md-nav" aria-label="2. 回填">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1_2" class="md-nav__link">
-    (1). 简单赋值语句的翻译
+    (1). 布尔表达式的回填
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2_2" class="md-nav__link">
-    (2). 数组引用的翻译
+    (2). 控制流语句的回填
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-breakcontinuegoto" class="md-nav__link">
+    (3). break、continue、goto
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-switch" class="md-nav__link">
+    3. Switch 语句
+  </a>
   
 </li>
       
@@ -683,92 +711,139 @@
                   
                 
                 
-                  <h1>3. declaration and assignment</h1>
+                  <h1>4. control flow</h1>
                 
                 <p><font class="generalcy"></p>
-<h3 id="1">1. 类型和声明</h3>
-<p>对类型和声明的翻译过程中，需要：
-<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 20px;">类型检查: 保证运算数类型和运算符匹配，例如 <cy>Java</cy> 要求 <cy>&amp;&amp;</cy> 只能作用于 <cs>boolean</cs></li>
-<li style="margin:1px 20px;">存储分配: 根据声明的类型确定存储空间大小，在符号表中添加变量名对应的类型和相对偏移量</li>
-<li style="margin:1px 20px;">其他: 例如计算数组引用指示的地址、显式类型转换等等</li>
-</ul></p>
-<h4 id="1_1">(1). 类型表达式</h4>
-<p>类型表达式由基本类型和类型构造算子组成。举例来说 (用 <mag>T</mag> 表示类型表达式)：
-<ul style="margin-top:-16px;margin-bottom:10px;line-height:28px;">
-<li style="margin:1px 20px;">基本类型: 如 <mag>void、char</mag> 等</li>
-<li style="margin:1px 20px;">类名</li>
-<li style="margin:1px 20px;">数组构造符: <mag><i>array</i> (integer, T)</mag></li>
-<li style="margin:1px 20px;">指针构造符: <mag><i>pointer</i> (T)</mag></li>
-<li style="margin:1px 20px;">笛卡尔乘积构造符: <mag>T<sub>1</sub> × T<sub>2</sub> × ...</mag></li>
-<li style="margin:1px 20px;">函数构造符: 例如 <mag>T<sub>1</sub> × T<sub>2</sub> × ... × T<sub>n</sub> → R</mag></li>
-<li style="margin:1px 20px;">记录构造符: 例如 <mag><i>record</i> ((N<sub>1</sub> × T<sub>1</sub>) × (N<sub>2</sub> × T<sub>2</sub>) × ... (N<sub>n</sub> × T<sub>n</sub>))</mag>，其中 <mag>N<sub>i</sub></mag> 表示标识符</li>
-</ul></p>
-<h4 id="2">(2). 局部变量的存储分配</h4>
-<p>有了类型表达式，就可以确定标识符的类型。</p>
-<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:3px;">
-<cs><i>e.g.</i>3-1</cs>&emsp;一个实现了存储分配的 <cy>SDT</cy>
+<h3 id="1">1. 控制流</h3>
+<p>控制流语句的翻译需要生成跳转的三地址指令。为此，定义如下继承属性:
+<ul style="margin-top:-16px;margin-bottom:0px;line-height:26px;">
+<li style="margin:1px 26px;"><mag>B<i>.true</i></mag> : 地址变量，存放 <mag>B</mag> 为真时跳转的目标指令的标号</li>
+<li style="margin:1px 26px;"><mag>B<i>.false</i></mag> : 地址变量，存放 <mag>B</mag> 为假时跳转的目标指令的标号</li>
+<li style="margin:1px 26px;"><mag>S<i>.next</i></mag> : 地址变量，存放 <mag>S</mag> 后继指令的标号</li>
+</ul>
+其中，<mag>B</mag> 是布尔表达式，<mag>S</mag> 是控制流语句。<mag>B</mag> 产生式负责生成跳转代码。</p>
+<h4 id="1_1">(1). 控制流语句</h4>
+<blockquote style="margin-top:0px;margin-bottom:-10px;margin-left:3px;">
+<cs><i>e.g.</i>4-1</cs>&emsp;基本控制流语句的 <cy>SDT</cy>
 <pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
-① P → { <i>offset</i> = 0 } D
-② D → T <i>id</i> ; {<i>enter</i> (id.<i>lexeme</i>, T.<i>type</i>, <i>offset</i>);&ensp;<i>offset</i> = <i>offset</i> + T.<i>width</i>; } D
-③ D → ε
-④ T → B { <i>t</i> = B.<i>type</i>;&ensp;<i>w</i> = B.<i>width</i>; } C { T.<i>type</i> = C.<i>type</i>;&ensp;T.<i>width</i> = C.<i>width</i>;}
-⑤ T → ↑ T<sub>1</sub> { T.<i>type</i> = <i>pointer</i> (T<sub>1</sub>.<i>type</i>);&ensp;T.<i>width</i> = 4 }
-⑥ B → int { B.<i>type</i> = int;&ensp;B.<i>width</i> = 4; }
-⑦ B → real { B.<i>type</i> = real;&ensp;B.<i>width</i> = 8; }
-⑧ C → ε { C.<i>type</i> = <i>t</i>;&ensp;C.<i>width</i> = <i>w</i>; }
-⑨ C → [num] C<sub>1</sub> { C.<i>type</i> = <i>array</i> (num.<i>val</i>, C<sub>1</sub>.<i>type</i>);&ensp;C.<i>width</i> = num.<i>val</i> * C<sub>1</sub>.<i>width</i>; }
+① P → { S.<i>next</i> = <i>newlabel</i>(); } S { <i>label</i>(S.<i>next</i>); }
+② S → { S<sub style="font-size:54%;">1</sub>.<i>next</i> = <i>newlabel</i>(); } S<sub style="font-size:54%;">1</sub> { <i>label</i>(S<sub style="font-size:54%;">1</sub>.<i>next</i>);&ensp;S<sub style="font-size:54%;">2</sub>.<i>next</i> = S.<i>next</i>; } S<sub style="font-size:54%;">2</sub>
+③ S → id = E; | L = E;
+④ S → if { B.<i>true</i> = <i>newlabel</i>();&ensp;B.<i>false</i> = S.<i>next</i>; } B then { <i>label</i>(B.<i>true</i>);&ensp;S<sub style="font-size:54%;">1</sub>.<i>next</i> = S.<i>next</i>; } S<sub style="font-size:54%;">1</sub>
+⑤ S → if { B.<i>true</i> = <i>newlabel</i>();&ensp;B.<i>false</i> = <i>newlabel</i>(); } B then { <i>label</i>(B.<i>true</i>);&ensp;S<sub style="font-size:54%;">1</sub>.<i>next</i> = S.<i>next</i>; } S<sub style="font-size:54%;">1</sub> { <i>gen</i>(goto S.<i>next</i>)}
+        &emsp;&ensp;else { <i>label</i>(B.<i>false</i>);&ensp;S<sub style="font-size:54%;">2</sub>.<i>next</i> = S.<i>next</i>; } S<sub style="font-size:54%;">2</sub>
+⑥ S → while { B.<i>begin</i> = <i>newlabel</i>();&ensp;<i>label</i>(B.<i>begin</i>);&ensp;B.<i>true</i> = <i>newlabel</i>();&ensp;B.<i>false</i> = S.<i>next</i>; } B
+        &emsp;&ensp;do { <i>label</i>(B.<i>true</i>);&ensp;S<sub style="font-size:54%;">1</sub>.<i>next</i> = B.<i>begin</i>; } S<sub style="font-size:54%;">1</sub> { <i>gen</i>(goto B.<i>begin</i>) }
 </pre>
-<ul style="margin-top:-10px;margin-bottom:10px;line-height:28px;font-size: 96%;">
-<li style="margin:1px 6px;">$\small\rm D$ 负责生成声明的序列，$\small\rm T$ 负责生成类型，包含基本类型、数组类型和指针类型</li>
-<li style="margin:1px 6px;">$\small\rm B$ 产生具体的基本类型，$\small\rm C$ 产生 <cy>0</cy> 个或多个用方括号括起的整数</li>
-<li style="margin:1px 6px;">产生式 ④ 引入了两个局部变量 $\small\it t$ 和 $\small\it w$，也就是 $\small\rm C$ 的继承属性，用于在 $\small\mathrm{C}\to\varepsilon$ 时为 $\small\rm T$ 计算最终的属性值</li>
+为控制流语句生成目标代码时，其跳转的目标是不知道的。以 <mag>if B then S</mag> 为例，<mag>B.<i>true</i></mag> 需要等到最右侧的 <mag>S</mag> 分析完才能得知，而 <mag>B.<i>false</i></mag> 需要等到 <mag>B</mag> 分析完才能得知。因此将标号变量的定义拆分为两步，延迟对它的赋值
+<ul style="margin-top:0px;margin-bottom:10px;line-height:28px;font-size: 96%;">
+<li style="margin:1px 16px;">$\small\mathit{newlabel}\ ()$ : 生成存放标号的临时地址变量 $\small\rm L$</li>
+<li style="margin:1px 16px;">$\small\mathit{label}\ ({\rm L})$ : 将下一条三地址指令的标号存放到 $\small\rm L$ 中</li>
 </ul>
 </blockquote>
 
-<h3 id="2_1">2. 表达式</h3>
-<p>表达式的翻译需要生成源表达式的三地址码序列。如果表达式中包含对数组的引用，还需要生成一个计算其偏移量的三地址码序列。</p>
-<h4 id="1_2">(1). 简单赋值语句的翻译</h4>
-<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:3px;">
-<cs><i>e.g.</i>3-2</cs>&emsp;简单赋值语句的 <cy>L-SDT</cy>
+<h4 id="2">(2). 布尔表达式</h4>
+<blockquote style="margin-top:0px;margin-bottom:-10px;margin-left:3px;">
+<cs><i>e.g.</i>4-2</cs>&emsp;布尔表达式的 <cy>SDT</cy>
 <pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
-① S → id = E; { <i>p</i> = <i>lookup</i>(id.<i>lexeme</i>);&ensp;if <i>p</i> == nil then <i>error</i> ;&ensp;<i>gen</i>(<i>p</i> = E.<i>addr</i>); } 
-② E → E<sub>1</sub> + E<sub>2</sub> { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = E<sub>1</sub>.<i>addr</i> + E<sub>2</sub>.<i>addr</i>); }
-③ E → E<sub>1</sub> ∗ E<sub>2</sub> { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = E<sub>1</sub>.<i>addr</i> ∗ E<sub>2</sub>.<i>addr</i>); }
-④ E → - E<sub>1</sub> { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = unminus E<sub>1</sub>.<i>addr</i>; }
-⑤ E → ( E<sub>1</sub> ) { E.<i>addr</i> = E<sub>1</sub>.<i>addr</i>; }
-⑥ E → id { E.<i>addr</i> = <i>lookup</i>(id.<i>lexeme</i>);&ensp;if E.<i>addr</i> == nil then <i>error</i> }
+⑦ B → E<sub style="font-size:54%;">1</sub> relop E<sub style="font-size:54%;">2</sub> { <i>gen</i>(if  E<sub style="font-size:54%;">1</sub>.<i>addr</i>  relop  E<sub style="font-size:54%;">2</sub>.<i>addr</i>  goto  B.<i>true</i>);&ensp;<i>gen</i>(goto B.<i>false</i>); }
+⑧ B → <i>true</i> { <i>gen</i>(goto B.<i>true</i>) }
+⑨ B → <i>false</i> { <i>gen</i>(goto B.<i>false</i>) }
+⑩ B → ( { B<sub style="font-size:54%;">1</sub>.<i>true</i> = B.<i>true</i>;&ensp;B<sub style="font-size:54%;">1</sub>.<i>false</i> = B.<i>false</i>; } B<sub style="font-size:54%;">1</sub> )
+⑪ B → not { B<sub style="font-size:54%;">1</sub>.<i>true</i> = B.<i>false</i>;&ensp;B<sub style="font-size:54%;">1</sub>.<i>false</i> = B.<i>true</i>; } B<sub style="font-size:54%;">1</sub>
+⑫ B → { B<sub style="font-size:54%;">1</sub>.<i>true</i> = B.<i>true</i>;&ensp;B<sub style="font-size:54%;">1</sub>.<i>false</i> = <i>newlabel</i>(); } B<sub style="font-size:54%;">1</sub> 
+        &emsp;&ensp;or { <i>label</i>(B<sub style="font-size:54%;">1</sub>.<i>false</i>);&ensp;B<sub style="font-size:54%;">2</sub>.<i>true</i> = B.<i>true</i>;&ensp;B<sub style="font-size:54%;">2</sub>.<i>false</i> = B.<i>false</i>; } B<sub style="font-size:54%;">2</sub>
+⑬ B → { B<sub style="font-size:54%;">1</sub>.<i>true</i> = <i>newlabel</i>();&ensp;B<sub style="font-size:54%;">1</sub>.<i>false</i> = B.<i>false</i>; } B<sub style="font-size:54%;">1</sub> 
+        &emsp;&ensp;and { <i>label</i>(B<sub style="font-size:54%;">1</sub>.<i>true</i>);&ensp;B<sub style="font-size:54%;">2</sub>.<i>true</i> = B.<i>true</i>;&ensp;B<sub style="font-size:54%;">2</sub>.<i>false</i> = B.<i>false</i>; } B<sub style="font-size:54%;">2</sub>
 </pre>
-<ul style="margin-top:-10px;margin-bottom:10px;line-height:26px;font-size: 96%;">
-<li style="margin:1px 6px;"><mag>E.<i>addr</i></mag> : 表示存放表达式 $\small\rm E$ 的值的地址 (三地址指令的"地址"，即变量名)</li>
-<li style="margin:1px 6px;"><mag><i>lookup</i>(<i>name</i>)</mag> : 查询符号表，返回 <mag><i>name</i></mag> 对应的记录</li>
-<li style="margin:1px 6px;"><mag><i>newtemp</i>()</mag> : 生成一个新的临时变量 <mag><i>t</i></mag>，返回它的地址</li>
-<li style="margin:1px 6px;"><mag><i>gen</i>(<i>code</i>)</mag> : 增量添加一个三地址指令</li>
+</blockquote>
+
+<pre class="pseudocode" style="width:183px;margin-top:-90px;border:1px solid #000000;float:right;font-size:15px;">
+1: if  <msf>x < 100</msf>  goto 7
+2: goto 3
+3: if  <msf>x > 200</msf>  goto 5
+4: goto 8
+5: if  <msf>x != y</msf>  goto 7
+6: goto 8
+7: <msf>x = 0</msf>
+8: ...
+</pre>
+
+<p>以 <mag>if (<msf>x &lt; 100 || x &gt; 200 &amp;&amp; x != y) x = 0;</msf></mag> 为例，按照 <msf>&amp;&amp;</msf> 优先级高的方式归约，其指令序列如右侧所示。它生成的指令不是最优的，<mag>goto 3</mag> 是冗余的，采用 <mag>if&ensp;<i>false</i></mag> 的方式生成代码可以避免。</p>
+<h3 id="2_1">2. 回填</h3>
+<p>在上一部分中，通过定义继承属性以及延迟赋值的方式解决了指令与目标标号绑定的问题；在这一部分中，将通过回填 (<cy2>backpatching</cy2>) 技术实现一趟式的翻译。为此，定义如下综合属性:
+<ul style="margin-top:-16px;margin-bottom:0px;line-height:26px;">
+<li style="margin:1px 26px;"><mag>B<i>.truelist</i></mag> : 指令标号的列表，这些指令的目标标号相同，等于 <mag>B.<i>true</i></mag></li>
+<li style="margin:1px 26px;"><mag>B<i>.falselist</i></mag> : 指令标号的列表，这些指令的目标标号相同，等于 <mag>B.<i>false</i></mag></li>
+<li style="margin:1px 26px;"><mag>S<i>.nextlist</i></mag> : 指令标号的列表，这些指令的目标标号相同，等于 <mag>S.<i>next</i></li>
+</ul>
+回填的基本思想是，为 $\small\mathit{true、false、next}$ 维护一个"未填充"指令的列表，通过综合属性向上传递，直到某个对应的非终结符分析完，它的下一条指令标号确定后，进行回填。</p>
+<h4 id="1_2">(1). 布尔表达式的回填</h4>
+<blockquote style="margin-top:0px;margin-bottom:-10px;margin-left:3px;">
+<cs><i>e.g.</i>4-3</cs>&emsp;布尔表达式的 <cy>SDT</cy>
+<pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
+⑦ B → E<sub style="font-size:54%;">1</sub> relop E<sub style="font-size:54%;">2</sub> { B.<i>truelist</i> = <i>makelist</i>(<i>nextquad</i>);&ensp;B.<i>falselist</i> = <i>makelist</i>(<i>nextquad</i> + 1);
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<i>gen</i>(if  E<sub style="font-size:54%;">1</sub>.<i>addr</i>  relop  E<sub style="font-size:54%;">2</sub>.<i>addr</i>  goto _);&ensp;<i>gen</i>(goto _); }
+⑧ B → <i>true</i>    { B.<i>truelist</i> = <i>makelist</i>(<i>nextquad</i>);&ensp;<i>gen</i>(goto _); }
+⑨ B → <i>false</i>   { B.<i>falselist</i> = <i>makelist</i>(<i>nextquad</i>);&ensp;<i>gen</i>(goto _); }
+⑩ B → ( B<sub style="font-size:54%;">1</sub> )  { B.<i>truelist</i> = B<sub style="font-size:54%;">1</sub>.<i>truelist</i>;&ensp;B.<i>falselist</i> = B<sub style="font-size:54%;">1</sub>.<i>falselist</i>;}
+⑪ B → not B<sub style="font-size:54%;">1</sub> { B.<i>truelist</i> = B<sub style="font-size:54%;">1</sub>.<i>falselist</i>;&ensp;B.<i>falselist</i> = B<sub style="font-size:54%;">1</sub>.<i>truelist</i>;}
+⑫ B →  B<sub style="font-size:54%;">1</sub> or M B<sub style="font-size:54%;">2</sub> { B.<i>truelist</i> = <i>merge</i>(B<sub style="font-size:54%;">1</sub>.<i>truelist</i>, B<sub style="font-size:54%;">2</sub>.<i>truelist</i>);&ensp;B.<i>falselist</i> = B<sub style="font-size:54%;">2</sub>.<i>falselist</i>;&ensp;
+                                     <i>backpatch</i>(B<sub style="font-size:54%;">1</sub>.<i>falselist</i>, M.<i>quad</i>); }
+⑬ B →  B<sub style="font-size:54%;">1</sub> and M B<sub style="font-size:54%;">2</sub> { B.<i>truelist</i> = B<sub style="font-size:54%;">2</sub>.<i>truelist</i>;&ensp;B.<i>falselist</i> = <i>merge</i>(B<sub style="font-size:54%;">1</sub>.<i>falselist</i>, B<sub style="font-size:54%;">2</sub>.<i>falselist</i>);&ensp;
+                                        <i>backpatch</i>(B<sub style="font-size:54%;">1</sub>.<i>truelist</i>, M.<i>quad</i>); }
+⑭ M → ε { M.<i>quad</i> = <i>nextquad</i>; }
+</pre>
+<ul style="margin-top:0px;margin-bottom:10px;line-height:28px;font-size: 96%;">
+<li style="margin:1px 6px;">$\small\mathit{makelist}\ (\mathit{i})$ : 创建一个只包含标号 $\small\it i$ 的列表，返回指向此列表的变量</li>
+<li style="margin:1px 6px;">$\small\mathit{merge}\ ({\mathit{p_1,\ p_2}})$ : 合并两个列表，返回指向新列表的变量</li>
+<li style="margin:1px 6px;">$\small\mathit{backpatch}\ ({\mathit{p,\ i}})$ : 将 $\small\it i$ 作为目标标号插入列表 $\small\it p$ 指代的指令序列中</li>
+<li style="margin:1px 6px;">$\small\mathrm{M}.\mathit{quad}$ : 通过一个临时变量保存当前来看的下一条指令的标号</li>
 </ul>
 </blockquote>
 
-<h4 id="2_2">(2). 数组引用的翻译</h4>
-<p>对于一个 $\small k$ 维数组的某个元素 $\small a[i_1][i_2]...[i_k]$，其相对地址为 $\small\mathit{base}+i_1\times w_1+...+i_k\times w_k$，其中 $\small w_j$ 是 $\small a[i_1][i_2]...[i_j]$ 指代的元素的宽度。</p>
-<blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:3px;">
-<cs><i>e.g.</i>3-3</cs>&emsp;与例子 <cy>3-2</cy> 的 <cy>SDT</cy> 组合起来，形成完整的赋值文法
+<h4 id="2_2">(2). 控制流语句的回填</h4>
+<blockquote style="margin-top:0px;margin-bottom:-10px;margin-left:3px;">
+<cs><i>e.g.</i>4-4</cs>&emsp;基本控制流语句的 <cy>SDT</cy>
 <pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
-⑦ S → L = E; { <i>gen</i>(L.<i>array</i>[L.<i>offset</i>] = E.<i>addr</i>); } 
-⑧ E → L { E.<i>addr</i> = <i>newtemp</i>();&ensp;<i>gen</i>(E.<i>addr</i> = L.<i>array</i>[L.<i>offset</i>]); }
-⑨ L → id [E] { L.<i>array</i> = <i>lookup</i>(id.<i>lexeme</i>);&emsp;if L.<i>array</i> == nil then <i>error</i>;&emsp;L.<i>type</i> = L.<i>array</i>.<i>type.eleme</i>;
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   L.<i>offset</i> = <i>newtemp</i>();&emsp;<i>gen</i>(L.<i>offset</i> = E.<i>addr</i> ∗ L.<i>type.width</i>) }
-⑩ L → L<sub>1</sub> [E] { L.<i>array</i> = L<sub>1</sub>.<i>array</i>;&emsp;L.<i>type</i> = L<sub>1</sub>.<i>type.eleme</i>;&emsp;<i>t</i> = <i>newtemp</i>();
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   <i>gen</i>(<i>t</i> = E.<i>addr</i> ∗ L.<i>type.width</i>);&emsp;L.<i>offset</i> = <i>newtemp</i>();&emsp;<i>gen</i>(L.<i>offset</i> = L<sub>1</sub>.<i>offset</i> + <i>t</i>); }
+② S → S<sub style="font-size:54%;">1</sub> M S<sub style="font-size:54%;">2</sub> { S.<i>nextlist</i> = S<sub style="font-size:54%;">2</sub>.<i>nextlist</i>;&ensp;<i>backpatch</i>(S<sub style="font-size:54%;">1</sub>.<i>nextlist</i>, M.<i>quad</i>); }
+③ S → id = E; | L = E; { S.<i>nextlist</i> = <i>null</i>; }
+④ S → if B then M S<sub style="font-size:54%;">1</sub> { S.<i>nextlist</i> = <i>merge</i>(B.<i>falselist</i>, S<sub style="font-size:54%;">1</sub>.<i>nextlist</i>);&ensp;<i>backpatch</i>(B.<i>truelist</i>, M.<i>quad</i>); }
+⑤ S → if B then M<sub style="font-size:54%;">1</sub> S<sub style="font-size:54%;">1</sub> N else M<sub style="font-size:54%;">2</sub> S<sub style="font-size:54%;">2</sub> { S.<i>nextlist</i> = <i>merge</i>(<i>merge</i>(S<sub style="font-size:54%;">1</sub>.<i>nextlist</i>, N.<i>nextlist</i>), S<sub style="font-size:54%;">2</sub>.<i>nextlist</i>);
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;            &emsp;<i>backpatch</i>(B.<i>truelist</i>, M<sub style="font-size:54%;">1</sub>.<i>quad</i>);&ensp;<i>backpatch</i>(B.<i>falselist</i>, M<sub style="font-size:54%;">2</sub>.<i>quad</i>); }
+⑥ S → while M<sub style="font-size:54%;">1</sub> B do M<sub style="font-size:54%;">2</sub> S<sub style="font-size:54%;">1</sub> { S.<i>nextlist</i> = B.<i>falselist</i>;&ensp;<i>backpatch</i>(S<sub style="font-size:54%;">1</sub>.<i>nextlist</i>, M<sub style="font-size:54%;">1</sub>.<i>quad</i>);&ensp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;                            <i>backpatch</i>(B.<i>truelist</i>, M<sub style="font-size:54%;">2</sub>.<i>quad</i>);&ensp;<i>gen</i>(goto M<sub style="font-size:54%;">1</sub>.<i>quad</i>); }
+⑮ N → ε { N.<i>nextlist</i> = <i>makelist</i>(<i>nextquad</i>);&ensp;<i>gen</i>(goto _); }
 </pre>
-<ul style="margin-top:-10px;margin-bottom:10px;line-height:26px;font-size: 96%;">
-<li style="margin:1px 6px;"><mag>L.<i>array</i></mag> : 查询符号表所得的地址；<mag>L.<i>array.type</i></mag> 是其类型表达式，<mag><i>eleme</i></mag> 给出了其类型，即 <mag><i>a</i></mag>$\small[i_1]$ 的类型</li>
-<li style="margin:1px 6px;"><mag>L.<i>offset</i></mag> : 起到临时变量的作用，用于累加 $\small i_j\times w_j$</li>
-<li style="margin:1px 6px;"><mag><i>newtemp</i>()</mag> : 生成一个新的临时变量 <mag><i>t</i></mag>，返回它的地址</li>
-</ul>
 </blockquote>
 
-<p>设 <mag><i>type</i>(<i>a</i>)=<i>array</i>(3, <i>array</i>(5, <i>array</i>(8, int)))</mag>, 那么 <mag><i>addr</i>($\small a[i_1][i_2][i_3]$) = <i>base</i> + $\small i_1\cdot 160+i_2\cdot 32+i_3\cdot 4$</mag>。若使用上述 <cy>SDT</cy> 翻译，得到的三地址码序列为<br>
-&emsp;$\small t_1=i_1*160$,&emsp;$\small t_2=i_2*32$,&emsp;$\small t_3 = t_1+t_2$,&emsp;$\small t_4=i_3*4$,&emsp;$\small t_5=t_3+t_4$,&emsp;$\small t_6=a[t_5]$</p>
-<p></font></p>
+<h4 id="3-breakcontinuegoto">(3). <cy>break、continue、goto</cy></h4>
+<ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
+<li style="margin:1px 26px;"><cy>goto</cy> : 通过符号表和回填实现</li>
+<li style="margin:1px 26px;"><cy>break</cy> : 假设循环语句由非终结符 $\small\rm S$ 生成，可以通过符号表跟踪外围的 $\small\rm S$，在遇到 <cy>break</cy> 语句时生成未完成的跳转代码，然后将这些代码放到 $\small\mathrm{S}.\mathit{nextlist}$ 中</li>
+<li style="margin:1px 26px;"><cy>continue</cy> : 类似于 <cy>break</cy></li>
+</ul>
+
+<h3 id="3-switch">3. <cy>Switch</cy> 语句</h3>
+<p><img src="../img/switchexp.png" height=280></p>
+<p><cy>switch</cy> 的产生式形如 $\small S\to\mathrm{switch}(E)\lbrace\ \ \mathrm{case}\ V_1\ :\ S_1\ ....\ \ \mathrm{case}\ V_{n-1}\ :\ S_{n-1}\ \ \mathrm{default}:\ S_n\rbrace$，左侧部分是一种直接的翻译形式，在遇到冒号后就需要生成相应的 $\small\mathrm{case}\ V_i$ 对应的跳转指令，但由于 $\small S_i.\it next$ 尚未确定，仍需要通过延迟赋值或回填的方式解决。<br>
+右侧部分是更好的方案，它可以实现"一趟式"的翻译，并且把所有跳转指令聚集在一起，使得代码生成器轻松识别出多路分支，并进行优化。下面给出它的翻译方案:</p>
+<pre style="font-family: m;font-size:16px;line-height:28px;margin-top:0px;">
+switch ( E ) { <i>t</i> = <i>newtemp</i>();&ensp;<i>gen</i>(<i>t</i> = E.<i>addr</i>);&ensp;<i>test</i> = <i>newlabel</i>();&ensp;<i>gen</i>(goto <i>test</i>); }
+case V<sub style="font-size:54%;">1</sub> : { L<sub style="font-size:54%;">1</sub> = <i>newlabel</i>();&ensp;label(L<sub style="font-size:54%;">1</sub>);&ensp;<i>map</i>(V<sub style="font-size:54%;">1</sub>, L<sub style="font-size:54%;">1</sub>); }
+         S<sub style="font-size:54%;">1</sub> { <i>next</i> = <i>newlabel</i>();&ensp;<i>gen</i>(goto <i>next</i>); }
+     ...  ...
+default : { L<sub style="font-size:54%;">n</sub> = <i>newlabel</i>();&ensp;<i>label</i>(L<sub style="font-size:54%;">n</sub>); }
+         S<sub style="font-size:54%;">n</sub> { <i>gen</i>(goto <i>next</i>);&ensp;<i>label</i>(<i>test</i>);
+                 <i>gen</i>(if  <i>t</i> = V<sub style="font-size:54%;">1</sub>)  goto L<sub style="font-size:54%;">1</sub>; 
+                 ... ...
+                 <i>gen</i>(if  <i>t</i> = V<sub style="font-size:54%;">n-1</sub>)  goto L<sub style="font-size:54%;">n-1</sub>;
+                 <i>gen</i>(goto L<sub style="font-size:54%;">n</sub>);&emsp;<i>label</i>(<i>next</i>);
+                }
+</pre>
+
+<p>为了让分支语句更容易被代码生成器探测到，通常把 $\small\mathrm{if}\ \ \mathit{t}=V_i\ \ \mathrm{goto}\ L_i$ 改写成 $\small\mathrm{case}\ t\ \ V_i\ L_i$ 的形式 ($\small\mathrm{goto}\ L_n$ 改写成 $\small\mathrm{case}\ t\ \ t\ L_n$)，二者的含义是相同的。
+</font> </p>
                 
               
               
@@ -787,7 +862,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../2/" title="2. SDD and SDT" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../3/" title="3. declaration and assignment" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -796,25 +871,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                2. SDD and SDT
+                3. declaration and assignment
               </div>
             </div>
           </a>
         
-        
-          <a href="../4/" title="4. control flow" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                4. control flow
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
