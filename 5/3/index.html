@@ -19,7 +19,7 @@
 
     
       
-        <title>2. DFA - Learning Notes of Compilation</title>
+        <title>2. machine-independent optimizations (2) - Learning Notes of Compilation</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-dfa" class="md-skip">
+        <a href="#3" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2. DFA
+              2. machine-independent<br>&emsp;optimizations (2)
             
           </span>
         </div>
@@ -207,12 +207,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       basis：automata theory
@@ -236,7 +234,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1/" title="1. basic concepts" class="md-nav__link">
+    <a href="../../0/1/" title="1. basic concepts" class="md-nav__link">
       1. basic concepts
     </a>
   </li>
@@ -246,130 +244,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2. DFA
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="2. DFA" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../0/2/" title="2. DFA" class="md-nav__link">
       2. DFA
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-dfa" class="md-nav__link">
-    1. DFA
-  </a>
-  
-    <nav class="md-nav" aria-label="1. DFA">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    (1). 定义
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-dfa" class="md-nav__link">
-    (2). DFA 的简化表示
-  </a>
-  
-    <nav class="md-nav" aria-label="(2). DFA 的简化表示">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transition-diagram" class="md-nav__link">
-    transition diagram
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transition-table" class="md-nav__link">
-    transition table
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    (3). 扩展转移函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-dfa" class="md-nav__link">
-    (4). DFA 的语言
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-dfa_1" class="md-nav__link">
-    2. DFA 的最小化
-  </a>
-  
-    <nav class="md-nav" aria-label="2. DFA 的最小化">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    (1). 状态的等价性
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-table-filling-algorithm" class="md-nav__link">
-    (2). table-filling algorithm
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -379,7 +258,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3/" title="3. NFA" class="md-nav__link">
+    <a href="../../0/3/" title="3. NFA" class="md-nav__link">
       3. NFA
     </a>
   </li>
@@ -391,7 +270,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../4/" title="4. RE" class="md-nav__link">
+    <a href="../../0/4/" title="4. RE" class="md-nav__link">
       4. RE
     </a>
   </li>
@@ -403,7 +282,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5/" title="5. CFG" class="md-nav__link">
+    <a href="../../0/5/" title="5. CFG" class="md-nav__link">
       5. CFG
     </a>
   </li>
@@ -670,10 +549,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
     
     <label class="md-nav__link" for="nav-8">
       V Code Optimizations
@@ -697,7 +578,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../5/1/" title="1. local optimizations" class="md-nav__link">
+    <a href="../1/" title="1. local optimizations" class="md-nav__link">
       1. local optimizations
     </a>
   </li>
@@ -709,7 +590,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../5/2/" title="2. machine-independent optimizations (1)" class="md-nav__link">
+    <a href="../2/" title="2. machine-independent optimizations (1)" class="md-nav__link">
       2. machine-independent<br>&emsp;optimizations (1)
     </a>
   </li>
@@ -719,11 +600,69 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../5/3/" title="2. machine-independent optimizations (2)" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2. machine-independent<br>&emsp;optimizations (2)
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="2. machine-independent optimizations (2)" class="md-nav__link md-nav__link--active">
       2. machine-independent<br>&emsp;optimizations (2)
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 数据流分析
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 数据流分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    (1). 数据流抽象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    (2). 数据流分析模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -756,84 +695,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-dfa" class="md-nav__link">
-    1. DFA
+  <a href="#3" class="md-nav__link">
+    3. 数据流分析
   </a>
   
-    <nav class="md-nav" aria-label="1. DFA">
+    <nav class="md-nav" aria-label="3. 数据流分析">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    (1). 定义
+    (1). 数据流抽象
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-dfa" class="md-nav__link">
-    (2). DFA 的简化表示
-  </a>
-  
-    <nav class="md-nav" aria-label="(2). DFA 的简化表示">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transition-diagram" class="md-nav__link">
-    transition diagram
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transition-table" class="md-nav__link">
-    transition table
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    (3). 扩展转移函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-dfa" class="md-nav__link">
-    (4). DFA 的语言
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-dfa_1" class="md-nav__link">
-    2. DFA 的最小化
-  </a>
-  
-    <nav class="md-nav" aria-label="2. DFA 的最小化">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    (1). 状态的等价性
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-table-filling-algorithm" class="md-nav__link">
-    (2). table-filling algorithm
+  <a href="#2" class="md-nav__link">
+    (2). 数据流分析模式
   </a>
   
 </li>
@@ -859,189 +737,31 @@
                   
                 
                 
-                  <h1>2. DFA</h1>
+                  <h1>2. machine-independent<br>&emsp;optimizations (2)</h1>
                 
-                <p><font face="cycn">
-<font face="Consolas"></font>
-<font face="Times New Roman"></font></p>
-<h3 id="1-dfa">1. <font face="Times New Roman">DFA</font></h3>
-<h4 id="1">(1). 定义</h4>
-<p>确定的有穷自动机 (<font face="Times New Roman">Deterministic Finite Automaton</font>) $A$ 为五元组 $A=( Q,\ \Sigma,\ \delta,\ q_0,\ F)$，其中<br>
-&emsp;① $Q$ : <font face="Times New Roman">a finite set of states</font>；<br>
-&emsp;② $\Sigma$ : <font face="Times New Roman">a finite set of input symbols</font>；<br>
-&emsp;③ $\delta$ : $Q\times \Sigma\to\Sigma$，<font face="Times New Roman">transition function</font>；<br>
-&emsp;④ $q_0\in Q$ : <font face="Times New Roman">a start state</font><br>
-&emsp;⑤ $F\subseteq Q$ : <font face="Times New Roman">a set of final or accepting states</font>。</p>
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font>1 设计 <font face="Times New Roman">DFA</font>: 任何由 0 和 1 构成的串中，接受含有 01 子串的全部串<br>
-&emsp;$A=(\lbrace q_1,q_2,q_3\rbrace ,\lbrace 0, 1\rbrace ,\delta,q_1,\lbrace q_3\rbrace )$，其中 $\delta(q_1,1)=q_1,\ \delta(q_2,1)=...$
-<br> </p>
-</blockquote>
-<h4 id="2-dfa">(2). <font face="Times New Roman">DFA</font> 的简化表示</h4>
-<h5 id="transition-diagram"><font face="Times New Roman">transition diagram</font></h5>
-<p><svg width="303" height="90" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="79.5" cy="68.5" rx="20" ry="20"/>
-    <text x="70.5" y="72.5" font-family="cm" font-size="20" font-style="italic" font-weight="bold">
-    q<tspan style="baseline-shift: sub;" font-size="12" font-style="normal">1</tspan>
-    </text>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="180.5" cy="68.5" rx="20" ry="20"/>
-    <text x="171.5" y="72.5" font-family="cm" font-size="20" font-style="italic" font-weight="bold">
-    q<tspan style="baseline-shift: sub;" font-size="12" font-style="normal">2</tspan>
-    </text>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="281.5" cy="68.5" rx="20" ry="20"/>
-    <text x="272.5" y="72.5" font-family="cm" font-size="20" font-style="italic" font-weight="bold">
-    q<tspan style="baseline-shift: sub;" font-size="12" font-style="normal">3</tspan>
-    </text>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="281.5" cy="68.5" rx="14" ry="14"/>
-    <text x="8.5" y="62.5" font-family="Times New Roman" font-size="20">start</text>
-    <polygon stroke="black" stroke-width="1" points="99.5,68.5 160.5,68.5"/>
-    <polygon fill="black" stroke-width="1" points="160.5,68.5 152.5,63.5 152.5,73.5"/>
-    <text x="125.5" y="59.5" font-family="Times New Roman" font-size="20">0</text>
-    <polygon stroke="black" stroke-width="1" points="200.5,68.5 261.5,68.5"/>
-    <polygon fill="black" stroke-width="1" points="261.5,68.5 253.5,63.5 253.5,73.5"/>
-    <text x="226.5" y="59.5" font-family="Times New Roman" font-size="20">1</text>
-    <polygon stroke="black" stroke-width="1" points="2.5,68.5 59.5,68.5"/>
-    <polygon fill="black" stroke-width="1" points="59.5,68.5 51.5,63.5 51.5,73.5"/>
-    <path stroke="black" stroke-width="1" fill="none" d="M 70.683,50.635 A 15,15 0 1 1 88.317,50.635"/>
-    <text x="74.5" y="14.5" font-family="Times New Roman" font-size="20">1</text>
-    <polygon fill="black" stroke-width="1" points="88.317,50.635 97.064,47.102 88.974,41.224"/>
-    <path stroke="black" stroke-width="1" fill="none" d="M 171.683,50.635 A 15,15 0 1 1 189.317,50.635"/>
-    <text x="175.5" y="14.5" font-family="Times New Roman" font-size="20">0</text>
-    <polygon fill="black" stroke-width="1" points="189.317,50.635 198.064,47.102 189.974,41.224"/>
-    <path stroke="black" stroke-width="1" fill="none" d="M 272.683,50.635 A 15,15 0 1 1 290.317,50.635"/>
-    <text x="266.5" y="14.5" font-family="Times New Roman" font-size="20">0,1</text>
-    <polygon fill="black" stroke-width="1" points="290.317,50.635 299.064,47.102 290.974,41.224"/>
-</svg></p>
-<h5 id="transition-table"><font face="Times New Roman">transition table</font></h5>
-<table class="simp" style="margin-left:70px;" align=left>
-<tr>
-    <td class="corner">&emsp;</td>
-    <td class="firstrow">$0$</td>
-    <td class="firstrow">$1$</td>
-</tr>
-<tr>
-    <td class="firstcol">$\to q_1$</td>
-    <td class="general">$q_2$</td>
-    <td class="general">$q_1$</td>
-</tr>
-<tr>
-    <td class="firstcol" align=right>$q_2$</td>
-    <td class="general">$q_2$</td>
-    <td class="general">$q_3$</td>
-</tr>
-<tr>
-    <td class="firstcol" align=right>$*q_3$</td>
-    <td class="general">$q_3$</td>
-    <td class="general">$q_3$</td>
-</tr>
-</table>
+                <p><font class="generalcy"></p>
+<h3 id="3">3. 数据流分析</h3>
+<h4 id="1">(1). 数据流抽象</h4>
+<p>程序的状态由程序中所有变量的值组成，它与中间代码语句前后的程序点相关联，程序的执行即状态的转换。由此，对于流图来说:
+<ul style="margin-top:-15px;margin-bottom:0px;line-height:30px;">
+<li style="margin:1px 26px;">在基本块内部，一条语句后和它的下一条语句前的程序点相同</li>
+<li style="margin:1px 26px;">如果存在一条从基本块 $\small B_1$ 到 $\small B_2$ 的边，$\small B_2$ 第一条语句前的程序点可能紧跟在 $\small B_1$ 之后</li>
+</ul>
+程序可能有 $\infty$ 条执行路径，没有哪种分析会给出完全的状态表示，而是会从中抽取出某些信息</p>
+<h4 id="2">(2). 数据流分析模式</h4>
+<ul style="margin-top:-10px;margin-bottom:10px">
+<li style="margin:1px 16px;">语句:</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 26px;">程序点: $\small\mathrm{IN}[s]，\mathrm{OUT}[s]$</li>
+    <li style="margin:1px 26px;">传递函数 $\small f_s$，信息可能沿着路径正向传播，也可能逆向流动</li>
+    </ul>
+<li style="margin:1px 16px;">基本块:</li>
+<ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 26px;">程序点: $\small\mathrm{IN}[B]=\mathrm{IN}[s_1]=\bigcup_{pred}\mathrm{OUT}[P]，\mathrm{OUT}[B]=\mathrm{OUT}[s_n]=\bigcup_{succ}\mathrm{OUT}[S]$</li>
+    <li style="margin:1px 26px;">传递函数 (正向): $\small f_B=f_{sn}\cdot ...\cdot f_{s2}\cdot f_{s1}$</li>
+    </ul>
+</ul>
 
-<p></br><br><br><br><br></p>
-<h4 id="3">(3). 扩展转移函数</h4>
-<p><font face="Times New Roman">extending the transiton function</font>: $\hat{\delta}:Q\times \Sigma^*\to Q$<br>&emsp;&emsp;
-$
-\hat\delta(q,w)=
-\begin{cases}
-q&amp; w=\varepsilon\\
-\delta(\hat{\delta}(q,x),a)&amp; w=xa
-\end{cases}
-$</br>
-即形式化表示 <font face="Times New Roman">DFA</font> 识别串的过程。
-<br><br></p>
-<h4 id="4-dfa">(4). <font face="Times New Roman">DFA</font> 的语言</h4>
-<p>若 $D=\{Q,\Sigma,\delta,q_0,F\}$，则 <font face="Times New Roman">DFA</font> $D$ 接收的语言为 $\mathbf{L}(D)=\{w\in \Sigma^*\ |\ \hat{\delta}(q_0,w)\in F\}$</p>
-<p>如果 $L$ 是某个 <font face="Times New Roman">DFA</font> $D$ 的语言，即 $L=\mathbf{L}(D)$，则称 $L$ 是正则语言。
-<br></p>
-<blockquote>
-<p>More Examples<br>
-(1). 若 $\Sigma\{0,1\}$，求接受 ① $\emptyset$;  ② $\Sigma^*$; ③ $\lbrace \varepsilon\rbrace$ 的 <font face="Times New Roman">DFA</font>；<br>
-<svg width="436" height="70" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0,0,436,90">
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="50.5" cy="68.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="190.5" cy="68.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="190.5" cy="68.5" rx="14" ry="14"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="335.5" cy="68.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="335.5" cy="68.5" rx="14" ry="14"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="414.5" cy="68.5" rx="20" ry="20"/>
-    <path stroke="black" stroke-width="1" fill="none" d="M 41.683,50.635 A 15,15 0 1 1 59.317,50.635"/>
-    <text x="35.5" y="14.5" font-family="Times New Roman" font-size="20">0,1</text>
-    <polygon fill="black" stroke-width="1" points="59.317,50.635 68.064,47.102 59.974,41.224"/>
-    <polygon stroke="black" stroke-width="1" points="2.5,68.5 30.5,68.5"/>
-    <polygon fill="black" stroke-width="1" points="30.5,68.5 22.5,63.5 22.5,73.5"/>
-    <polygon stroke="black" stroke-width="1" points="144.5,68.5 170.5,68.5"/>
-    <polygon fill="black" stroke-width="1" points="170.5,68.5 162.5,63.5 162.5,73.5"/>
-    <path stroke="black" stroke-width="1" fill="none" d="M 181.683,50.635 A 15,15 0 1 1 199.317,50.635"/>
-    <text x="175.5" y="14.5" font-family="Times New Roman" font-size="20">0,1</text>
-    <polygon fill="black" stroke-width="1" points="199.317,50.635 208.064,47.102 199.974,41.224"/>
-    <polygon stroke="black" stroke-width="1" points="291.5,68.5 315.5,68.5"/>
-    <polygon fill="black" stroke-width="1" points="315.5,68.5 307.5,63.5 307.5,73.5"/>
-    <polygon stroke="black" stroke-width="1" points="355.5,68.5 394.5,68.5"/>
-    <polygon fill="black" stroke-width="1" points="394.5,68.5 386.5,63.5 386.5,73.5"/>
-    <text x="355.5" y="59.5" font-family="Times New Roman" font-size="20">0,1 </text>
-    <path stroke="black" stroke-width="1" fill="none" d="M 405.683,50.635 A 15,15 0 1 1 423.317,50.635"/>
-    <text x="399.5" y="14.5" font-family="Times New Roman" font-size="20">0,1</text>
-    <polygon fill="black" stroke-width="1" points="423.317,50.635 432.064,47.102 423.974,41.224"/>
-</svg><br><br>
-(2). $\Sigma=\{0,1\}$，<font face="Times New Roman">DFA</font> 接收 $w$，$w$ 是 $3$ 的倍数的二进制表示。<br><br>
-<svg width="327" height="120" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 327 158">
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="62.5" cy="23.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="164.5" cy="23.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="164.5" cy="23.5" rx="14" ry="14"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="265.5" cy="23.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="164.5" cy="120.5" rx="20" ry="20"/>
-    <text x="108.5" y="64.5" font-family="Times New Roman" font-size="20">1</text>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="62.5" cy="120.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="265.5" cy="120.5" rx="20" ry="20"/>
-    <ellipse stroke="black" stroke-width="1" fill="none" cx="265.5" cy="120.5" rx="14" ry="14"/>
-    <polygon stroke="black" stroke-width="1" points="12.5,23.5 42.5,23.5"/>
-    <polygon fill="black" stroke-width="1" points="42.5,23.5 34.5,18.5 34.5,28.5"/>
-    <polygon stroke="black" stroke-width="1" points="82.5,23.5 144.5,23.5"/>
-    <polygon fill="black" stroke-width="1" points="144.5,23.5 136.5,18.5 136.5,28.5"/>
-    <text x="108.5" y="14.5" font-family="Times New Roman" font-size="20">0</text>
-    <polygon stroke="black" stroke-width="1" points="184.5,23.5 245.5,23.5"/>
-    <polygon fill="black" stroke-width="1" points="245.5,23.5 237.5,18.5 237.5,28.5"/>
-    <text x="200.5" y="14.5" font-family="Times New Roman" font-size="20">0,1</text>
-    <path stroke="black" stroke-width="1" fill="none" d="M 81.934,28.13 A 123.292,123.292 0 0 1 158.9,101.323"/>
-    <polygon fill="black" stroke-width="1" points="158.9,101.323 160.713,92.065 151.373,95.636"/>
-    <path stroke="black" stroke-width="1" fill="none" d="M 80.182,111.239 A 91.415,91.415 0 0 1 146.818,111.239"/>
-    <polygon fill="black" stroke-width="1" points="80.182,111.239 89.454,112.98 85.809,103.668"/>
-    <text x="108.5" y="95.5" font-family="Times New Roman" font-size="20">0</text>
-    <path stroke="black" stroke-width="1" fill="none" d="M 146.152,128.385 A 106.403,106.403 0 0 1 80.848,128.385"/>
-    <polygon fill="black" stroke-width="1" points="146.152,128.385 137.004,126.081 140.072,135.599"/>
-    <text x="108.5" y="154.5" font-family="Times New Roman" font-size="20">0</text>
-    <path stroke="black" stroke-width="1" fill="none" d="M 43.375,126.078 A 15,15 0 1 1 46.439,108.713"/>
-    <text x="0.5" y="116.5" font-family="Times New Roman" font-size="20">1</text>
-    <polygon fill="black" stroke-width="1" points="46.439,108.713 44.48,99.484 37.286,106.43"/>
-    <path stroke="black" stroke-width="1" fill="none" d="M 181.546,110.135 A 81.409,81.409 0 0 1 248.454,110.135"/>
-    <polygon fill="black" stroke-width="1" points="248.454,110.135 243.215,102.289 239.106,111.406"/>
-    <text x="210.5" y="93.5" font-family="Times New Roman" font-size="20">1</text>
-    <path stroke="black" stroke-width="1" fill="none" d="M 247.657,129.449 A 93.276,93.276 0 0 1 182.343,129.449"/>
-    <polygon fill="black" stroke-width="1" points="182.343,129.449 188.086,136.934 191.587,127.567"/>
-    <text x="210.5" y="156.5" font-family="Times New Roman" font-size="20">1</text>
-    <path stroke="black" stroke-width="1" fill="none" d="M 279.66,106.486 A 15,15 0 1 1 285.236,123.215"/>
-    <text x="315.5" y="105.5" font-family="Times New Roman" font-size="20">0</text>
-    <polygon fill="black" stroke-width="1" points="285.236,123.215 291.354,130.396 294.372,120.862"/>
-</svg></p>
-</blockquote>
-<h3 id="2-dfa_1">2. <font face="Times New Roman">DFA</font> 的最小化</h3>
-<h4 id="1_1">(1). 状态的等价性</h4>
-<p>对 $\small\mathrm{DFA}$ $A=(Q,\Sigma,\delta,q_0,F)$ 的两个状态 $p$ 和 $q$ 和 $\forall w\in\Sigma^*$, 若有<br>
-&emsp;&emsp;&emsp;&emsp;$\hat{\delta}(p,w)\in F\Leftrightarrow \hat{\delta}(q,w)\in F$<br>
-则称 $p$ 和 $q$ 是等价的，否则是可区分的 (<span class="tnm-g">distinguishable</span>)。</p>
-<h4 id="2-table-filling-algorithm">(2). <font face="cm">table-filling algorithm</font></h4>
-<p>递归寻找 $\small\mathrm{DFA}$ 中全部的可区分状态对：<br>
-&emsp;① 若 $p\in F$ 且 $q\notin F$，则 $[p,q]$ 是可区分的；<br>
-&emsp;② $\exists a\in\Sigma$，若 $[r=\delta(p,a),s=\delta(q,a)]$ 是可区分的，则 $[p,q]$ 是可区分的。</p>
-<div class="rule">
-   <div>
-    <b>定理: </b>如果填表算法不能区分两个状态，则这两个状态等价
-   </div>
-</div>
-
-<blockquote>
-<p><font face="Consolas"><em>e.g.</em></font><br>
-<img src="../img0/mindfaeg.png" height=200><br>
-<img src="../img0/mindfaeg2.png" height=180></p>
-</blockquote>
 <p></font></p>
                 
               
@@ -1061,7 +781,7 @@ $</br>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../1/" title="1. basic concepts" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../2/" title="2. machine-independent optimizations (1)" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -1070,25 +790,11 @@ $</br>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                1. basic concepts
+                2. machine-independent<br>&emsp;optimizations (1)
               </div>
             </div>
           </a>
         
-        
-          <a href="../3/" title="3. NFA" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                3. NFA
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
