@@ -19,7 +19,7 @@
 
     
       
-        <title>1. introduction - Learning Notes of Compilation</title>
+        <title>4. machine-independent optimizations (3) - Learning Notes of Compilation</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1" class="md-skip">
+        <a href="#7" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              1. introduction
+              4. machine-independent<br>&emsp;optimizations (3)
             
           </span>
         </div>
@@ -429,12 +429,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       III Semantic Translation
@@ -456,130 +454,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        1. introduction
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="1. introduction" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../3/1/" title="1. introduction" class="md-nav__link">
       1. introduction
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 语义翻译概述
-  </a>
-  
-    <nav class="md-nav" aria-label="1. 语义翻译概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    (1). 语义分析
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    (2). 中间代码生成
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
-    2. 语法制导翻译
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 语法制导翻译">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
-    (1). 语法制导定义
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
-    (2). 语法制导翻译方案
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-sdd-vs-sdt" class="md-nav__link">
-    (3). SDD vs. SDT
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 三地址代码
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 三地址代码">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
-    (1). 常用的三地址指令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
-    (2). 四元式表示
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -589,7 +468,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2/" title="2. SDD and SDT" class="md-nav__link">
+    <a href="../../3/2/" title="2. SDD and SDT" class="md-nav__link">
       2. SDD and SDT
     </a>
   </li>
@@ -601,7 +480,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3/" title="3. declaration and assignment" class="md-nav__link">
+    <a href="../../3/3/" title="3. declaration and assignment" class="md-nav__link">
       3. declaration and assignment
     </a>
   </li>
@@ -613,7 +492,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../4/" title="4. control flow" class="md-nav__link">
+    <a href="../../3/4/" title="4. control flow" class="md-nav__link">
       4. control flow
     </a>
   </li>
@@ -670,10 +549,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
     
     <label class="md-nav__link" for="nav-8">
       V Code Optimizations
@@ -697,7 +578,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../5/1/" title="1. local optimizations" class="md-nav__link">
+    <a href="../1/" title="1. local optimizations" class="md-nav__link">
       1. local optimizations
     </a>
   </li>
@@ -709,7 +590,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../5/2/" title="2. machine-independent optimizations (1)" class="md-nav__link">
+    <a href="../2/" title="2. machine-independent optimizations (1)" class="md-nav__link">
       2. machine-independent<br>&emsp;optimizations (1)
     </a>
   </li>
@@ -721,7 +602,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../5/3/" title="3. machine-independent optimizations (2)" class="md-nav__link">
+    <a href="../3/" title="3. machine-independent optimizations (2)" class="md-nav__link">
       3. machine-independent<br>&emsp;optimizations (2)
     </a>
   </li>
@@ -731,11 +612,69 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../5/4/" title="4. machine-independent optimizations (3)" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4. machine-independent<br>&emsp;optimizations (3)
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="4. machine-independent optimizations (3)" class="md-nav__link md-nav__link--active">
       4. machine-independent<br>&emsp;optimizations (3)
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 流图中的循环
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 流图中的循环">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    (1). 支配结点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    (2). 自然循环
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -768,84 +707,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 语义翻译概述
+  <a href="#7" class="md-nav__link">
+    7. 流图中的循环
   </a>
   
-    <nav class="md-nav" aria-label="1. 语义翻译概述">
+    <nav class="md-nav" aria-label="7. 流图中的循环">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1_1" class="md-nav__link">
-    (1). 语义分析
+  <a href="#1" class="md-nav__link">
+    (1). 支配结点
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    (2). 中间代码生成
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2_1" class="md-nav__link">
-    2. 语法制导翻译
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 语法制导翻译">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_2" class="md-nav__link">
-    (1). 语法制导定义
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_2" class="md-nav__link">
-    (2). 语法制导翻译方案
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-sdd-vs-sdt" class="md-nav__link">
-    (3). SDD vs. SDT
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 三地址代码
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 三地址代码">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1_3" class="md-nav__link">
-    (1). 常用的三地址指令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2_3" class="md-nav__link">
-    (2). 四元式表示
+    (2). 自然循环
   </a>
   
 </li>
@@ -871,181 +749,145 @@
                   
                 
                 
-                  <h1>1. introduction</h1>
+                  <h1>4. machine-independent<br>&emsp;optimizations (3)</h1>
                 
                 <p><font class="generalcy"></p>
-<h3 id="1">1. 语义翻译概述</h3>
-<p>在编译的过程中，语义翻译包含 语义分析 和 中间代码生成 (<cy2>intermediate-code generation</cy2>) 两个步骤。<br></p>
-<h4 id="1_1">(1). 语义分析</h4>
-<p><img src="../img/symtable.png" align=right height=200 style="margin-left:0px">
-语义分析阶段主要任务如下：
-<ul style="margin-top:-16px;margin-bottom:10px">
-<li style="margin:1px 14px;">收集标识符的属性信息, 并存于符号表中, 例:</li>
-    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
-    <li style="margin:1px 26px;">种属 (<cy2>kind</cy2>): 例如变量名、数组名、过程名</li>
-    <li style="margin:1px 26px;">类型</li>
-    <li style="margin:1px 26px;">存储位置、长度</li>
-    <li style="margin:1px 26px;">作用域等</li>
+<h3 id="7">7. 流图中的循环</h3>
+<h4 id="1">(1). 支配结点</h4>
+<ul style="margin-top:-10px;margin-bottom:10px">
+<li style="margin:1px 10px;">支配结点: 若从流图的入口到结点 $n$ 的每条路径都经过结点 $d$，则称 $d$ 支配 $n$，记为 $d\ \mathrm{dom}\ n$</li>
+<ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 26px;">每个结点都支配其自身</li>
+    <li style="margin:1px 26px;">直接支配结点: 在所有路径上，最后一个的支配结点</li>
     </ul>
-<li style="margin:1px 14px;">语义检查，例:</li>
+<li style="margin:1px 10px;">回边: 满足 $d\ \mathrm{dom}\ n$ 的有向边 $n\rightarrow d$</li>
+<li style="margin:1px 10px;">数据流方程</li>
     <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
-    <li style="margin:1px 26px;">变量名未经声明就使用，或重复声明</li>
-    <li style="margin:1px 26px;">运算分量类型不匹配</li>
+    <li style="margin:1px 26px;">$\small\mathrm{OUT}[B]$: 支配 $\small B$ 的出口处的结点集合</li>
+        <ul style="margin-top:0px;margin-bottom:0px;list-style-type:square;line-height:30px;">
+            <li style="margin:1px 50px;">$\small\mathrm{OUT[ENTRY]=\lbrace ENTRY\rbrace}$</li>
+        </ul>  
+    <li style="margin:1px 26px;">$\small\mathrm{IN}[B]$: 支配 $\small B$ 的入口处的结点集合</li>
+        <ul style="margin-top:0px;margin-bottom:0px;list-style-type:square;line-height:30px;">
+            <li style="margin:1px 50px;">$\small\mathrm{OUT}[B]=\mathrm{IN}[B]\cup B,\quad \mathrm{IN}[B]=\bigcap_{\mathit{pred\ of\ B}}\mathrm{OUT}[P]$&emsp;$\small (B\ne \mathrm{ENTRY})$</li>
+        </ul>  
     </ul>
-</ul></p>
-<h4 id="2">(2). 中间代码生成</h4>
-<p>&emsp;中间代码生成也可以和语义分析、语法分析同时进行，它是编译器前端的过程的最后一步，负责生成交给后端处理的中间代码。底层形式的中间代码更接近于目标机器，适用机器相关的处理任务，如寄存器分配、代码优化等。本章使用到的中间代码的表示形式有
-<ul style="margin-top:-16px;margin-bottom:3px;line-height:30px;">
-<li style="margin:1px 26px;">三地址代码</li>
-<li style="margin:1px 26px;">语法结构树</li>
+<li style="margin:1px 10px;">支配结点计算</li>
+<pre class="pseudocode" style="width:433px;margin-top:10px;border:1px solid #000000;margin-left:40px;">
+<b>Input</b>: <pcy>流图</pcy> <i>G</i>=(<i>N</i>, <i>E</i>), 
+<b>Output</b>: <pcy>给出集合</pcy> <i>N</i> <pcy>中各结点</pcy> <i>n</i> <pcy>的支配结点集合</pcy> <i>D</i>(<i>n</i>)
+OUT[ENTRY] = { ENTRY }
+<b>for</b> (<pcy>除了</pcy> ENTRY <pcy>的每个基本块</pcy> <i>B</i>)
+        OUT[<i>B</i>] = <i>N</i>
+<b>while</b> (<pcy>某个基本块的</pcy> OUT <pcy>值发生改变</pcy>) {
+        <b>for</b> (<pcy>除了</pcy> ENTRY <pcy>的每个基本块</pcy> <i>B</i>) {
+                IN[<i>B</i>] = ⋂<sub><i>pred of B</i> </sub>OUT[<i>P</i>]
+                OUT[<i>B</i>] = IN[<i>B</i>] ⋃ <i>B</i>
+        }
+}
+</pre>
 </ul>
-不同的编译器对中间表示的选择各有不同，例如早期的 <cy>C++</cy> 使用 <cy>C</cy> 代码作为中间代码，而后端就是一个 <cy>C</cy> 编译器。
-<div style="margin-bottom:55px"></div></p>
-<h3 id="2_1">2. 语法制导翻译</h3>
-<p>&emsp;语法制导翻译 (<cy2>syntax-directed translation</cy2>) 指在语法分析过程中使用 <cy>CFG</cy> 引导对语言的翻译，即统合了语义翻译和语法分析的过程，是一种面向文法的翻译技术。<br>
-&emsp;将语义规则同语法规则 (即产生式) 联系起来涉及以下两个概念。</p>
-<h4 id="1_2">(1). 语法制导定义</h4>
-<p>语法制导定义 (<cy2>syntax-directed definition, SDD</cy2>) 是对 <cy>CFG</cy> 的推广
-<ul style="margin-top:-16px;margin-bottom:2px;line-height:30px;">
-<li style="margin:1px 22px;">将每个文法符号和一个语义属性相关联</li>
-<li style="margin:1px 22px;">将每个产生式和一组语义规则相关联</li>
-</ul>
-同一产生式的不同非终结符通过下标区分。
-<img src="../img/posteg1.png" height=150></p>
-<p>如图是通过 <cy>SDD</cy> 实现的中缀表达式向后缀表达式的翻译。</p>
-<h4 id="2_2">(2). 语法制导翻译方案</h4>
-<p>语法制导翻译方案 (<cy2>translation scheme, SDT</cy2>) 是在产生式右端嵌入了程序片段的 <cy>CFG</cy>，这些片段称为语义动作 (<cy2>semantic action</cy2>)，放在花括号内。在语法分析过程使用一个产生式时，相应的语义动作就会被执行，语义动作在产生式中的位置决定了它的执行时间。</p>
-<p><img src="../img/posteg2.png" height=150></p>
-<p>如图是通过 <cy>SDT</cy> 实现的中缀表达式向后缀表达式的翻译。</p>
-<h4 id="3-sdd-vs-sdt">(3). <cy>SDD vs. SDT</cy></h4>
-<p>在语法制导翻译中：
-<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;"><cy>SDD</cy>: 是语言翻译的高层次规格说明，隐蔽了具体实现细节，例如翻译发生的顺序</li>
-<li style="margin:1px 26px;"><cy>SDT</cy>: 可以看做是对 <cy>SDD</cy> 的补充，是 <cy>SDD</cy> 的具体实施方案，显式指明了计算细节</li>
-</ul>
-<div style="margin-bottom:55px"></div></p>
-<h3 id="3">3. 三地址代码</h3>
-<p>&emsp;三地址码 (<cy>three-address code</cy>) 由类似于汇编的指令序列构成，每个指令最多有三个操作数。由于三地址代码拆分了多运算符算术表达式以及控制流语句的嵌套结构，因此适用于目标代码的生成及优化。<br>
-&emsp;表示三地址码可用的数据结构：三元式，四元式，间接三元式。</p>
-<h4 id="1_3">(1). 常用的三地址指令</h4>
-<table class="simp" style="margin-left:70px;font-family:m, cycn;">
-<tr>
-    <td class="corner">指令类型</td>
-    <td class="firstrow">指令形式</td>
-</tr>
-<tr>
-    <td class="firstcol">赋值</td>
-    <td class="general" style="font-size:16px"><i>x</i> = <i>y</i> op <i>z</i>,&emsp;<i>x</i> = op <i>y</i></td>
-</tr>
-<tr>
-    <td class="firstcol">复制</td>
-    <td class="general" style="font-size:16px"><i>x</i> = <i>y</i></td>
-</tr>
-<tr>
-    <td class="firstcol">条件跳转</td>
-    <td class="general" style="font-size:16px">if <i>x</i> relop <i>y</i> goto <i>n</i></td>
-</tr>
-<tr>
-    <td class="firstcol">非条件跳转</td>
-    <td class="general" style="font-size:16px">goto <i>n</i></td>
-</tr>
-<tr>
-    <td class="firstcol">参数传递</td>
-    <td class="general" style="font-size:16px">param <i>x</i></td>
-</tr>
-<tr>
-    <td class="firstcol">过程调用</td>
-    <td class="general" style="font-size:16px"><i>y</i> = call <i>p, n</i></td>
-</tr>
-<tr>
-    <td class="firstcol">过程返回</td>
-    <td class="general" style="font-size:16px">return <i>x</i></td>
-</tr>
-<tr>
-    <td class="firstcol">数组引用</td>
-    <td class="general" style="font-size:16px"><i>x</i> = <i>y</i>[<i>i</i>]</td>
-</tr>
-<tr>
-    <td class="firstcol">数组赋值</td>
-    <td class="general" style="font-size:16px"><i>x</i>[<i>i</i>] = <i>y</i></td>
-</tr>
-<tr>
-    <td class="firstcol">地址及指针操作</td>
-    <td class="general" style="font-size:16px"><i>x</i> = &<i>y</i>,&emsp;<i>x</i> = *<i>y</i>,&emsp;*<i>x</i> = <i>y</i></td>
-</tr>
-</table>
 
-<p>其中地址名可有如下三种形式:
-<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">源程序变量名</li>
-<li style="margin:1px 26px;">常量</li>
-<li style="margin:1px 26px;">编译器生成的中间变量名</li>
-</ul></p>
-<h4 id="2_3">(2). 四元式表示</h4>
-<p>一个四元式 (<cy2>quadruple</cy2>) 包含 $\small(\mathit{op,\ arg_1,\ arg_2,\ result})$ 四个字段。四元式表示需要注意以下几点：
-<ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 26px;">单目运算符不使用 $\small\mathit{arg}_2$</li>
-<li style="margin:1px 26px;">类似 $\small\mathit{param}$ 的元素安抚不使用 $\small\mathit{arg}_2$ 和 $\small\mathit{result}$</li>
-<li style="margin:1px 26px;">条件或非条件转移指令将目标标号放入 $\small\mathit{result}$</li>
-</ul></p>
-<table class="simp" style="margin-left:70px;font-family:m, cycn;">
+<blockquote style="margin-top:0px;margin-bottom:-10px;margin-left:1px;">
+<cs><i>e.g.</i>7-1</cs>&emsp;计算支配结点集合<br>
+<img src="../img/eg71fg.png" height=240>
+<img src="../img/eg71dmtree.png" height=240>
+<table class="lrgraph" style="color:#000000;margin-left:5px;display:inline-block;margin-top:10px;">
 <tr>
-    <td class="corner">三地址指令</td>
-    <td class="firstrow">四元式</td>
+    <th>$\mathsf{Vertex}$</th> <th>$\mathrm{OUT}[B]^0$</th>
+    <th>$\mathrm{IN}[B]^1$</th> <th>$\mathrm{OUT}[B]^1$</th>
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>x</i> = <i>y</i> op <i>z</i></td>
-    <td class="general">( <i>op , y , z , x</i> )</td>
+<tr>
+    <td>$E$</td> <td>$\{E\}$</td> <td></td> <td></td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>x</i> = op <i>y</i></td>
-    <td class="general">(<i> op , y , _ , x </i>)</td>
+<tr>
+    <td>$①$</td> <td>$N$</td> <td>$\{E\}$</td> <td>$\{E\ ①\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>x</i> = <i>y</i></td>
-    <td class="general">(<i> = , y , _ , x </i>)</td>
+<tr>
+    <td>$②$</td> <td>$N$</td> <td>$\{E\ ①\}$</td> <td>$\{E\ ①\ ②\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol">if <i>x</i> relop <i>y</i> goto <i>n</i></td>
-    <td class="general">( relop <i>, x , y , n </i>)</td>
+<tr>
+    <td>$③$</td> <td>$N$</td> <td>$\{E\ ①\}$</td> <td>$\{E\ ①\ ③\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol">goto <i>n</i></td>
-    <td class="general">( goto <i>, _ , _ , n </i>)</td>
+<tr>
+    <td>$④$</td> <td>$N$</td> <td>$\{E\ ①\ ③\}$</td> <td>$\{E\ ①\ ③\ ④\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol">param <i>x</i></td>
-    <td class="general">(param <i>, _ , _ , x </i>)</td>
+<tr>
+    <td>$⑤$</td> <td>$N$</td> <td>$\{E\ ①\ ③\ ④\}$</td> <td>$\{E\ ①\ ③\ ④\ ⑤\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>y</i> = call <i>p, n</i></td>
-    <td class="general">(call <i>, p , n , y </i>)</td>
+<tr>
+    <td>$⑥$</td> <td>$N$</td> <td>$\{E\ ①\ ③\ ④\}$</td> <td>$\{E\ ①\ ③\ ④\ ⑥\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol">return <i>x</i></td>
-    <td class="general">(return <i>, _ , _ , x </i>)</td>
+<tr>
+    <td>$⑦$</td> <td>$N$</td> <td>$\{E\ ①\ ③\ ④\}$</td> <td>$\{E\ ①\ ③\ ④\ ⑦\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>x</i> = <i>y</i>[<i>i</i>]</td>
-    <td class="general">( =[] <i>, y , i , x </i>)</td>
+<tr>
+    <td>$⑧$</td> <td>$N$</td> <td>$\{E\ ①\ ③\ ④\ ⑦\}$</td> <td>$\{E\ ①\ ③\ ④\ ⑦\ ⑧\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>x</i>[<i>i</i>] = <i>y</i></td>
-    <td class="general">( []= <i>, y , x , i </i>)</td>
+<tr>
+    <td>$⑨$</td> <td>$N$</td> <td>$\{E\ ①\ ③\ ④\ ⑦\ ⑧\}$</td> <td>$\{E\ ①\ ③\ ④\ ⑦\ ⑧\ ⑨\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>x</i> = &<i>y</i></td>
-    <td class="general">( & <i>, y , _ , x </i>)</td>
+<tr>
+    <td>$⑩$</td> <td>$N$</td> <td>$\{E\ ①\ ③\ ④\ ⑦\ ⑧\}$</td> <td>$\{E\ ①\ ③\ ④\ ⑦\ ⑧\ ⑩\}$</td> 
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol"><i>x</i> = *<i>y</i></td>
-    <td class="general">( =* <i>, y , _ , x </i>)</td>
+</table><br>
+回边: $\small④\to ③,\quad ⑦\to ④,\quad ⑧ \to ③,\quad ⑨\to①,\quad ⑩\to ⑦$
+</blockquote>
+
+<h4 id="2">(2). 自然循环</h4>
+<ul style="margin-top:-10px;margin-bottom:10px">
+<li style="margin:1px 16px;">自然循环是一种易于优化的循环，满足如下性质:</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 26px;">有唯一的入口结点，称为首结点，它支配循环中所有结点</li>
+    <li style="margin:1px 26px;">循环中至少有一条返回首结点的路径</li>
+    </ul>
+<li style="margin:1px 16px;">如果两个自然循环的首结点不相同，那么它们要么互不相交，要么一个内嵌于另一个</li>
+    <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
+    <li style="margin:1px 26px;">最内循环: 不包含其他循环的循环</li>
+    <li style="margin:1px 26px;">若两个循环首结点相同，则合并</li>
+    </ul>
+<li style="margin:1px 16px;">自然循环的识别: 给定回边 $n\to d$，它对应自然循环为 $\lbrace d\rbrace \cup \lbrace$
+所有可以不经 $d$ 到达 $n$ 的结点 $\rbrace$</li>
+<pre class="pseudocode" style="width:290px;margin-top:10px;border:1px solid #000000;margin-left:40px;">
+<b>Input</b>: <pcy>流图</pcy> <i>G</i>，<pcy>回边</pcy> <i>n</i> → <i>d</i>
+<b>Output</b>: <i>n</i> → <i>d</i> <pcy>对应的自然循环点集</pcy>
+<i>stack</i> = ∅,   <i>loop</i> = {<i>n</i>, <i>d</i>}
+<i>push</i>(<i>stack</i>, <i>n</i>)
+<b>while</b> (<i>stack</i> is not empty) {
+        <i>m</i> = <i>top</i>(<i>stack</i>),    <i>pop</i>(<i>stack</i>)
+        <b>for</b> each <i>pred</i> of <i>m</i> {
+                <b>if</b> (<i>pred</i> is not in <i>loop</i>) {
+                        <i>loop</i> = <i>loop</i> ⋃ {<i>p</i>}
+                        <i>push</i>(<i>stack</i>, <i>p</i>)
+                }
+        }
+}
+</pre>
+</ul>
+
+<blockquote style="margin-top:0px;margin-bottom:-10px;margin-left:1px;">
+<cs><i>e.g.</i>7-2</cs>&emsp; (续 <cy>7-1</cy>) 计算自然循环<br>
+<table class="lrgraph" style="color:#000000;margin-left:55px;display:inline-block;margin-top:10px;">
+<tr>
+    <th>回边</th> <th>自然循环</th>
 </tr>
-<tr style="font-size:16px">
-    <td class="firstcol">*<i>x</i> = <i>y</i></td>
-    <td class="general">( *= <i>, y , _ , x </i>)</td>
+<tr>
+    <td>$④\to③$</td> <td>$③④⑤⑥⑦⑧⑩$</td> 
 </tr>
-</table>
+<tr>
+    <td>$⑦\to④$</td> <td>$④⑤⑥⑦⑧⑩$</td> 
+</tr>
+<tr>
+    <td>$⑧\to③$</td> <td>$③④⑤⑥⑦⑧⑩$</td>
+</tr>
+<tr>
+    <td>$⑨\to①$</td> <td>$① \sim ⑩$</td> 
+</tr>
+<tr>
+    <td>$⑩\to⑦$</td> <td>$⑦⑧⑩$</td> 
+</tr>
+</table><br>
+</blockquote>
 
 <p></font></p>
                 
@@ -1066,7 +908,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../2/4/" title="4. bottom-up parsing (2)" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../3/" title="3. machine-independent optimizations (2)" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -1075,25 +917,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                4. bottom-up parsing (2)
+                3. machine-independent<br>&emsp;optimizations (2)
               </div>
             </div>
           </a>
         
-        
-          <a href="../2/" title="2. SDD and SDT" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                2. SDD and SDT
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
