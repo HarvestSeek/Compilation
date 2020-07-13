@@ -960,7 +960,7 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
 </ul></p>
 <p>通过闭包和转移函数，就可以从初始项 $\small S'\to\boldsymbol{\cdot}S$ 开始，不断调用 $\small\mathrm{GOTO}$，构建 $\small\mathrm{LR}(0)$ 自动机，进而得到 $\small\mathrm{LR}$ 语法分析表。$\small\mathrm{LR}$ 项集中的项可分为以下几类：
 <ul style="margin-top:-16px;margin-bottom:0px;line-height:30px;">
-<li style="margin:1px 26px;float:left;">归约项目: 原点在产生式最左端</li>
+<li style="margin:1px 26px;float:left;">归约项目: 原点在产生式最右端</li>
 <li style="margin:1px 26px;float:left;">接收项目: 头部为 $\small S'$ 的归约项目</li>
 <li style="margin:1px 26px;float:left;">待约项目: 原点后为非终结符</li>
 <li style="margin:1px 44px;float:left;">移进项目: 原点后为终结符</li>
