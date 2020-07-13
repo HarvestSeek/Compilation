@@ -948,21 +948,21 @@ $A\to A\alpha_1\ |\ A\alpha_2\ |\ ...\ |\ A\alpha_n\ |\ \beta_1\ |\ \beta_2\ |\ 
 &emsp;$A\to \alpha\beta_1\ |\ \alpha\beta_2\ |\ ...\ |\ \alpha\beta_n\ |\ \gamma$&emsp; $\Longrightarrow$&emsp; $A\to \alpha A'\ |\ \gamma$,&emsp; $A'\to \beta_1 \ |\ \beta_2 \ |\ ...\ |\ \beta_n $</span></p>
 <h3 id="3">3. 预测分析的过程</h3>
 <h4 id="1-smallmathrmfirst">(1). $\small\mathrm{FIRST}$ 集</h4>
-<p>$\small\mathrm{FIRST}(X)$: 可以从 $\small X$ 中推导出的所有串首终结符构成的集合。如果 $\small X\Rightarrow^*\varepsilon$，那么<br> $\small\varepsilon\in\mathrm{FIRST}(X)$。不断进行以下过程，直到某次循环所有非终结符的 $\small\mathrm{FIRST}$ 集合都不再更新：
+<p>$\small\mathrm{FIRST}(X)$: 能从 $\small X$ 中推导出的所有串首终结符构成的集合。若 $\small X$ <span class="waveLine">可空 </span>($\small X\Rightarrow^*\varepsilon$)，则 $\small\varepsilon\in\mathrm{FIRST}(X)$。通过不动点迭代过程，求解 $\small\mathrm{FIRST}$ 集：
 <html> 
 <body>
 <ul style="margin-top:-10px;margin-bottom:10px;line-height:30px;">
 <li style="margin:1px 26px;">如果 $\small X$ 是一个终结符，那么 $\small\mathrm{FIRST}(X)=\lbrace X\rbrace$；</li>
-<li style="margin:1px 26px;">如果 $\small X$ 是一个非终结符，且有 $\small X\to Y_1...Y_k\in P\ (k\geq 1)$，那么：</li>
+<li style="margin:1px 26px;">如果 $\small X$ 是一个非终结符，且 $\small X\to Y_1...Y_k\in P\ (k\geq 1)$，则求解 $\small\mathrm{FIRST}(Y_1...Y_k)$：</li>
     <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
-    <li style="margin:1px 46px;">若 $\exists i$，$\small a\in\mathrm{FIRST}(Y_i)$ 且 $\varepsilon$ 在所有的 $\small\mathrm{FIRST}(Y_1)$ ... $\small\mathrm{FIRST}(Y_{i-1})$ 中 (即 $\small Y_1...Y_{i-1}\Rightarrow^*\varepsilon$)，那么就把 $a$ 加入 $\small\mathrm{FIRST}(X)$ 中；</li>
-    <li style="margin:1px 46px;">若 $\varepsilon$ 在所有的 $\small\mathrm{FIRST}(Y_1)$ ... $\small\mathrm{FIRST}(Y_{k})$ 中, 把 $\varepsilon$ 加入 $\small\mathrm{FIRST}(X)$ 中；</li>
+    <li style="margin:1px 46px;">若 $\exists i$，$\small a\in\mathrm{FIRST}(Y_i)$ 且 $\varepsilon$ 在所有的 $\small\mathrm{FIRST}(Y_1)$ ... $\small\mathrm{FIRST}(Y_{i-1})$ 中 (即 $\small Y_1...Y_{i-1}\Rightarrow^*\varepsilon$)，把 $a$ 加入 $\small\mathrm{FIRST}(X)$；</li>
+    <li style="margin:1px 46px;">若 $\varepsilon$ 在所有的 $\small\mathrm{FIRST}(Y_1)$ ... $\small\mathrm{FIRST}(Y_{k})$ 中, 把 $\varepsilon$ 加入 $\small\mathrm{FIRST}(X)$；</li>
     </ul>
-<li style="margin:1px 26px;">若 $\small X\to\varepsilon\in P$, 把 $\varepsilon$ 加入 $\small\mathrm{FIRST}(X)$ 中.</li>
+<li style="margin:1px 26px;">若 $\small X\to\varepsilon\in P$, 把 $\varepsilon$ 加入 $\small\mathrm{FIRST}(X)$.</li>
 </ul>
 </body>
 </html>
-注：$\small\mathrm{FIRST}(A)=\mathrm{FIRST}(\alpha_1)\cup ...\cup\small\mathrm{FIRST}(\alpha_n)$，其中 $\small A\to\alpha_1\ |\ ...\ |\ \alpha_n\in P$。</p>
+最后，$\small\mathrm{FIRST}(X)=\mathrm{FIRST}(\alpha_1)\cup ...\cup\small\mathrm{FIRST}(\alpha_n)$，其中 $\small X\to\alpha_1\ |\ ...\ |\ \alpha_n\in P$。</p>
 <h4 id="2-smallmathrmfollow">(2). $\small\mathrm{FOLLOW}$ 集</h4>
 <p>$\small\mathrm{FOLLOW}(A)$: 可能在某个句型中紧跟在 $\small A$ 后面的终结符的集合。先求出 $\small\mathrm{FIRST}$ 集合，再不断进行以下过程，直到某次循环所有非终结符的 $\small\mathrm{FOLLOW}$ 集合都不再更新：
 <html> 
@@ -1004,15 +1004,15 @@ $\small\in\mathrm{FIRST}(\beta)$，那么将 $\small\mathrm{FOLLOW}(A)$ 中所�
 <pre class="pseudocode" style="margin-left:40px;width:500px;margin-top:-10px;border:1px solid #000000;">
 <b>Input:</b> <pcy>字符串</pcy> <i>w</i>, <pcy>文法</pcy> <i>G</i> <pcy>的预测分析表</pcy> <i>M</i>
 <b>Output:</b> <pcy>若</pcy> <i>G</i> <pcy>在</pcy> L(<i>G</i>) <pcy>中，输出</pcy> <i>w</i> <pcy>的一个最左推导，否则给出错误提示</pcy>
-    <i>ip</i> = <i>w</i>[0]
+    <i>ip</i> = <i>w</i>[0], <pcy>初始符号入栈</pcy>
     <b>while</b> (!stack.empty()) {
         <i>X</i> = stack.pop()
         <b>if</b> (<i>X</i> <pcy>是一个终结符</pcy>) {
             <b>if</b> (<i>X</i> = <i>ip</i>) <i>ip</i> <pcy>前移</pcy>, <b>continue</b>;
             <b>else</b>          <i>error</i>()
         } <b>else</b> {
-            <b>if</b> (<i>M</i>[<i>X</i>, <i>a</i>] <pcy>是一个报错条目</pcy>)    <i>error</i>();
-            <b>else if</b> (<i>M</i>[<i>X</i>, <i>a</i>] = <i>X</i> → <i>Y</i><sub>1</sub><i>Y</i><sub>2</sub>...<i>Y</i><sub>k</sub>) 
+            <b>if</b> (<i>M</i>[<i>X</i>, <i>ip</i>] <pcy>是一个报错条目</pcy>)    <i>error</i>();
+            <b>else if</b> (<i>M</i>[<i>X</i>, <i>ip</i>] = <i>X</i> → <i>Y</i><sub>1</sub><i>Y</i><sub>2</sub>...<i>Y</i><sub>k</sub>) 
                 <pcy>输出产生式</pcy> <i>X</i> → <i>Y</i><sub>1</sub><i>Y</i><sub>2</sub>...<i>Y</i><sub>k</sub>
                 <pcy>按序将</pcy> <i>Y</i><sub>k</sub><i>Y</i><sub>k-1</sub>...<i>Y</i><sub>1</sub> <pcy>压栈</pcy>          
         }

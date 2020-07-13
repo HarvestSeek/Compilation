@@ -451,7 +451,7 @@
         
           <li class="md-nav__item">
   <a href="#2-" class="md-nav__link">
-    (2). 移入-规约分析技术
+    (2). 移入-规约分析
   </a>
   
 </li>
@@ -791,7 +791,7 @@
         
           <li class="md-nav__item">
   <a href="#2-" class="md-nav__link">
-    (2). 移入-规约分析技术
+    (2). 移入-规约分析
   </a>
   
 </li>
@@ -897,16 +897,17 @@
 <li style="margin:1px 26px;">一个句型的最左直接短语被称作句柄 (<cy2>handle</cy2>)</li>
 </ul>
 由定义可知，直接短语一定是某产生式的右部 (反之不一定)。</p>
-<h4 id="2-">(2). 移入-规约分析技术</h4>
+<h4 id="2-">(2). 移入-规约分析</h4>
 <p>&emsp;设 $\small w$ 是当前文法的句子，且它经由 $\small n$ 步最右推导得到，即 $\small S\Rightarrow\gamma_0\Rightarrow...\Rightarrow\gamma_n=w$. 移入规约的基本思想是，为了反向重构这个推导，每一步在 $\small\gamma_i$ 中寻找句柄 $\small\beta_i$，并将其替换为 $\small A_i\to\beta_i$ 的头部，得到最右句型 $\small\gamma_{i-1}$。<br>
 &emsp;移入-规约分析从左向右扫描串，将 <cy>0</cy> 个或多个输入符号移入栈中，直到栈顶的某个串 $\small\beta$ 可以进行归约为止。因此，移入-规约分析器可能采取如下四种动作：
 <ul style="margin-top:-16px;margin-bottom:1px;line-height:30px;">
-<li style="margin:1px 16px;">移入：将下一个输入符号移入栈顶</li>
-<li style="margin:1px 16px;">归约：确定栈顶的串，并决定用哪个非终结符替换</li>
-<li style="margin:1px 16px;">接受：宣布语法分析过程成功</li>
-<li style="margin:1px 16px;">报错：发现语法错误，并调用一个子过程</li>
+<li style="margin:1px 26px;">移入：将下一个输入符号移入栈顶</li>
+<li style="margin:1px 26px;">归约：确定栈顶的串，并决定用哪个非终结符替换</li>
+<li style="margin:1px 26px;">接受：宣布语法分析过程成功</li>
+<li style="margin:1px 26px;">报错：发现语法错误，并调用一个子过程</li>
 </ul>
-任何时刻，栈中符号+剩余输入=最右句型。之所以可以使用栈，是因为句柄一定总是出现在栈顶。</p>
+任何时刻，栈中符号+剩余输入=最右句型。之所以可以用栈，是因为句柄一定总出现在栈顶。<br>
+移入-归约可以通过 <mag>PDA</mag> 实现，下面介绍如何构造并使用它。</p>
 <h4 id="3-">(3). 移入-规约冲突</h4>
 <p><num1>①</num1> "二义性" 造成的冲突
 <blockquote style="margin-top:-6px;">
@@ -944,17 +945,18 @@ $\small G:\mathit{ids}\to\mathrm{i}\ |\ \mathit{ids},\mathrm{i}\ |\ ...$<br>
 </pre>
 </div>
 
-<p><num1>①</num1> $\small\mathrm{LR}(0)$ 项 (<cy2>item</cy2>): 是一个产生式加上一个原点，例如，$\small A\to \mathit{XYZ}$ 产生四个项 ($\small A\to\varepsilon$ 只产生 $\small A\to\boldsymbol{\cdot}$)。<br></p>
-<p><num1>②</num1> 状态: 以 $\small A\to\mathit{X\boldsymbol{\cdot}YZ}$ 为例，它的含义是对于非终结符 $\small A$，当前已经归约了一个由 $\small X$ 产生的串，并期待着接下来在输入中读到$\small\mathit{ \ }\mathit{Y}$ 推导出的一个前缀。由此可知，项对应着移入-归约过程中的一个 "状态":
+<p><num1>①</num1> $\small\mathrm{LR}(0)$ 项 (<cy2>item</cy2>): 由产生式 + 一个原点组成，例如 $\small A\to \mathit{XYZ}$ 产生四个项 ($\small A\to\varepsilon$ 只产生 $\small A\to\boldsymbol{\cdot}$)。<br></p>
+<p><num1>②</num1> 状态: 以 $\small A\to\mathit{X\boldsymbol{\cdot}YZ}$ 为例，它的含义是对于非终结符 $\small A$，当前已经归约了一个由 $\small X$ 产生的串，并期待着接下来在输入中读到$\small\mathit{ \ }\mathit{Y}$ 推导出的一个前缀。由此，项对应着移入-归约过程中的一个 "状态":
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 16px;">若 $\small Y$ 是终结符，则此状态读到 $\small Y$ 后转移到下一个状态，对应着移入-归约的移入的过程</li>
-<li style="margin:1px 16px;">若 $\small Y$ 是非终结符，则通过 $\small\mathrm{PDA}$ 的栈存储归约过程字符与状态变化，直到 $\small Y$ 子树对应的产生式到达归约状态时，根据栈中符号归约出 $\small Y$，此时此状态发生状态转移。对应着移入-归约的归约过程。</li>
+<li style="margin:1px 16px;">若 $\small Y$ 是终结符，则此状态读到 $\small Y$ 后转移到下一个状态，对应 移入-归约 的 移入</li>
+<li style="margin:1px 16px;">若 $\small Y$ 是非终结符，则此状态 (在归约时，通过 <mag>PDA</mag> 的栈) 读到 $\small Y$ 后转移到下一个状态.</li>
+<li style="margin:1px 16px;">若达到 $\small A\to\mathit{XYZ\ \boldsymbol{\cdot}}$，即对应了 移入-归约 的 归约</li>
 </ul></p>
-<p><num1>③</num1> 规范 $\small\mathrm{LR}(0)$ 项集族 (<cy2>canonical LR(0) collection</cy2>) 定义了 $\small\mathrm{PDA}$ 的状态集。为了构建它，需要如下定义：
+<p><num1>③</num1> 规范 $\small\mathrm{LR}(0)$ 项集族 (<cy2>canonical LR(0) collection</cy2>) 定义了 $\small\mathrm{PDA}$ 的状态集，其含义是当前输入下可能的状态的集合。为了构建它，需要如下定义：
 <ul style="margin-top:-16px;margin-bottom:10px;line-height:30px;">
-<li style="margin:1px 16px;">增广文法: 新增产生式 $\small S'\to S$，目的是为了确定接收状态，即语法分析成功的状态</li>
-<li style="margin:1px 16px;">$\small\mathrm{CLOSURE}$ 函数: 确定等价的项集</li>
-<li style="margin:1px 16px;">$\small\mathrm{GOTO}$ 函数: 定义自动机的状态转换</li>
+<li style="margin:1px 26px;">增广文法: 新增产生式 $\small S'\to S$，目的是为了确定接收状态，即语法分析成功的状态</li>
+<li style="margin:1px 26px;">$\small\mathrm{CLOSURE}$ 函数: 确定等价的项集</li>
+<li style="margin:1px 26px;">$\small\mathrm{GOTO}$ 函数: 定义自动机的状态转换</li>
 </ul></p>
 <p>通过闭包和转移函数，就可以从初始项 $\small S'\to\boldsymbol{\cdot}S$ 开始，不断调用 $\small\mathrm{GOTO}$，构建 $\small\mathrm{LR}(0)$ 自动机，进而得到 $\small\mathrm{LR}$ 语法分析表。$\small\mathrm{LR}$ 项集中的项可分为以下几类：
 <ul style="margin-top:-16px;margin-bottom:0px;line-height:30px;">
