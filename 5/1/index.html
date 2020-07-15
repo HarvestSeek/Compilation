@@ -883,7 +883,7 @@
 <blockquote style="margin-top:-9px;margin-bottom:-10px;margin-left:6px;">
 <cs><i>e.g.</i></cs><br>
 <img src="../img/dagblockeg.png" height=160 style="margin-left:30px;"><br>
-结点 $\small\mathsf{b,d}$ 即代表局部公共子表达式。如果 $\small\mathsf{b}$ 在基本块的出口是 <cy2>inactive</cy2> 的，就可以删除 $\small\mathsf{b}$ 及其代表的式子，只保留 $\small\mathsf{d}$，得到优化结果: $\small\mathsf{a=b+c;\ d=a-d;\ c=d+c;}$；若 $\small\mathsf{b,d}$ 都是活跃的，则二者都需保留，并通过复制语句消除公共子表达式。
+结点 $\small\mathsf{b,d}$ 即代表局部公共子表达式。如果 $\small\mathsf{b}$ 在基本块的出口是 <cy2>inactive</cy2> 的，就可以删除 $\small\mathsf{b}$ 及其代表的式子，只保留 $\small\mathsf{d}$，得到优化结果: $\small\mathsf{a=b+c;\ d=a-d;\ c=d+c;}$；若 $\small\mathsf{b,d}$ 都是活跃的，则二者都需保留，并通过复制语句消除公共子表达式；若都不活跃，则只需随便保留一个。
 </blockquote>
 
 <h4 id="3">(3). 删除无用代码</h4>
@@ -920,7 +920,7 @@
 <li style="margin:1px 26px;">为含有多个定值变量的语句生成代码:</li>
     <ul style="margin-top:0px;margin-bottom:0px;list-style-type:circle;line-height:30px;">
     <li style="margin:1px 46px;">若含有多个活跃变量，需要引入复制语句，为每个活跃变量生成语句</li>
-    <li style="margin:1px 46px;">若没有活跃变量，则随便为定值表中的某一个生成语句</li>
+    <li style="margin:1px 46px;">若没有活跃变量，则随便为定值表中的某一个生成语句，只留一个即可</li>
     </ul>
 </ul></p>
 <p></font></p>
